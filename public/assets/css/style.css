@@ -1,0 +1,189 @@
+body {
+    font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background: #fff;
+    background: linear-gradient(to bottom,
+    rgba(20, 196, 240, 0.116) 0%, rgba(174, 170, 179, 0) 100%), url(http://127.0.0.1:8000/assets/img/fundo.png) no-repeat;
+    background-position: center;
+    background-attachment:fixed;
+    background-size: cover;
+}
+
+/*-- Header --*/
+/*.header{
+    background: linear-gradient(to bottom,
+    rgba(93, 100, 100, 0.767) 0%, rgba(52, 32, 73, 0.493) 100%), url(/img/4.jpg) no-repeat;
+    background-position: center;
+    background-attachment:fixed;
+    background-size: cover;
+
+}
+
+.header{
+    width: 100%;
+    height: 100vh;
+}
+*/
+.header{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+
+}
+.img-logo {
+    width: 30px;
+}
+
+.cont > h1 {
+  font-size: 3rem;
+  padding: auto;
+}
+.cont > p {
+    font-style: italic;
+}
+
+/*-- Card --*/
+.card {
+    background-color: transparent;
+    margin: auto !important;
+}
+
+.bg-card-img {
+    background: rgba(0, 255, 255, 0.527);
+    transform: rotate(15deg);
+    box-shadow: 0 .5rem 1rem rgba(20, 119, 78, 0.377)!important;
+}
+
+.bg-card-img:hover {
+    background: rgba(49, 218, 181, 0.603);
+    animation: moveImg 4s;
+}
+@keyframes moveImg {
+    30% {
+        transform: translateY(-15px);
+    }
+}
+
+.card-img-top {
+    transform: rotate(-15deg);
+}
+
+/*-- Modal --*/
+.modal-carousel {
+    background: transparent !important;
+}
+
+.modal-comment {
+    background:#fff!important;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.page-link{
+    border-radius: 50rem;
+    margin: 5px;
+    box-shadow: 0 .5rem 1rem rgba(43, 44, 44, 0.377);
+}
+
+.modal-img{
+    width: 74%;
+    height: 80vh;
+    margin: auto;
+
+}
+@media screen and (max-width: 599.99px) {
+    .modal-img{
+        width: 80%;
+        height: 260px;
+    }
+}
+
+.modal-login, .modal-convite{
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.modal-login, .modal-convite{
+    content: '';
+    background-image: url(../assets/img/svg/9.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.modal-footer {
+    padding: 0;
+}
+
+/*-- btn-custom --*/
+.btn-comment {
+    background: #ffff;
+    box-shadow: 0 .5rem 1rem rgba(43, 44, 44, 0.377);
+}
+
+.btn-comment:hover {
+    background: #cdebfd !important;
+    animation: moveItem 4s;
+}
+
+.btn-custom:hover {
+    background: linear-gradient(to bottom,
+    rgba(20, 196, 240, 0.247) 0%, rgba(108, 104, 112, 0.404) 100%) !important;
+    color: #fff !important;
+    animation: moveItem 4s;
+}
+
+/*-- Social icons --*/
+.social-icons .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.5rem;
+    width: 3.5rem;
+    color:rgb(224, 211, 228);
+    border-radius: 100%;
+    font-size: 1.5rem;
+    margin-right: 1.5rem;
+
+}
+
+.social-icons .social-icon:last-child {
+    margin-right: 0;
+}
+.social-icons .social-icon:hover{
+    background-color:#fff;
+    color: rgba(19, 18, 18, 0.91) !important;
+    animation: moveItem 4s;
+
+}
+@keyframes moveItem {
+    30% {
+        transform: translateY(-10px);
+    }
+}
+
+.btn {
+    border-radius: 0 !important;
+}
+
+footer {
+    margin-top: 5em;
+}
+
+.card-edit {
+    width: 10rem !important;
+    background: transparent !important;
+    border: 0 !important;
+    margin: auto;
+}
+
+.card-edit > img{
+   border-radius: 20px;
+   box-shadow: 0 .5rem 1rem rgba(43, 44, 44, 0.377);
+}
