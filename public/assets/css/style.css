@@ -180,10 +180,23 @@ footer {
     width: 10rem !important;
     background: transparent !important;
     border: 0 !important;
-    margin: auto;
+    display: inline-flex !important;
 }
 
 .card-edit > img{
-   border-radius: 20px;
+   border-radius: 10px;
    box-shadow: 0 .5rem 1rem rgba(43, 44, 44, 0.377);
+    margin: 10px;
+}
+
+.scroll {
+
+    height: 80vh;
+    overflow-x: hidden;
+    text-align: center;
+    padding: 5px;
+}
+
+.modal-body {
+    width: 100% !important;
 }

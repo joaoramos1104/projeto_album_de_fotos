@@ -21,7 +21,9 @@ class userTableSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => Hash::make('admin'),
             'admin' => '1',
-            'visitor' => '1'
+            'visitor' => '1',
+            'active' => '1',
+            'phone' => '(21) 99999-8888'
         ]);
 
     }

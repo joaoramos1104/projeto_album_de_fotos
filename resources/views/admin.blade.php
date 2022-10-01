@@ -37,7 +37,7 @@
     <div class="row justify-content-center">
         <h3 class="mb-1 p-3 fst-italic">Fotos com a família <i class="bi bi-image"></i></h3>
         <div class="mb-3 p-3">
-            <button class="btn btn-success shadow" data-bs-toggle="modal" data-bs-target="#add">Adicionar Fotos <i class="bi bi-file-earmark-plus"></i></button>
+            <button class="btn btn-success shadow" data-bs-toggle="modal" data-bs-target="#add">Adicionar Tema e Fotos <i class="bi bi-image"></i></i></button>
         </div>
         <div class="col-md-3 col-sm-12 p-3 m-auto">
             <div class="card border-0 text-center mt-3">
@@ -96,7 +96,7 @@
     <div class="row justify-content-center">
         <h3 class="text-center mb-3 p-3 fst-italic">Minhas Lembranças <i class="bi bi-image"></i></h3>
         <div class="mb-3 p-3">
-            <button class="btn btn-success shadow" data-bs-toggle="modal" data-bs-target="#add">Adicionar <i class="bi bi-file-earmark-plus"></i></button>
+            <button class="btn btn-success shadow" data-bs-toggle="modal" data-bs-target="#add">Adicionar Tema e Fotos <i class="bi bi-image"></i></button>
         </div>
         <div class="col-md-3 col-sm-12 p-3 m-auto">
             <div class="card border-0 text-center mt-3">
@@ -221,190 +221,192 @@
 
 <!-- Modal edit-->
 <div class="modal fade" id="ModalEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEdit" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-fullscreen">
         <div class="modal-content text-dark">
-            <div class="modal-header bg-white">
+            <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabelEdit">Editar - Álbum Title</h5>
                 <i class="bi bi-image"></i>
             </div>
-            <div class="container p-3">
+            <div class="container-fluid">
                 <div class="modal-body">
-                    <form>
-                        <div class="row">
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/1.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                    <div class="row col">
+                        <div class="col-md-5 col-sm-12 border-end border-darck m-auto">
+                            <form class="p-2">
+                                <div class="m-1 input-group">
+                                    <span class="input-group-text" id="EditTema">Tema</span>
+                                    <input type="text" class="form-control form-control-sm" aria-describedby="EditTema" value="Tema">
                                 </div>
-                            </div>
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/2.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                <div class="m-1 input-group">
+                                    <span class="input-group-text" id="inputDecricao" >Descrição</span>
+                                    <input type="text" class="form-control form-control-sm" aria-describedby="inputDecricao" value="Descrição">
                                 </div>
-                            </div>
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/3.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                <div class="col-2 m-auto">
+                                    <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Salvar <i class="bi bi-arrow-bar-right"></i></button>
                                 </div>
+                            </form>
+                            <form class="p-2">
+                            <strong><p>Adicionar nova Foto</p></strong>
+                            <div class="input-group">
+                                <input type="file" class="form-control form-control-sm">
+                                <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Enviar <i class="bi bi-arrow-bar-right"></i></button>
                             </div>
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/4.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
-                                </div>
+                            </form>
+                            <div class="modal-footer m-auto">
+                                <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancelar <i class="bi bi-box-arrow-right"></i></button>
                             </div>
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/5.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
-                                </div>
-                            </div>
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/6.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
-                                </div>
-                            </div>
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/7.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
-                                </div>
-                            </div>
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/8.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
-                                </div>
-                            </div>
+
+
                         </div>
-                    </form>
-                    <nav aria-label="navigation">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link rounded-pill" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link rounded-pill" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <form class="row">
-                        <div class="m-1 input-group">
-                            <span class="input-group-text" id="EditTema">Tema</span>
-                            <input type="text" class="form-control form-control-sm" aria-describedby="EditTema" value="Tema">
+                        <div class="col-md-7 col-sm-12 scroll">
+                            <form>
+                                <div class="row col">
+                                    <div class="card card-edit text-center">
+                                        <img src="assets/img/1.jpg" class="tabel-img" alt="...">
+                                        <div class="card-body">
+                                            <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card card-edit text-center">
+                                        <img src="assets/img/2.jpg" class="tabel-img" alt="...">
+                                        <div class="card-body">
+                                            <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card card-edit text-center">
+                                        <img src="assets/img/3.jpg" class="tabel-img" alt="...">
+                                        <div class="card-body">
+                                            <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card card-edit text-center">
+                                        <img src="assets/img/4.jpg" class="tabel-img" alt="...">
+                                        <div class="card-body">
+                                            <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card card-edit text-center">
+                                        <img src="assets/img/5.jpg" class="tabel-img" alt="...">
+                                        <div class="card-body">
+                                            <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card card-edit text-center">
+                                        <img src="assets/img/6.jpg" class="tabel-img" alt="...">
+                                        <div class="card-body">
+                                            <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card card-edit text-center">
+                                        <img src="assets/img/7.jpg" class="tabel-img" alt="...">
+                                        <div class="card-body">
+                                            <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card card-edit text-center">
+                                        <img src="assets/img/8.jpg" class="tabel-img" alt="...">
+                                        <div class="card-body">
+                                            <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="m-1 input-group">
-                            <span class="input-group-text" id="inputDecricao" >Descrição</span>
-                            <input type="text" class="form-control form-control-sm" aria-describedby="inputDecricao" value="Descrição">
-                        </div>
-                        <div class="col-2 m-auto">
-                            <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Salvar <i class="bi bi-arrow-bar-right"></i></button>
-                        </div>
-                    </form>
-                    <strong><p>Adicionar nova Foto</p></strong>
-                    <div class="input-group">
-                        <input type="file" class="form-control form-control-sm">
-                        <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Enviar <i class="bi bi-arrow-bar-right"></i></button>
                     </div>
-                </div>
-                <div class="modal-footer m-auto">
-                    <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancelar <i class="bi bi-box-arrow-right"></i></button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal Adicinar -->
+<!-- Modal Adicionar -->
 <div class="modal fade" id="add" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelAdd" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-fullscreen">
         <div class="modal-content text-dark">
             <div class="modal-header bg-white">
                 <h5 class="modal-title" id="staticBackdropLabelAdd">Álbum title - Adicionar</h5>
                 <i class="bi bi-image"></i>
             </div>
-            <div class="container p-3">
+            <div class="container-fluid">
                 <div class="modal-body">
-                    <form>
-                        <div class="row">
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/1.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
-                                </div>
-                            </div>
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/2.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
-                                </div>
-                            </div>
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/3.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
-                                </div>
-                            </div>
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/4.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
-                                </div>
-                            </div>
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/5.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
-                                </div>
-                            </div>
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/6.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
-                                </div>
-                            </div>
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/7.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
-                                </div>
-                            </div>
-                            <div class="card card-edit text-center">
-                                <img src="assets/img/8.jpg" class="tabel-img" alt="...">
-                                <div class="card-body">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="row col">
+                            <div class="col-md-5 col-sm-12 border-end border-darck m-auto">
+                                <form>
+                                    <div class="input-group m-1">
+                                        <input type="file" class="form-control">
+                                        <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Enviar <i class="bi bi-arrow-bar-right"></i></button>
+                                    </div>
 
-                        <div class="input-group m-1">
-                            <input type="file" class="form-control">
-                            <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Enviar <i class="bi bi-arrow-bar-right"></i></button>
-                        </div>
+                                    <div class="row">
+                                        <div class="m-1 input-group">
+                                            <span class="input-group-text" id="EditTema">Tema</span>
+                                            <input type="text" class="form-control form-control-sm" aria-describedby="EditTema" value="Tema">
+                                        </div>
+                                        <div class="m-1 input-group">
+                                            <span class="input-group-text" id="inputDecricao" >Descrição</span>
+                                            <input type="text" class="form-control form-control-sm" aria-describedby="inputDecricao" value="Descrição">
+                                        </div>
+                                        <div class="col-2 m-auto">
+                                            <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Salvar <i class="bi bi-arrow-bar-right"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer m-auto">
+                                        <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
+                                    </div>
+                                </form>
 
-                        <div class="row">
-                            <div class="m-1 input-group">
-                                <span class="input-group-text" id="EditTema">Tema</span>
-                                <input type="text" class="form-control form-control-sm" aria-describedby="EditTema" value="Tema">
                             </div>
-                            <div class="m-1 input-group">
-                                <span class="input-group-text" id="inputDecricao" >Descrição</span>
-                                <input type="text" class="form-control form-control-sm" aria-describedby="inputDecricao" value="Descrição">
-                            </div>
-                            <div class="col-2 m-auto">
-                                <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Salvar <i class="bi bi-arrow-bar-right"></i></button>
+
+                            <div class="col-md-7 col-sm-12 scroll">
+                                <div class="card card-edit text-center">
+                                    <img src="assets/img/1.jpg" class="" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card card-edit text-center">
+                                    <img src="assets/img/2.jpg" class="tabel-img" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card card-edit text-center">
+                                    <img src="assets/img/3.jpg" class="tabel-img" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card card-edit text-center">
+                                    <img src="assets/img/4.jpg" class="tabel-img" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card card-edit text-center">
+                                    <img src="assets/img/5.jpg" class="tabel-img" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card card-edit text-center">
+                                    <img src="assets/img/6.jpg" class="tabel-img" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card card-edit text-center">
+                                    <img src="assets/img/7.jpg" class="tabel-img" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card card-edit text-center">
+                                    <img src="assets/img/8.jpg" class="tabel-img" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" type="button" class="btn btn-sm btn-outline-danger shadow">Excluir <i class="bi bi-x"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="modal-footer m-auto">
-                            <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancelar <i class="bi bi-box-arrow-right"></i></button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
