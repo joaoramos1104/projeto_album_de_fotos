@@ -92,14 +92,14 @@ a {
 }
 
 .modal-img{
-    width: 74%;
+    width: auto;
     height: 80vh;
     margin: auto;
 
 }
 @media screen and (max-width: 599.99px) {
     .modal-img{
-        width: 80%;
+        width: auto;
         height: 260px;
     }
 }

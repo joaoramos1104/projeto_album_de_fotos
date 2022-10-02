@@ -30,4 +30,9 @@ Route::middleware(['visitor'])->group(function (){
 Auth::routes();
 Route::middleware(['admin'])->group(function (){
     Route::get('/admin', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
+    Route::post('/novo_album', [App\Http\Controllers\Admin\AdminController::class, 'storeAlbum'])->name('novo_album');
+    Route::post('/novo_tema', [App\Http\Controllers\Admin\AdminController::class, 'storeTheme'])->name('novo_tema');
+    Route::delete('/excluir_tema/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyTheme'])->name('excluir_tema');
+    Route::put('/editar_tema/{id}', [App\Http\Controllers\Admin\AdminController::class, 'updateTheme'])->name('editar_tema');
+    Route::delete('/excluir_photo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyPhoto'])->name('excluir_photo');
 });
