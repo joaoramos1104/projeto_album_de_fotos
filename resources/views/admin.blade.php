@@ -120,11 +120,13 @@
                                                 <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Salvar <i class="bi bi-arrow-bar-right"></i></button>
                                             </div>
                                         </form>
-                                        <form class="p-2">
+                                        <form method="post" action="{{ route('nova_foto') }}" enctype="multipart/form-data">
+                                            @csrf
                                             <strong><p>Adicionar nova Foto</p></strong>
                                             <div class="input-group">
-                                                <input type="file" class="form-control form-control-sm">
-                                                <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Enviar <i class="bi bi-arrow-bar-right"></i></button>
+                                                <input type="hidden" name="theme_id" value="{{ $theme->id }}">
+                                                <input type="file" class="form-control form-control-sm" name="photo">
+                                                <button type="submit" class="input-group-text btn btn-sm btn-outline-success">Enviar <i class="bi bi-arrow-bar-right"></i></button>
                                             </div>
                                         </form>
                                     </div>

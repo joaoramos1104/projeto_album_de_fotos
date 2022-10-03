@@ -92,14 +92,32 @@ class AdminController extends Controller
         return redirect()->route('admin');
     }
 
+
+    public function newImage (Request $request)
+    {
+        $themeImage = new Image();
+        if (isset($request))
+        {
+            $themeImage->theme_id = $request->input('theme_id');
+            $themeImage->photo_url = $request->file('photo')->store('url_img');
+            $themeImage->save();
+            return redirect()->route('admin');
+        }
+        return redirect()->route('admin');
+    }
+
+
     public function updateTheme(Request $request, $id)
     {
-        $theme = Theme::find($id);
-        $theme->name_theme = $request->input('name');
-        $theme->description_theme = $request->input('description');
-        $theme->save();
+        if (isset($request))
+        {
+            $theme = Theme::find($id);
+            $theme->name_theme = $request->input('name');
+            $theme->description_theme = $request->input('description');
+            $theme->save();
 
-        return redirect()->route('admin');
+            return redirect()->route('admin');
+        }
     }
 
     public function storePhoto(Request $request)
