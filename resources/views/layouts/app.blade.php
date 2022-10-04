@@ -21,12 +21,27 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
+
 <body>
 <main>
     @yield('content')
 </main>
-
+<script src="assets/js/jquery-3.6.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+<script>
+
+    $( ".emojis" ).click(function() {
+        var emoji = $( this ).text()
+        for (let i = 0; i <= {{ $theme->id }}; i++ ){
+            $('#textarea'+i).val($('#textarea'+i).val() + emoji)
+        }
+    })
+    $('#clean').click(function() {
+        $('[data-name="emojis"]').val('');
+    })
+
+</script>
 </body>
 </html>

@@ -60,8 +60,7 @@
                                                 <h5 class="mb-1">{{ $comment->name_user }}</h5>
                                                 <small>{{ $comment->created_at->format('d/m/Y - H:i') }}</small>
                                             </div>
-                                            <p class="mb-1 float-start text-success">{{ $comment->comments }}</p>
-                                            <p class="float-end">{{ $comment->reaction }}</p>
+                                            <p class="mb-1 float-start text-success">{!! $comment->comments !!}</p>
                                         </div>
                                         @endforeach
                                     </div>
@@ -69,32 +68,16 @@
                                         @csrf
                                         <input type="hidden" name="theme_id" value="{{ $theme->id }}">
                                         <input type="hidden" name="name_user" value="{{ Auth::user()->name }}">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="reaction" id="inlineRadio1" value="&#9996;">
-                                            <label class="form-check-label" for="inlineRadio1">&#9996;</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="reaction" id="inlineRadio2" value="&#128150;">
-                                            <label class="form-check-label" for="inlineRadio2">&#128150;</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="reaction" id="inlineRadio3" value="&#128077;">
-                                            <label class="form-check-label" for="inlineRadio3">&#128077;</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="reaction" id="inlineRadio4" value="&#128525;">
-                                            <label class="form-check-label" for="inlineRadio4">&#128525;</label>
-                                        </div>
-
                                         <div class="input-group">
-                                            <textarea type="text" class="form-control form-control-sm" name="comment" placeholder="Adicionar comentário"></textarea>
+                                            <textarea type="text" class="form-control form-control-sm" name="comment" data-name="emojis" id="textarea{{ $theme->id }}" placeholder="Adicionar comentário"></textarea>
                                             <button type="submit" class="input-group-text btn btn-sm btn-outline-success">Enviar <i class="bi bi-arrow-bar-right"></i></button>
+                                            <x-emojis />
                                         </div>
                                     </form>
                                 </div>
                             </div>
                             <div class="modal-footer m-auto">
-                                <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
+                                <button type="button" class="btn btn-sm btn-warning" id="clean" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
                             </div>
                         </div>
                     </div>
@@ -143,3 +126,5 @@
     </div>
     @endforeach
 @endsection
+
+

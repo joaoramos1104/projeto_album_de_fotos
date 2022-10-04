@@ -33,7 +33,6 @@ class IndexController extends Controller
         if ($request)
         {
             $comment->comments = $request->input('comment');
-            $comment->reaction = $request->input('reaction');
             $comment->name_user = $request->input('name_user');
             $comment->theme_id = $request->input('theme_id');
             $comment->save();
