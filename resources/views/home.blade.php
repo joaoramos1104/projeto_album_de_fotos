@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="containe-fluid">
+    <div class="container-fluid">
         <nav class="navbar">
             <div class="container">
                 <div class="row">
