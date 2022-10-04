@@ -38,7 +38,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $theme->name_theme }}</h5>
                         <p class="card-text">{{ $theme->description_theme }}</p>
-                        <a href="#" class="btn btn-sm btn-comment shadow" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Go comment <span class="badge bg-info rounded-pill m-1">11</span></a>
+                        <a href="#" class="btn btn-sm btn-comment shadow" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Go comment <span class="badge bg-danger rounded-pill m-1">{{ count($theme->comments) }}</span></a>
                     </div>
                 </div>
             </div>
@@ -53,66 +53,42 @@
                             </div>
                             <div class="container p-3">
                                 <div class="modal-body">
-                                    <div class="list-group shadow">
+                                    <div class="list-group shadow scroll-comments">
+                                        @foreach($theme->comments as $comment)
                                         <div class="list-group-item list-group-item-action">
                                             <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">List group item heading</h5>
-                                                <small>3 days ago</small>
+                                                <h5 class="mb-1">{{ $comment->name_user }}</h5>
+                                                <small>{{ $comment->created_at->format('d/m/Y - H:i') }}</small>
                                             </div>
-                                            <p class="mb-1">Some placeholder content in a paragraph.</p>
-                                            <p class="float-end">&#128525;</p>
+                                            <p class="mb-1 float-start text-success">{{ $comment->comments }}</p>
+                                            <p class="float-end">{{ $comment->reaction }}</p>
                                         </div>
-                                        <div class="list-group-item list-group-item-action">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">List group item heading</h5>
-                                                <small class="">3 days ago</small>
-                                            </div>
-                                            <p class="mb-1">Some placeholder content in a paragraph.</p>
-                                            <p class="float-end">&#128077;</p>
-                                        </div>
-                                        <div class="list-group-item list-group-item-action">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">List group item heading</h5>
-                                                <small class="">3 days ago</small>
-                                            </div>
-                                            <p class="mb-1">Some placeholder content in a paragraph.</p>
-                                            <p class="float-end">&#128150;</p>
-                                        </div>
+                                        @endforeach
                                     </div>
-                                    <nav aria-label="navigation">
-                                        <ul class="pagination justify-content-end">
-                                            <li class="page-item disabled">
-                                                <a class="page-link rounded-pill" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item">
-                                                <a class="page-link rounded-pill" href="#">Next</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                    <form class="mt-3">
+                                    <form method="post" action="{{ route('add_comentario') }}" class="mt-3">
+                                        @csrf
+                                        <input type="hidden" name="theme_id" value="{{ $theme->id }}">
+                                        <input type="hidden" name="name_user" value="{{ Auth::user()->name }}">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="&#9996;">
+                                            <input class="form-check-input" type="radio" name="reaction" id="inlineRadio1" value="&#9996;">
                                             <label class="form-check-label" for="inlineRadio1">&#9996;</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="&#128150;">
+                                            <input class="form-check-input" type="radio" name="reaction" id="inlineRadio2" value="&#128150;">
                                             <label class="form-check-label" for="inlineRadio2">&#128150;</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="&#128077;">
+                                            <input class="form-check-input" type="radio" name="reaction" id="inlineRadio3" value="&#128077;">
                                             <label class="form-check-label" for="inlineRadio3">&#128077;</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="&#128525;">
+                                            <input class="form-check-input" type="radio" name="reaction" id="inlineRadio4" value="&#128525;">
                                             <label class="form-check-label" for="inlineRadio4">&#128525;</label>
                                         </div>
 
                                         <div class="input-group">
-                                            <textarea type="text" class="form-control form-control-sm" placeholder="Adicionar comentário"></textarea>
-                                            <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Enviar <i class="bi bi-arrow-bar-right"></i></button>
+                                            <textarea type="text" class="form-control form-control-sm" name="comment" placeholder="Adicionar comentário"></textarea>
+                                            <button type="submit" class="input-group-text btn btn-sm btn-outline-success">Enviar <i class="bi bi-arrow-bar-right"></i></button>
                                         </div>
                                     </form>
                                 </div>

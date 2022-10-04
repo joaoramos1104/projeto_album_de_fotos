@@ -8,27 +8,16 @@ body {
     background-size: cover;
 }
 
-/*-- Header --*/
-/*.header{
-    background: linear-gradient(to bottom,
-    rgba(93, 100, 100, 0.767) 0%, rgba(52, 32, 73, 0.493) 100%), url(/img/4.jpg) no-repeat;
-    background-position: center;
-    background-attachment:fixed;
-    background-size: cover;
-
-}
-
-.header{
-    width: 100%;
-    height: 100vh;
-}
-*/
 .header{
     color: #fff;
     display: flex;
     align-items: center;
     padding-top: 40px;
     padding-bottom: 40px;
+}
+
+p {
+    white-space: pre-wrap;
 }
 
 a {
@@ -192,6 +181,13 @@ footer {
 .scroll {
 
     height: 80vh;
+    overflow-x: hidden;
+    text-align: center;
+    padding: 5px;
+}
+
+.scroll-comments {
+    height: 50vh;
     overflow-x: hidden;
     text-align: center;
     padding: 5px;

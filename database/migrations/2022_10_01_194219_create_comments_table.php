@@ -16,9 +16,8 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->text('comments');
-            $table->string('reaction');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('reaction')->nullable();
+            $table->string('name_user');
             $table->integer('theme_id')->unsigned();
             $table->foreign('theme_id')->references('id')->on('themes')->cascadeOnDelete();
             $table->timestamps();

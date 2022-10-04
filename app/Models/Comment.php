@@ -9,4 +9,9 @@ class Comment extends Model
 {
     use HasFactory;
     protected $table = 'comments';
+
+    public function theme()
+    {
+        return $this->belongsTo(Theme::class);
+    }
 }

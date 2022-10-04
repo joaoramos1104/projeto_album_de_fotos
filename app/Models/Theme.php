@@ -18,4 +18,8 @@ class Theme extends Model
     function album(){
         return $this->belongsTo(Album::class);
     }
+
+    function comments(){
+        return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
+    }
 }

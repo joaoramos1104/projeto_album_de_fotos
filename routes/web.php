@@ -25,6 +25,7 @@ Route::get('/register', function () {
 Auth::routes();
 Route::middleware(['visitor'])->group(function (){
     Route::get('/home', [App\Http\Controllers\Index\IndexController::class, 'index'])->name('home');
+    Route::post('/add_comments', [App\Http\Controllers\Index\IndexController::class, 'storyComments'])->name('add_comentario');
 });
 
 Auth::routes();
