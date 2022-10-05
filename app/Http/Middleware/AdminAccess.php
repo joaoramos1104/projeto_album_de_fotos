@@ -16,9 +16,9 @@ class AdminAccess
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() and auth()->user()-> admin){
+        if (auth()->check() and auth()->user()->admin AND auth()->user()->active){
             return $next($request);
-        } elseif (auth()->check() and auth()->user()->visitor){
+        } elseif (auth()->check() and auth()->user()->visitor AND auth()->user()->active){
             return redirect('home');
         }
         return redirect('/');

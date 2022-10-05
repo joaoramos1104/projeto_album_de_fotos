@@ -40,7 +40,4 @@ Route::middleware(['admin'])->group(function (){
     Route::post('/nova_foto', [App\Http\Controllers\Admin\AdminController::class, 'newImage'])->name('nova_foto');
     Route::delete('/excluir_photo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyPhoto'])->name('excluir_photo');
 
-    Route::get('/register', function () {
-        return view('auth/register');
-    })->name('register');
 });

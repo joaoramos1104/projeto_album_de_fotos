@@ -16,7 +16,7 @@ class VisitorAccess
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() AND auth()->user()->visitor){
+        if (auth()->check() AND auth()->user()->visitor AND auth()->user()->active){
             return $next($request);
         }
         return redirect('/');

@@ -57,7 +57,7 @@
                                         @foreach($theme->comments as $comment)
                                         <div class="list-group-item list-group-item-action">
                                             <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">{{ $comment->name_user }}</h5>
+                                                <h6 class="mb-1">{{ $comment->name_user }}</h6>
                                                 <small>{{ $comment->created_at->format('d/m/Y - H:i') }}</small>
                                             </div>
                                             <p class="mb-1 float-start text-success">{!! $comment->comments !!}</p>
@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer m-auto">
-                                <button type="button" class="btn btn-sm btn-warning" id="clean" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
+                                <button type="button" class="btn btn-sm btn-warning" id="clean{{ $theme->id }}" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
                             </div>
                         </div>
                     </div>

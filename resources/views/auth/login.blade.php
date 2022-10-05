@@ -11,7 +11,7 @@
             <div class="row">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <strong><a class="nav-link fst-italic" href="#"><img src="assets/img/logo/logo5.png" class="img-logo shadow" alt=""> Meu Álbum</a></strong>
+                        <strong><a class="nav-link fst-italic" href="{{ route('home') }}"><img src="assets/img/logo/logo5.png" class="img-logo shadow" alt=""> Meu Álbum</a></strong>
                     </li>
                 </ul>
             </div>
@@ -98,25 +98,53 @@
                 <h5 class="modal-title" id="SolicitarConviteLabel">Solicitar Convite</h5>
                 <i class="bi bi-envelope-check"></i>
             </div>
-            <form method="POST" action="{{ route('visitor_invitation') }}">
+            <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="nameFormControlInput1" class="form-label">Nome</label>
-                        <input type="text" class="form-control" name="name" id="nameFormControlInput1" placeholder="Seu Nome" value="" required autofocus>
+                        <label for="name" class="form-label">Nome</label>
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="Seu Nome" autofocus>
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="emailFormControlInput1" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" name="email" value="" id="emailFormControlInput1" placeholder="name@example.com" required>
+                        <label for="email" class="form-label">E-mail</label>
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="name@example.com">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="phoneFormControlInput1" class="form-label">Telefone</label>
-                        <input type="text" class="form-control" name="phone" id="phoneFormControlInput1" required>
+                        <label for="phone" class="form-label">Telefone</label>
+                        <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" placeholder="(21) 99999-8888">
+                        @error('phone')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                </div>
-                <div class="modal-footer p-3">
-                    <button type="button" class="btn btn-warning btn-sm rounded-0 shadow" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
-                    <button type="submit" class="btn btn-sm btn-success rounded-0 shadow">Solicitar <i class="bi bi-envelope-check"></i></button>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Senha</label>
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="******">
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="password-confirm" class="form-label">Confirmar Senha</label>
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="******">
+                    </div>
+                    <div class="modal-footer p-3">
+                        <button type="button" class="btn btn-warning btn-sm rounded-0 shadow" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
+                        <button type="submit" class="btn btn-sm btn-success rounded-0 shadow">Solicitar <i class="bi bi-envelope-check"></i></button>
+                    </div>
                 </div>
             </form>
         </div>

@@ -38,11 +38,12 @@
             $('#textarea'+i).val($('#textarea'+i).val() + emoji)
         }
     })
-    $('#clean').click(function() {
-        for (let e = 0; e <= {{ $theme->id }}; e++ ){
-            $('#textarea'+e).val('');
-        }
-    })
+    for (let i = 0; i <= {{ $theme->id }}; i++ ){
+        $('#clean'+i).click(function() {
+            $('#textarea'+i).val('');
+        })
+    }
+
 
 </script>
 </body>
