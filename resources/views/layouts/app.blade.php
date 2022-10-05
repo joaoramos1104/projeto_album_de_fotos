@@ -39,7 +39,9 @@
         }
     })
     $('#clean').click(function() {
-        $('[data-name="emojis"]').val('');
+        for (let e = 0; e <= {{ $theme->id }}; e++ ){
+            $('#textarea'+e).val('');
+        }
     })
 
 </script>
