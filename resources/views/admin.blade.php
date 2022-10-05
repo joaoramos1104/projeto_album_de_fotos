@@ -47,6 +47,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $theme->name_theme }}</h5>
                     <p class="card-text">{{ $theme->description_theme }}</p>
+                    <a href="#" class="btn btn-sm btn-secondary mb-1 shadow" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Comentários <span class="badge bg-danger rounded-pill m-1">{{ count($theme->comments) }}</span></a>
                     <form>
                         @csrf
                         <input type="submit" class="btn btn-sm btn-danger shadow" formaction="{{ route('excluir_tema', $theme->id) }}" formmethod="post" value="Excluir">
@@ -57,6 +58,38 @@
                 </div>
             </div>
         </div>
+
+            <!-- Modal Comment-->
+            <div class="modal fade" id="comment{{ $theme->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ $theme->id }}" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content modal-comment">
+                        <div class="modal-header bg-white">
+                            <h5 class="modal-title" id="staticBackdropLabel{{ $theme->id }}"> Comentários - {{ $theme->name_theme }} </h5>
+                            <i class="bi bi-image"></i>
+                        </div>
+                        <div class="container p-3">
+                            <div class="modal-body">
+                                <div class="list-group shadow scroll-comments">
+                                    @foreach($theme->comments as $comment)
+                                        <div class="list-group-item list-group-item-action">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">{{ $comment->name_user }}</h5>
+                                                <small>{{ $comment->created_at->format('d/m/Y - H:i') }}</small>
+                                            </div>
+                                            <p class="mb-1 float-start text-success">{!! $comment->comments !!}</p>
+                                            <a href="#" class="btn btn-sm btn-danger shadow float-end">Excluir <i class="bi bi-x"></i></a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer m-auto">
+                            <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Modal Carousel -->
             <div class="modal fade" id="imgCarousel{{ $theme->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-fullscreen">
@@ -91,6 +124,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- Modal edit-->
             <div class="modal fade" id="ModalEdit{{ $theme->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEdit{{ $theme->id }}" aria-hidden="true">
                 <div class="modal-dialog modal-fullscreen">

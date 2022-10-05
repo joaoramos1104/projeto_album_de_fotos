@@ -35,10 +35,10 @@
             <div class="col-md-3 col-sm-12 p-3 m-auto">
                 <div class="card border-0 text-center mt-3">
                     <a href="#" class="bg-card-img"><img src="{{ env('APP_URL') }}/storage/{{ $theme->hasImages[0]->photo_url }}" class="card-img-top shadow" alt="..." data-bs-toggle="modal" data-bs-target="#imgCarousel{{ $theme->id }}"></a>
-                    <div class="card-body">
+                    <div class="card-body mt-1">
                         <h5 class="card-title">{{ $theme->name_theme }}</h5>
                         <p class="card-text">{{ $theme->description_theme }}</p>
-                        <a href="#" class="btn btn-sm btn-comment shadow" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Go comment <span class="badge bg-danger rounded-pill m-1">{{ count($theme->comments) }}</span></a>
+                        <a href="#" class="btn btn-sm btn-comment shadow" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Comentários <span class="badge bg-danger rounded-pill m-1">{{ count($theme->comments) }}</span></a>
                     </div>
                 </div>
             </div>
