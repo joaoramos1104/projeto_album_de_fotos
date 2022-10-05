@@ -183,7 +183,7 @@
                                         </form>
                                     </div>
                                     <div class="col modal-footer">
-                                        <button type="button" class="btn btn-sm btn-warning m-auto" data-bs-dismiss="modal">Cancelar <i class="bi bi-box-arrow-right"></i></button>
+                                        <button type="button" class="btn btn-sm btn-warning m-auto" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
                                     </div>
                                 </div>
                             </div>
