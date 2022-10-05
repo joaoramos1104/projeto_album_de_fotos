@@ -98,30 +98,31 @@
                 <h5 class="modal-title" id="SolicitarConviteLabel">Solicitar Convite</h5>
                 <i class="bi bi-envelope-check"></i>
             </div>
-            <form class="">
+            <form method="POST" action="{{ route('visitor_invitation') }}">
+                @csrf
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="nameFormControlInput1" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="nameFormControlInput1" placeholder="Seu Nome">
+                        <input type="text" class="form-control" name="name" id="nameFormControlInput1" placeholder="Seu Nome" value="" required autofocus>
                     </div>
                     <div class="mb-3">
                         <label for="emailFormControlInput1" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" id="emailFormControlInput1" placeholder="name@example.com">
+                        <input type="email" class="form-control" name="email" value="" id="emailFormControlInput1" placeholder="name@example.com" required>
                     </div>
                     <div class="mb-3">
                         <label for="phoneFormControlInput1" class="form-label">Telefone</label>
-                        <input type="text" class="form-control" id="phoneFormControlInput1" placeholder="(21) 99999-9999">
+                        <input type="text" class="form-control" name="phone" id="phoneFormControlInput1" required>
                     </div>
                 </div>
                 <div class="modal-footer p-3">
                     <button type="button" class="btn btn-warning btn-sm rounded-0 shadow" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
-                    <a href="home.html" type="button" class="btn btn-sm btn-success rounded-0 shadow">Solicitar <i class="bi bi-envelope-check"></i></a>
+                    <button type="submit" class="btn btn-sm btn-success rounded-0 shadow">Solicitar <i class="bi bi-envelope-check"></i></button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
+    -->
 <!-- Footer -->
 <footer class="container">
     <div class="d-flex justify-content-center">

@@ -16,11 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('auth/login');
-});
+})->name('/');
 
 Route::get('/register', function () {
     return view('auth/register');
-});
+})->name('register');
+
+Route::post('/visitor_invitation', [App\Http\Controllers\Index\VisitorController::class, 'storyVisitorInvitation'])->name('visitor_invitation');
 
 Auth::routes();
 Route::middleware(['visitor'])->group(function (){
@@ -37,4 +39,8 @@ Route::middleware(['admin'])->group(function (){
     Route::put('/editar_tema/{id}', [App\Http\Controllers\Admin\AdminController::class, 'updateTheme'])->name('editar_tema');
     Route::post('/nova_foto', [App\Http\Controllers\Admin\AdminController::class, 'newImage'])->name('nova_foto');
     Route::delete('/excluir_photo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyPhoto'])->name('excluir_photo');
+
+    Route::get('/register', function () {
+        return view('auth/register');
+    })->name('register');
 });
