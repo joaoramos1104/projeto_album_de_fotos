@@ -7,7 +7,7 @@
                 <div class="row">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <strong><a class="nav-link fst-italic" href="#"><img src="assets/img/logo/logo5.png" class="img-logo shadow" alt=""> Meu Álbum</a></strong>
+                            <strong><a class="nav-link fst-italic" href="{{ route('home') }}"><img src="assets/img/logo/logo5.png" class="img-logo shadow" alt=""> Meu Álbum</a></strong>
                         </li>
                     </ul>
                 </div>
@@ -23,6 +23,11 @@
                             @csrf
                         </form>
                     </li>
+                    @if(Auth::user()->admin)
+                    <li class="nav-item ms-2">
+                        <a href="{{ route('admin') }}" class="btn btn-sm btn-outline-success"> Admin</a>
+                    </li>
+                    @endif
                 </ul>
             </div>
         </nav>
@@ -34,7 +39,7 @@
             @foreach($album->themes as $theme)
             <div class="col-md-3 col-sm-12 p-3 m-auto">
                 <div class="card border-0 text-center mt-3">
-                    <a href="#" class="bg-card-img"><img src="{{ env('APP_URL') }}/storage/{{ $theme->hasImages[0]->photo_url }}" class="card-img-top shadow" alt="..." data-bs-toggle="modal" data-bs-target="#imgCarousel{{ $theme->id }}"></a>
+                    <a href="#" class="bg-card-img"><img src="@if(isset($theme->hasImages[0]->photo_url )){{ env('APP_URL') }}/storage/{{ $theme->hasImages[0]->photo_url }}@else {{ 'assets/img/R.png' }} @endif" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#imgCarousel{{ $theme->id }}"></a>
                     <div class="card-body mt-1">
                         <h5 class="card-title">{{ $theme->name_theme }}</h5>
                         <p class="card-text">{{ $theme->description_theme }}</p>

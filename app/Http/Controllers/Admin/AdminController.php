@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Album;
+use App\Models\Comment;
 use App\Models\Theme;
 use App\Models\Image;
 use Illuminate\Http\Request;
@@ -133,6 +134,17 @@ class AdminController extends Controller
             $photo_url = $photo->photo_url;
             Storage::delete([$photo_url]);
             $photo->delete();
+            return redirect()->route('admin');
+        }
+        return redirect()->route('admin');
+    }
+
+    public function destroyComment ($id)
+    {
+        $comment = Comment::find($id);
+        if (isset($comment))
+        {
+            $comment->delete();
             return redirect()->route('admin');
         }
         return redirect()->route('admin');

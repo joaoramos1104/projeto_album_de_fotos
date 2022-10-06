@@ -7,13 +7,13 @@
             <div class="row">
                 <ul class="navbar-nav ms-1">
                     <li class="nav-item">
-                        <strong><a class="nav-link fst-italic" href="#"><img src="assets/img/logo/logo5.png" class="img-logo shadow" alt=""> Meu Álbum</a></strong>
+                        <strong><a class="nav-link fst-italic" href="{{ route('home') }}"><img src="assets/img/logo/logo5.png" class="img-logo shadow" alt=""> Meu Álbum</a></strong>
                     </li>
                 </ul>
             </div>
             <ul class="nav navbar float-end social-icons">
                 <li class="nav-item">
-                    <strong>Administrador</strong> <p>João F. Ramos</p>
+                    <strong>Administrador</strong> <p>{{ Auth::user()->name }}</p>
                 </li>
                 <li class="nav-item ms-2">
                     <a href="{{ route('logout') }}" class="btn btn-sm btn-primary"
@@ -43,18 +43,26 @@
         @foreach($album->themes as $theme)
         <div class="col-md-3 col-sm-12 p-3 m-auto">
             <div class="card border-0 text-center mt-3">
-                <a href="#" class="bg-card-img"><img src="{{ env('APP_URL') }}/storage/{{ $theme->hasImages[0]->photo_url }}" class="card-img-top shadow" alt="..." data-bs-toggle="modal" data-bs-target="#imgCarousel{{ $theme->id }}"></a>
+                <a href="#" class="bg-card-img"><img src="@if(isset($theme->hasImages[0]->photo_url )){{ env('APP_URL') }}/storage/{{ $theme->hasImages[0]->photo_url }}@else {{ 'assets/img/R.png' }} @endif" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#imgCarousel{{ $theme->id }}"></a>
                 <div class="card-body">
                     <h5 class="card-title">{{ $theme->name_theme }}</h5>
                     <p class="card-text">{{ $theme->description_theme }}</p>
                     <a href="#" class="btn btn-sm btn-secondary mb-1 shadow" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Comentários <span class="badge bg-danger rounded-pill m-1">{{ count($theme->comments) }}</span></a>
-                    <form>
-                        @csrf
-                        <input type="submit" class="btn btn-sm btn-danger shadow" formaction="{{ route('excluir_tema', $theme->id) }}" formmethod="post" value="Excluir">
-                        @method("DELETE")
-                    </form>
-                    <a href="#" class="btn btn-sm btn-danger shadow">Excluir <i class="bi bi-x"></i></a>
-                    <a href="#" class="btn btn-sm btn-light shadow" data-bs-toggle="modal" data-bs-target="#ModalEdit{{ $theme->id }}">Editar <i class="bi bi-pencil-square"></i></a>
+                    <div class="row d-flex">
+                        <div class="col-6 m-auto">
+                            <a href="{{ route('excluir_tema', $theme->id) }}" class="btn btn-sm btn-danger"
+                               onclick="event.preventDefault();
+                               document.getElementById('excluir_tema').submit();">Excluir <i class="bi bi-x"></i>
+                            </a>
+                            <form id="excluir_tema" action="{{ route('excluir_tema', $theme->id) }}" method="POST" class="d-none">
+                                @csrf
+                                @method("DELETE")
+                            </form>
+                        </div>
+                        <div class="col-6 m-auto">
+                            <a href="#" class="btn btn-sm btn-light shadow" data-bs-toggle="modal" data-bs-target="#ModalEdit{{ $theme->id }}">Editar <i class="bi bi-pencil-square"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -77,7 +85,14 @@
                                                 <small>{{ $comment->created_at->format('d/m/Y - H:i') }}</small>
                                             </div>
                                             <p class="mb-1 float-start text-success">{!! $comment->comments !!}</p>
-                                            <a href="#" class="btn btn-sm btn-danger shadow float-end">Excluir <i class="bi bi-x"></i></a>
+                                            <a href="{{ route('delete_comment', $comment->id) }}" class="btn btn-sm btn-danger float-end"
+                                                onclick="event.preventDefault();
+                                                document.getElementById('delete_comment').submit();">Excluir <i class="bi bi-x"></i>
+                                            </a>
+                                            <form id="delete_comment" action="{{ route('delete_comment', $comment->id) }}" method="POST" class="d-none">
+                                                @csrf
+                                                @method("DELETE")
+                                            </form>
                                         </div>
                                     @endforeach
                                 </div>
@@ -171,9 +186,12 @@
                                                 <div class="card card-edit text-center">
                                                     <img src="{{ env('APP_URL') }}/storage/{{ $image->photo_url }}" class="tabel-img" alt="...">
                                                     <div class="card-body">
-                                                        <form>
+                                                        <a href="{{ route('delete_photo', $image->id) }}" class="btn btn-sm btn-outline-danger"
+                                                            onclick="event.preventDefault();
+                                                            document.getElementById('delete_photo').submit();">Excluir <i class="bi bi-x"></i>
+                                                        </a>
+                                                        <form id="delete_photo" action="{{ route('delete_photo', $image->id) }}" method="POST" class="d-none">
                                                             @csrf
-                                                            <input type="submit" class="btn btn-sm btn-outline-danger shadow" formaction="{{ route('excluir_photo', $image->id) }}" formmethod="post" value="Excluir">
                                                             @method("DELETE")
                                                         </form>
                                                     </div>

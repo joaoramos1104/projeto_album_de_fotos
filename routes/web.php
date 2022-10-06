@@ -38,6 +38,7 @@ Route::middleware(['admin'])->group(function (){
     Route::delete('/excluir_tema/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyTheme'])->name('excluir_tema');
     Route::put('/editar_tema/{id}', [App\Http\Controllers\Admin\AdminController::class, 'updateTheme'])->name('editar_tema');
     Route::post('/nova_foto', [App\Http\Controllers\Admin\AdminController::class, 'newImage'])->name('nova_foto');
-    Route::delete('/excluir_photo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyPhoto'])->name('excluir_photo');
+    Route::delete('/delete_photo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyPhoto'])->name('delete_photo');
+    Route::delete('/delete_comment/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyComment'])->name('delete_comment');
 
 });

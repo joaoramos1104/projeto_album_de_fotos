@@ -32,6 +32,7 @@
 
 <script>
 
+    @if(isset($theme->id))
     $( ".emojis" ).click(function() {
         var emoji = $( this ).text()
         for (let i = 0; i <= {{ $theme->id }}; i++ ){
@@ -43,7 +44,7 @@
             $('#textarea'+i).val('');
         })
     }
-
+    @endif
 
 </script>
 </body>
