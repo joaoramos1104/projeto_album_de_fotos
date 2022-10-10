@@ -42,9 +42,13 @@ class AdminController extends Controller
 
     public function storeAlbum(Request $request)
     {
-        $album = new Album();
-        $album->name = $request->input('name_album');
-        $album->save();
+        if ($request->input('name_album'))
+        {
+            $album = new Album();
+            $album->name = $request->input('name_album');
+            $album->save();
+            return redirect('admin');
+        }
         return redirect('admin');
     }
 
@@ -97,7 +101,7 @@ class AdminController extends Controller
     public function newImage (Request $request)
     {
         $themeImage = new Image();
-        if (isset($request))
+        if ($request->input('theme_id') AND $request->file('photo'))
         {
             $themeImage->theme_id = $request->input('theme_id');
             $themeImage->photo_url = $request->file('photo')->store('url_img');

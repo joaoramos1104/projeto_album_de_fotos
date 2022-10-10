@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/bootstrap/bootstrap-icons-1.9.1/bootstrap-icons.css">
 
     <!-- Normalize -->
-    <link rel="stylesheet" href="assets/css/normalize/normalize.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/normalize/normalize.css') }}">
 
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
@@ -35,8 +35,43 @@
     <main>
         @yield('content')
     </main>
-
+        <script src="{{ asset('assets/js/jquery-3.6.1.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+{{--    @hasSection("javascript")--}}
+{{--        @yield('javascript')--}}
+{{--    @endif--}}
+        <script>
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+            });
+
+            $(function (){
+                $('form[name="formLogin"]').submit(function (event){
+                    event.preventDefault()
+                    $.ajax({
+                        data: $(this).serialize(),
+                        url: "{{ route('login') }}",
+                        type: "post",
+                        dataType: 'json',
+                        success: function (response){
+                            if(response.success.success === true){
+                                window.location.href = "{{ route('home') }}"
+                            } else {
+                                // $('.messageBox').append('<strong>Erro </strong>'+ response.message.message)
+                                $('.messageBox').append(
+                                    '<div class=" mt-1 alert alert-warning alert-dismissible fade show" role="alert"><strong><i class="bi bi-exclamation-circle"> </i> '
+                                    + response.message.message +
+                                    '</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+                                )
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
