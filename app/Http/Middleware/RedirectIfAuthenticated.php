@@ -36,16 +36,16 @@ class RedirectIfAuthenticated
             {
                 $login['success'] = true;
                 $login['message'] = 'Tudo certo';
-                $login['user'] = Auth::guard($guard)->user();
+//                $login['user'] = Auth::guard($guard)->user();
                 return response()->json([
                     'message' => $login,
                     'success' => $login,
-                    'user' => $login,
+//                    'user' => $login,
                 ]);
             }
 
             $login['success'] = false;
-            $login['message'] = 'Os dados informados não conferem. Confira se os dados estão corretos e se seu convite foi aceito! ';
+            $login['message'] = 'Os dados informados não conferem. Verifique se os dados estão corretos e se seu convite foi aceito! ';
             return response()->json([
                 'message' => $login,
                 'success' => $login,
