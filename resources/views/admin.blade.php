@@ -7,13 +7,14 @@
             <div class="row">
                 <ul class="navbar-nav ms-1">
                     <li class="nav-item">
-                        <strong><a class="nav-link fst-italic" href="{{ route('home') }}"><img src="assets/img/logo/logo5.png" class="img-logo shadow" alt=""> Meu Álbum</a></strong>
+                        <strong><a class="nav-link fst-italic" href="{{ route('home') }}"><img src="assets/img/logo/logo3.png" class="img-logo shadow" alt="">
+                            {{' Meu Álbum' }}</a></strong>
                     </li>
                 </ul>
             </div>
             <ul class="nav navbar float-end social-icons">
                 <li class="nav-item">
-                    <strong>Administrador</strong> <p>{{ Auth::user()->name }}</p>
+                    <strong>{{ 'Administrador' }}</strong> <p>{{ Auth::user()->name }}</p>
                 </li>
                 <li class="nav-item ms-2">
                     <a href="{{ route('logout') }}" class="btn btn-sm btn-primary"
@@ -37,8 +38,18 @@
 <div class="container mb-3 text-center">
     <div class="row justify-content-center">
         <h3 class="mb-1 p-3 fst-italic">{{ $album->name }} <i class="bi bi-image"></i></h3>
+        <div class="col">
+            <a href="{{ route('delete_album', $album->id) }}" class="btn btn-sm btn-danger"
+               onclick="event.preventDefault();
+           document.getElementById('delete_album{{$album->id}}').submit();">Excluir Album <i class="bi bi-x"></i>
+            </a>
+            <form id="delete_album{{$album->id}}" action="{{ route('delete_album', $album->id) }}" method="POST" class="d-none">
+                @csrf
+                @method("DELETE")
+            </form>
+        </div>
         <div class="mb-3 p-3">
-            <button class="btn btn-success shadow" data-bs-toggle="modal" data-bs-target="#add{{ $album->id }}">Adicionar Tema e Fotos <i class="bi bi-image"></i></button>
+            <button class="btn btn-success shadow" data-bs-toggle="modal" data-bs-target="#add{{ $album->id }}">Adicionar Temas e Fotos <i class="bi bi-image"></i></button>
         </div>
         @foreach($album->themes as $theme)
         <div class="col-md-3 col-sm-12 p-3 m-auto">
@@ -149,7 +160,7 @@
                                 {{ $theme->name_theme }}</h5>
                             <i class="bi bi-image"></i>
                         </div>
-                        <div class="container-fluid">
+                        <div class="container-fluid bg-light">
                             <div class="modal-body">
                                 <div class="row col">
                                     <div class="col-md-5 col-sm-12 border-end border-darck m-auto">
@@ -180,7 +191,6 @@
                                         </form>
                                     </div>
                                     <div class="col-md-7 col-sm-12 scroll">
-                                        <form method="post" action="">
                                             <div class="row col">
                                                 @foreach($theme->hasImages as $image)
                                                 <div class="card card-edit text-center">
@@ -188,9 +198,9 @@
                                                     <div class="card-body">
                                                         <a href="{{ route('delete_photo', $image->id) }}" class="btn btn-sm btn-outline-danger"
                                                             onclick="event.preventDefault();
-                                                            document.getElementById('delete_photo').submit();">Excluir <i class="bi bi-x"></i>
+                                                            document.getElementById('delete_photo{{$image->id}}').submit();">Excluir <i class="bi bi-x"></i>
                                                         </a>
-                                                        <form id="delete_photo" action="{{ route('delete_photo', $image->id) }}" method="POST" class="d-none">
+                                                        <form id="delete_photo{{$image->id}}" action="{{ route('delete_photo', $image->id) }}" method="POST" class="d-none">
                                                             @csrf
                                                             @method("DELETE")
                                                         </form>
@@ -198,7 +208,6 @@
                                                 </div>
                                                 @endforeach
                                             </div>
-                                        </form>
                                     </div>
                                     <div class="col modal-footer">
                                         <button type="button" class="btn btn-sm btn-warning m-auto" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>

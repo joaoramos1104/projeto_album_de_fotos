@@ -15,12 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('index');
 })->name('/');
+
+Route::get('/login', function () {
+    return view('auth/login');
+});
 
 Route::get('/register', function () {
     return view('auth/register');
-})->name('register');
+});
 
 Route::post('/visitor_invitation', [App\Http\Controllers\Index\VisitorController::class, 'storyVisitorInvitation'])->name('visitor_invitation');
 
@@ -34,10 +38,11 @@ Auth::routes();
 Route::middleware(['admin'])->group(function (){
     Route::get('/admin', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
     Route::post('/novo_album', [App\Http\Controllers\Admin\AdminController::class, 'storeAlbum'])->name('novo_album');
+    Route::delete('/delete_album/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyAlbum'])->name('delete_album');
     Route::post('/novo_tema', [App\Http\Controllers\Admin\AdminController::class, 'storeTheme'])->name('novo_tema');
     Route::delete('/excluir_tema/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyTheme'])->name('excluir_tema');
     Route::put('/editar_tema/{id}', [App\Http\Controllers\Admin\AdminController::class, 'updateTheme'])->name('editar_tema');
-    Route::post('/nova_foto', [App\Http\Controllers\Admin\AdminController::class, 'newImage'])->name('nova_foto');
+    Route::post('/nova_foto', [App\Http\Controllers\Admin\AdminController::class, 'storePhoto'])->name('nova_foto');
     Route::delete('/delete_photo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyPhoto'])->name('delete_photo');
     Route::delete('/delete_comment/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyComment'])->name('delete_comment');
 

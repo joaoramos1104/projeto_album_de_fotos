@@ -1,9 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-    <style>
 
-    </style>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
@@ -14,119 +12,45 @@
                         </li>
                     </ul>
                 </div>
-                <ul class="nav navbar float-end">
-                    <li class="nav-item me-2">
-                        <a href="{{ route('login') }}" class="btn btn-custom btn-light shadow" data-bs-toggle="modal" data-bs-target="#login">LOGIN</a>
-                    </li>
-                </ul>
+{{--                <ul class="nav navbar float-end">--}}
+{{--                    <li class="nav-item me-2">--}}
+{{--                        <a href="{{ route('login') }}" class="btn btn-custom btn-light shadow" data-bs-toggle="modal" data-bs-target="#login">LOGIN</a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
             </div>
         </nav>
     </div>
-    <div class="container header">
-        <div class="row justify-content-center">
-            <div class="col-10 cont text-center">
-                <h1>{{ 'Álbum de Fotos' }}</h1>
-                <p>Envie suas fotos e capture os melhores momentos com álbum de fotos online. Compartilhe seu livro de fotos online com quem você quiser.</p>
-            </div>
-            <div class="row justify-content-center mt-5">
-                <div class="text-center">
-                    <button class="btn btn-custom btn-light p-3 shadow" data-bs-toggle="modal" data-bs-target="#SolicitarConvite">SOLICITAR CONVITE</button>
-                    <p>Já tem convite? <a href="#" class="text-warning" data-bs-toggle="modal" data-bs-target="#login"> login </a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Login -->
-    <div class="modal fade" id="login" tabindex="-1" data-bs-backdrop="static" aria-labelledby="loginLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content modal-login">
-                <div class="modal-header">
-                    <h5 class="modal-title">LOGIN</h5>
-                    <i class="bi bi-person-check"></i>
-                </div>
-                <form name="formLogin">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="mb-3 messageBox">
-                            <label for="email-login" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" name="email" id="email-login" required autocomplete="email" autofocus placeholder="name@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password-login" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password-login" name="password" required autocomplete="current-password" placeholder="********">
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="Check" name="remember"{{ old('remember') ? 'checked' : '' }}>
-                            <label class="form-check-label" for="Check">Check me out</label>
-                        </div>
+    <div class="container">
+        <div class="row justify-content-center content-vh">
+            <div class="col-md-4 m-auto">
+                <div class="card border-0 p-3 bg-dark text-light shadow">
+                    <div class="card-header border-0">
+                        <h5 class="card-title float-start">LOGIN</h5>
+                        <i class="bi bi-person-check float-end"></i>
                     </div>
-                    <div class="modal-footer p-3">
-                        <button type="button" class="btn btn-warning btn-sm rounded-0 shadow" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
-                        <button type="submit" class="btn btn-sm btn-success rounded-0 shadow">Entrar <i class="bi bi-arrow-bar-right"></i></button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Solicitar Convite -->
-    <div class="modal fade" id="SolicitarConvite" tabindex="-1" data-bs-backdrop="static" aria-labelledby="SolicitarConviteLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content modal-convite">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="SolicitarConviteLabel">Solicitar Convite</h5>
-                    <i class="bi bi-envelope-check"></i>
+                    <form name="formLogin">
+                        @csrf
+                        <div class="card-body border-0">
+                            <div class="mb-3 messageBox">
+                                <label for="email-login" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" name="email" id="email-login" required autocomplete="email" autofocus placeholder="name@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password-login" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password-login" name="password" required autocomplete="current-password" placeholder="********">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="Check" name="remember"{{ old('remember') ? 'checked' : '' }}>
+                                <label class="form-check-label" for="Check">Check me out</label>
+                            </div>
+                        </div>
+                        <a href="{{ route('register') }}" class="text-warning"> Solicitar convite </a>
+                        <div class="card-footer border-0 p-3 float-end">
+                            <a type="button" href="{{ route('/') }}" class="btn btn-warning btn-sm rounded-0 shadow">Cancelar <i class="bi bi-x"></i></a>
+                            <button type="submit" class="btn btn-sm btn-success rounded-0 shadow">Entrar <i class="bi bi-arrow-bar-right"></i></button>
+                        </div>
+                    </form>
                 </div>
-                <form method="POST" action="{{ route('register') }}">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nome</label>
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="Seu Nome" autofocus>
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">E-mail</label>
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="name@example.com">
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Telefone</label>
-                            <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" placeholder="(21) 99999-8888">
-                            @error('phone')
-                            <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Senha</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="******">
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="password-confirm" class="form-label">Confirmar Senha</label>
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="******">
-                        </div>
-                        <div class="modal-footer p-3">
-                            <button type="button" class="btn btn-warning btn-sm rounded-0 shadow" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
-                            <button type="submit" class="btn btn-sm btn-success rounded-0 shadow">Solicitar <i class="bi bi-envelope-check"></i></button>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

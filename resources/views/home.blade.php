@@ -7,16 +7,17 @@
                 <div class="row">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <strong><a class="nav-link fst-italic" href="{{ route('home') }}"><img src="assets/img/logo/logo5.png" class="img-logo shadow" alt=""> Meu Álbum</a></strong>
+                            <strong><a class="nav-link fst-italic" href="{{ route('home') }}"><img src="assets/img/logo/logo3.png" class="img-logo shadow" alt="">
+                                {{ 'Meu Álbum' }}</a></strong>
                         </li>
                     </ul>
                 </div>
                 <ul class="nav navbar float-end social-icons">
                     <li class="nav-item">
-                        <strong>Bem vindo(a)</strong> <p>{{ Auth::user()->name }}</p>
+                        <strong>{{ 'Bem vindo(a)' }}</strong> <p>{{ Auth::user()->name }}</p>
                     </li>
                     <li class="nav-item ms-2">
-                        <a href="{{ route('logout') }}" class="btn btn-sm btn-outline-info"
+                        <a href="{{ route('logout') }}" class="btn btn-sm btn-warning"
                            onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">Sair <i class="bi bi-box-arrow-right"></i></a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -25,7 +26,7 @@
                     </li>
                     @if(Auth::user()->admin)
                     <li class="nav-item ms-2">
-                        <a href="{{ route('admin') }}" class="btn btn-sm btn-outline-success"> Admin</a>
+                        <a href="{{ route('admin') }}" class="btn btn-sm btn-success"> Admin</a>
                     </li>
                     @endif
                 </ul>
@@ -33,7 +34,7 @@
         </nav>
     </div>
     @foreach($albums as $album)
-    <div class="container mb-3 text-secondary text-center ">
+    <div class="container mb-3 text-center ">
         <h3 class="mb-3 p-3 fst-italic">{{ $album->name }} <i class="bi bi-image"></i></h3>
         <div class="row justify-content-center">
             @foreach($album->themes as $theme)

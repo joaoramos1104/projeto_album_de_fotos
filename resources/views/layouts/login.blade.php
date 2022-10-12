@@ -24,9 +24,7 @@
     body{
         background: linear-gradient(to bottom,
         rgba(93, 100, 100, 0.767) 0%, rgba(52, 32, 73, 0.685) 100%), url(assets/img/4.jpg) no-repeat !important;
-        background-position: center !important;
-        background-attachment:fixed !important;
-        background-size: cover !important;
+        min-height: 100vh;
         }
     </style>
 
@@ -48,7 +46,6 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
             });
-
             $(function (){
                 $('form[name="formLogin"]').submit(function (event){
                     event.preventDefault()
@@ -58,17 +55,18 @@
                         type: "post",
                         dataType: 'json',
                         success: function (response){
-                            if(response.success.success === true){
-                                window.location.href = "{{ route('home') }}"
-                            } else {
-                                // $('.messageBox').append('<strong>Erro </strong>'+ response.message.message)
+                                window.location.href = response.intended
+                        },
+                        error: function (response){
+                            response.responseJSON.message ='Os dados informados não conferem! Verifique se os dados estão corretos e se seu convite foi aceito.'
+                            var message = response.responseJSON.message
                                 $('.messageBox').append(
-                                    '<div class=" mt-1 alert alert-warning alert-dismissible fade show" role="alert"><strong><i class="bi bi-exclamation-circle"> </i> '
-                                    + response.message.message +
+                                    '<div class=" mt-1 alert alert-danger shadow alert-dismissible fade show" role="alert"><strong><i class="bi bi-exclamation-circle"> </i> '
+                                    + message +
                                     '</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
                                 )
                             }
-                        }
+
                     });
                 });
             });
