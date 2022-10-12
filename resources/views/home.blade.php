@@ -61,7 +61,7 @@
                                 <div class="modal-body">
                                     <div class="list-group shadow scroll-comments">
                                         @foreach($theme->comments as $comment)
-                                        <div class="list-group-item list-group-item-action">
+                                        <div class="list-group-item list-group-item-action add-comment">
                                             <div class="d-flex w-100 justify-content-between">
                                                 <h6 class="mb-1">{{ $comment->name_user }}</h6>
                                                 <small>{{ $comment->created_at->format('d/m/Y - H:i') }}</small>
@@ -70,7 +70,7 @@
                                         </div>
                                         @endforeach
                                     </div>
-                                    <form method="post" action="{{ route('add_comentario') }}" class="mt-3">
+                                        <form method="post" action="{{ route('add_comentario') }}" class="mt-3">
                                         @csrf
                                         <input type="hidden" name="theme_id" value="{{ $theme->id }}">
                                         <input type="hidden" name="name_user" value="{{ Auth::user()->name }}">

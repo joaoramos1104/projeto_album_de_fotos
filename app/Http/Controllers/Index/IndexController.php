@@ -38,7 +38,7 @@ class IndexController extends Controller
             $comment->save();
             return redirect()->route('home');
         }
-        dd($request);
+        return redirect()->route('home');
     }
 
 }
