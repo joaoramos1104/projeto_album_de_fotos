@@ -17,7 +17,7 @@
                     <strong>{{ 'Administrador' }}</strong> <p>{{ Auth::user()->name }}</p>
                 </li>
                 <li class="nav-item ms-2">
-                    <a href="{{ route('logout') }}" class="btn btn-sm btn-primary"
+                    <a href="{{ route('logout') }}" class="btn btn-sm btn-dark"
                        onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">Sair <i class="bi bi-box-arrow-right"></i></a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -28,8 +28,9 @@
         </div>
     </nav>
 </div>
-<div class="text-center">
+<div class="container text-center">
     <button class="btn btn-light shadow" data-bs-toggle="modal" data-bs-target="#novo">Novo Álbum <i class="bi bi-folder-plus"></i></button>
+    <button class="btn btn-light shadow" data-bs-toggle="modal" data-bs-target="#ger-convite">Gerenciar Convites <i class="bi bi-envelope-check"></i></button>
 </div>
 <div class="container mt-3">
     <hr class="border-bottom border-light">
@@ -58,7 +59,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $theme->name_theme }}</h5>
                     <p class="card-text">{{ $theme->description_theme }}</p>
-                    <a href="#" class="btn btn-sm btn-secondary mb-1 shadow" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Comentários <span class="badge bg-danger rounded-pill m-1">{{ count($theme->comments) }}</span></a>
+                    <a href="#" class="btn btn-sm btn-dark mb-1 shadow" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Comentários <span class="badge bg-success rounded-pill m-1">{{ count($theme->comments) }}</span></a>
                     <div class="row d-flex">
                         <div class="col-6 m-auto">
                             <a href="{{ route('excluir_tema', $theme->id) }}" class="btn btn-sm btn-danger"
@@ -83,7 +84,7 @@
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content modal-comment">
                         <div class="modal-header bg-white">
-                            <h5 class="modal-title" id="staticBackdropLabel{{ $theme->id }}"> Comentários - {{ $theme->name_theme }} </h5>
+                            <h5 class="modal-title text-dark" id="staticBackdropLabel{{ $theme->id }}"> Comentários - {{ $theme->name_theme }} </h5>
                             <i class="bi bi-image"></i>
                         </div>
                         <div class="container p-3">
@@ -291,6 +292,98 @@
                 </div>
                 <div class="modal-footer m-auto">
                     <button type="submit" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancelar <i class="bi bi-box-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Gerenciar Convites -->
+<div class="modal fade" id="ger-convite" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelGerConvite" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-fullscreen">
+        <div class="modal-content text-dark">
+            <div class="modal-header bg-white">
+                <h5 class="modal-title" id="staticBackdropLabelGerConvite">{{ 'Gerenciar Convites ' }}</h5>
+                <i class="bi bi-envelope-check"></i>
+            </div>
+            <div class="container p-3">
+                <div class="modal-body">
+                    <div class="col col-lg-12">
+                        <div class="shadow rounded p-3">
+                            <div class="col p-1">
+                                <h4>Visitantes e Usuários</h4>
+                            </div>
+                            <div class="table-responsive">
+                                <table id="" class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>E-mail</th>
+                                        <th>Telefone</th>
+                                        <th>Visitante</th>
+                                        <th>Admin</th>
+                                        <th>Status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Tiger Nixon</td>
+                                        <td>teste@teste.com</td>
+                                        <td>(21) 99999-0000</td>
+                                        <td>Sim</td>
+                                        <td>Sim</td>
+                                        <td>Ativo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Garrett Winters</td>
+                                        <td>teste@teste.com</td>
+                                        <td>(21) 99999-0000</td>
+                                        <td>Sim</td>
+                                        <td>Não</td>
+                                        <td>Ativo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ashton Cox</td>
+                                        <td>teste@teste.com</td>
+                                        <td>(21) 99999-0000</td>
+                                        <td>Sim</td>
+                                        <td>Não</td>
+                                        <td>Inativo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cedric Kelly</td>
+                                        <td>teste@teste.com</td>
+                                        <td>(21) 99999-0000</td>
+                                        <td>Sim</td>
+                                        <td>Não</td>
+                                        <td>Ativo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Airi Satou</td>
+                                        <td>teste@teste.com</td>
+                                        <td>(21) 99999-0000</td>
+                                        <td>Sim</td>
+                                        <td>Não</td>
+                                        <td>Inativo</td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>E-mail</th>
+                                        <th>Telefone</th>
+                                        <th>Visitante</th>
+                                        <th>Admin</th>
+                                        <th>Status</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer m-auto">
+                    <button type="submit" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Fechar <i class="bi bi-box-arrow-right"></i></button>
                 </div>
             </div>
         </div>
