@@ -23,7 +23,7 @@
     <style>
         body{
             background: linear-gradient(to bottom,
-            rgba(93, 100, 100, 0.767) 0%, rgba(52, 32, 73, 0.685) 100%), url(assets/img/4.jpg) no-repeat !important;
+            rgba(93, 100, 100, 0.767) 0%, rgba(52, 32, 73, 0.685) 100%), url(assets/img/7.jpg) no-repeat !important;
             background-position: center !important;
             background-attachment:fixed !important;
             background-size: cover !important;
