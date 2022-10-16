@@ -20,6 +20,13 @@
     <!-- Style -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
+    <!-- Data Tables css -->
+    <link rel="stylesheet" href="{{ asset('assets/css/data-tables/data-tables.css') }}">
+{{--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">--}}
+
+
+
+
     <style>
         body{
             background: linear-gradient(to bottom,
@@ -41,5 +48,13 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
+<!-- Data Tables js -->
+<script src="{{ asset('assets/js/data-tables/jquery-data-tables.min.js') }}"></script>
+<script src="{{ asset('assets/js/data-tables/data-tables-act.js') }}"></script>
+{{--<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>--}}
+
+<script>
+
+</script>
 </body>
 </html>

@@ -7,6 +7,7 @@ use App\Models\Album;
 use App\Models\Comment;
 use App\Models\Theme;
 use App\Models\Image;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
@@ -26,9 +27,9 @@ class AdminController extends Controller
     }
 
 
-    public function create()
+    public function getVisitorUser()
     {
-        //
+        return User::all()->toJson();
     }
 
     public function storeAlbum(Request $request)

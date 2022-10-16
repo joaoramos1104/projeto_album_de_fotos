@@ -45,5 +45,6 @@ Route::middleware(['admin'])->group(function (){
     Route::post('/nova_foto', [App\Http\Controllers\Admin\AdminController::class, 'storePhoto'])->name('nova_foto');
     Route::delete('/delete_photo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyPhoto'])->name('delete_photo');
     Route::delete('/delete_comment/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyComment'])->name('delete_comment');
+    Route::get('/visitor-user/', [App\Http\Controllers\Admin\AdminController::class, 'getVisitorUser'])->name('visitor-user');
 
 });

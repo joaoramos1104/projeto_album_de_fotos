@@ -96,12 +96,12 @@
                                                 <h5 class="mb-1">{{ $comment->name_user }}</h5>
                                                 <small>{{ $comment->created_at->format('d/m/Y - H:i') }}</small>
                                             </div>
-                                            <p class="mb-1 float-start text-success">{!! $comment->comments !!}</p>
-                                            <a href="{{ route('delete_comment', $comment->id) }}" class="btn btn-sm btn-danger float-end"
+                                            <p class="mb-1 float-start text-success">{{ $comment->comments }}</p>
+                                            <button type="button" class="btn btn-sm btn-danger float-end"
                                                 onclick="event.preventDefault();
-                                                document.getElementById('delete_comment').submit();">Excluir <i class="bi bi-x"></i>
-                                            </a>
-                                            <form id="delete_comment" action="{{ route('delete_comment', $comment->id) }}" method="POST" class="d-none">
+                                                document.getElementById('deleteComment{{$comment->id}}').submit();">Excluir <i class="bi bi-x"></i>
+                                            </button>
+                                            <form id="deleteComment{{$comment->id}}" action="{{ route('delete_comment',$comment->id) }}" method="POST" class="d-none">
                                                 @csrf
                                                 @method("DELETE")
                                             </form>
@@ -111,7 +111,7 @@
                             </div>
                         </div>
                         <div class="modal-footer m-auto">
-                            <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
+                            <button type="button" class="btn btn-sm btn-warning shadow" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
                         </div>
                     </div>
                 </div>
@@ -162,29 +162,29 @@
                             <i class="bi bi-image"></i>
                         </div>
                         <div class="container-fluid bg-light">
-                            <div class="modal-body">
+                            <div class="modal-body bg-white">
                                 <div class="row col">
                                     <div class="col-md-5 col-sm-12 border-end border-darck m-auto">
                                         <form class="p-2" method="post" action="{{ route('editar_tema', $theme->id) }}">
                                             @method('PUT')
                                             @csrf
                                             <input type="hidden" name="album_id" value="{{ $theme->id }}">
-                                            <div class="m-1 input-group">
+                                            <div class="m-1 input-group shadow">
                                                 <span class="input-group-text" id="EditTema">Tema</span>
                                                 <input type="text" class="form-control form-control-sm" aria-describedby="EditTema" name="name" value="{{ $theme->name_theme }}">
                                             </div>
-                                            <div class="m-1 input-group">
+                                            <div class="m-1 input-group shadow">
                                                 <span class="input-group-text" id="inputDecricao" >Descrição</span>
                                                 <input type="text" class="form-control form-control-sm" aria-describedby="inputDecricao" name="description" value="{{ $theme->description_theme }}">
                                             </div>
                                             <div class="col-2 m-auto">
-                                                <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Salvar <i class="bi bi-arrow-bar-right"></i></button>
+                                                <button type="submit" class="input-group-text btn btn-sm btn-outline-success shadow" data-bs-dismiss="modal">Salvar <i class="bi bi-arrow-bar-right"></i></button>
                                             </div>
                                         </form>
                                         <form method="post" action="{{ route('nova_foto') }}" enctype="multipart/form-data">
                                             @csrf
                                             <strong><p>Adicionar nova Foto</p></strong>
-                                            <div class="input-group">
+                                            <div class="input-group shadow">
                                                 <input type="hidden" name="theme_id" value="{{ $theme->id }}">
                                                 <input type="file" class="form-control form-control-sm" name="photo">
                                                 <button type="submit" class="input-group-text btn btn-sm btn-outline-success">Enviar <i class="bi bi-arrow-bar-right"></i></button>
@@ -197,10 +197,10 @@
                                                 <div class="card card-edit text-center">
                                                     <img src="{{ env('APP_URL') }}/storage/{{ $image->photo_url }}" class="tabel-img" alt="...">
                                                     <div class="card-body">
-                                                        <a href="{{ route('delete_photo', $image->id) }}" class="btn btn-sm btn-outline-danger"
+                                                        <button class="btn btn-sm btn-danger shadow"
                                                             onclick="event.preventDefault();
                                                             document.getElementById('delete_photo{{$image->id}}').submit();">Excluir <i class="bi bi-x"></i>
-                                                        </a>
+                                                        </button>
                                                         <form id="delete_photo{{$image->id}}" action="{{ route('delete_photo', $image->id) }}" method="POST" class="d-none">
                                                             @csrf
                                                             @method("DELETE")
@@ -211,7 +211,7 @@
                                             </div>
                                     </div>
                                     <div class="col modal-footer">
-                                        <button type="button" class="btn btn-sm btn-warning m-auto" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
+                                        <button type="button" class="btn btn-sm btn-warning m-auto shadow mt-1" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -310,73 +310,9 @@
                 <div class="modal-body">
                     <div class="col col-lg-12">
                         <div class="shadow rounded p-3">
-                            <div class="col p-1">
-                                <h4>Visitantes e Usuários</h4>
-                            </div>
                             <div class="table-responsive">
-                                <table id="" class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>Nome</th>
-                                        <th>E-mail</th>
-                                        <th>Telefone</th>
-                                        <th>Visitante</th>
-                                        <th>Admin</th>
-                                        <th>Status</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>teste@teste.com</td>
-                                        <td>(21) 99999-0000</td>
-                                        <td>Sim</td>
-                                        <td>Sim</td>
-                                        <td>Ativo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Garrett Winters</td>
-                                        <td>teste@teste.com</td>
-                                        <td>(21) 99999-0000</td>
-                                        <td>Sim</td>
-                                        <td>Não</td>
-                                        <td>Ativo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ashton Cox</td>
-                                        <td>teste@teste.com</td>
-                                        <td>(21) 99999-0000</td>
-                                        <td>Sim</td>
-                                        <td>Não</td>
-                                        <td>Inativo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>teste@teste.com</td>
-                                        <td>(21) 99999-0000</td>
-                                        <td>Sim</td>
-                                        <td>Não</td>
-                                        <td>Ativo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Airi Satou</td>
-                                        <td>teste@teste.com</td>
-                                        <td>(21) 99999-0000</td>
-                                        <td>Sim</td>
-                                        <td>Não</td>
-                                        <td>Inativo</td>
-                                    </tr>
-                                    </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <th>Nome</th>
-                                        <th>E-mail</th>
-                                        <th>Telefone</th>
-                                        <th>Visitante</th>
-                                        <th>Admin</th>
-                                        <th>Status</th>
-                                    </tr>
-                                    </tfoot>
+                                <table id="table_user" class="table table-sm table-hover" style="width: 100%">
+
                                 </table>
                             </div>
                         </div>
