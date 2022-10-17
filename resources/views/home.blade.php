@@ -17,7 +17,7 @@
                         <strong>{{ 'Bem vindo(a)' }}</strong> <p>{{ Auth::user()->name }}</p>
                     </li>
                     <li class="nav-item ms-2">
-                        <a href="{{ route('logout') }}" class="btn btn-sm btn-warning"
+                        <a href="{{ route('logout') }}" class="btn btn-sm btn-dark"
                            onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">Sair <i class="bi bi-box-arrow-right"></i></a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -44,7 +44,35 @@
                     <div class="card-body mt-1">
                         <h5 class="card-title">{{ $theme->name_theme }}</h5>
                         <p class="card-text">{{ $theme->description_theme }}</p>
-                        <a href="#" class="btn btn-sm btn-comment shadow" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Comentários <span class="badge bg-danger rounded-pill m-1">{{ count($theme->comments) }}</span></a>
+
+
+                        <div class="dropdown no-arrow">
+                            <button class="btn btn-comment shadow dropdown-toggle" type="button" id="dropdownMenu{{ $theme->id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                                Comentários
+                                <span class="badge bg-danger rounded-pill">{{ count($theme->comments) }}</span>
+{{--                                <i class="bi bi-chat-left-text"></i>--}}
+                            </button>
+                            <ul class="dropdown-menu animated-fade-in" aria-labelledby="dropdownMenu{{ $theme->id }}">
+                                <li>
+                                    <h6 class="dropdown-header">Comentários </h6>
+                                </li>
+                                <div class="scroll-drop-comments">
+                                @foreach($theme->comments as $comment)
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div>
+                                                    <span class="small text-gray-500">{{ $comment->name_user }}</span>
+                                                    <p class="small text-gray-500 m-0">{{ $comment->created_at->format('d/M/Y') }}</p>
+                                                    <p class="small text-success m-0">{!! $comment->comments !!}</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                @endforeach
+                                </div>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class=" dropdown-item text-center small" href="#" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Adicionar comnentários <i class="bi bi-plus"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,19 +80,19 @@
                 <!-- Modal Comment-->
                 <div class="modal fade" id="comment{{ $theme->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ $theme->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content modal-comment">
+                        <div class="modal-content modal-comment rounded-0">
                             <div class="modal-header text-black">
                                 <h5 class="modal-title" id="staticBackdropLabel{{ $theme->id }}"> Comentários - {{ $theme->name_theme }} </h5>
                                 <i class="bi bi-image"></i>
                             </div>
                             <div class="container p-3">
-                                <div class="modal-body">
+                                <div class="modal-body bg-white small">
                                     <div class="list-group shadow scroll-comments">
                                         @foreach($theme->comments as $comment)
                                         <div class="list-group-item list-group-item-action add-comment">
                                             <div class="d-flex w-100 justify-content-between">
                                                 <h6 class="mb-1">{{ $comment->name_user }}</h6>
-                                                <small>{{ $comment->created_at->format('d/m/Y - H:i') }}</small>
+                                                <small>{{ $comment->created_at->format('d/M/Y - H:i') }}</small>
                                             </div>
                                             <p class="mb-1 float-start text-success">{!! $comment->comments !!}</p>
                                         </div>
