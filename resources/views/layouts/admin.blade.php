@@ -36,6 +36,19 @@
             background-size: cover !important;
             color: #fdfdfd !important;
         }
+
+        body::after{
+            content: '';
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(/assets/img/svg/19.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: bottom;
+            z-index: -1;
+        }
     </style>
 
 </head>
