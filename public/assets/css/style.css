@@ -96,7 +96,6 @@ a {
 
 .card-img-top {
     transform: rotate(-15deg);
-    height: 25vh;
 }
 @media screen and (max-width: 767.99px) {
     .card-img-top {

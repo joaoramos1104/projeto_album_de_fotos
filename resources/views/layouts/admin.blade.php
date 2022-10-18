@@ -24,33 +24,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/data-tables/data-tables.css') }}">
 {{--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">--}}
 
-
-
-
-    <style>
-        body{
-            background: linear-gradient(to bottom,
-            rgba(93, 100, 100, 0.767) 0%, rgba(52, 32, 73, 0.685) 100%), url(assets/img/7.jpg) no-repeat !important;
-            background-position: center !important;
-            background-attachment:fixed !important;
-            background-size: cover !important;
-            color: #fdfdfd !important;
-        }
-
-        body::after{
-            content: '';
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url(/assets/img/svg/19.svg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: bottom;
-            z-index: -1;
-        }
-    </style>
-
 </head>
 <body>
 <main>

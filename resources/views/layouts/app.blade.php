@@ -19,21 +19,6 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <style>
-
-        body::after{
-            content: '';
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            /*background-image: url(/assets/img/svg/19.svg) no-repeat;*/
-            background: linear-gradient(to bottom, rgb(20 196 240 / 0%) 0%, rgb(0 0 0 / 39%) 100%), url(/assets/img/svg/19.svg) no-repeat;
-            background-size: cover;
-            background-position: bottom;
-            z-index: -1;
-        }
-    </style>
 
 </head>
 
