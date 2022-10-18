@@ -42,22 +42,23 @@
                 <div class="card border-0 text-center mt-3">
                     <a href="#" class="bg-card-img"><img src="@if(isset($theme->hasImages[0]->photo_url )){{ env('APP_URL') }}/storage/{{ $theme->hasImages[0]->photo_url }}@else {{ 'assets/img/R.png' }} @endif" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#imgCarousel{{ $theme->id }}"></a>
                     <div class="card-body mt-1">
+                        <div class="">
                         <h5 class="card-title">{{ $theme->name_theme }}</h5>
                         <p class="card-text">{{ $theme->description_theme }}</p>
-
-
-                        <div class="dropdown no-arrow">
-                            <button class="btn btn-comment shadow dropdown-toggle" type="button" id="dropdownMenu{{ $theme->id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class=" dropdown no-arrow">
+                            <button class="btn btn-sm btn-comment shadow dropdown-toggle" type="button" id="dropdownMenu{{ $theme->id }}" data-bs-toggle="dropdown" aria-expanded="false">
                                 Comentários
-                                <span class="badge bg-danger rounded-pill">{{ count($theme->comments) }}</span>
-{{--                                <i class="bi bi-chat-left-text"></i>--}}
+                                <span class="badge bg-info rounded-pill">{{ count($theme->comments) }}</span>
                             </button>
                             <ul class="dropdown-menu animated-fade-in" aria-labelledby="dropdownMenu{{ $theme->id }}">
                                 <li>
                                     <h6 class="dropdown-header">Comentários </h6>
                                 </li>
                                 <div class="scroll-drop-comments">
-                                @foreach($theme->comments as $comment)
+                                    @foreach($theme->comments as $comment)
                                         <li>
                                             <a class="dropdown-item d-flex align-items-center" href="#">
                                                 <div>
@@ -67,7 +68,7 @@
                                                 </div>
                                             </a>
                                         </li>
-                                @endforeach
+                                    @endforeach
                                 </div>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class=" dropdown-item text-center small" href="#" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Adicionar comnentários <i class="bi bi-plus"></i></a></li>
@@ -159,6 +160,8 @@
         </div>
     </div>
     @endforeach
+
+    <x-footer />
 @endsection
 
 

@@ -96,7 +96,19 @@ a {
 
 .card-img-top {
     transform: rotate(-15deg);
+    height: 25vh;
 }
+@media screen and (max-width: 767.99px) {
+    .card-img-top {
+        height: auto;
+    }
+}
+
+.card-footer {
+    background: none;
+    border: none;
+}
+
 
 /*-- Modal --*/
 .modal-carousel {
