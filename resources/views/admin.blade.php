@@ -306,17 +306,87 @@
                 <h5 class="modal-title" id="staticBackdropLabelGerConvite">{{ 'Gerenciar Convites ' }}</h5>
                 <i class="bi bi-envelope-check"></i>
             </div>
-            <div class="container p-3">
-                <div class="modal-body">
-                    <div class="col col-lg-12">
-                        <div class="shadow rounded p-3">
-                            <div class="table-responsive">
-                                <table id="table_user" class="table table-sm table-hover" style="width: 100%">
+            <div class="container-fluid">
+                <div class="modal-body p-3">
+                    <h3>Convidados e Usuários</h3>
+                    <div class="row p-3">
+                            <div class="col-md-7 p-3">
+                                <div class="table-responsive p-3 small">
+                                    <table id="table_user" class="table table-sm table-hover table-borderless" style="width: 100%">
+                                    </table>
+                                </div>
+                            </div>
 
-                                </table>
+                            <div class="col-md-5 col-sm-12 p-3 m-auto">
+                                <form class="row g-3">
+                                    <div class="col-md-7">
+                                        <label class="form-label">Nome</label>
+                                        <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-person-bounding-box"></i></span>
+                                        <input type="text" class="form-control form-control-sm" value="João F. Ramos" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label  class="form-label">Telefone</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                        <input type="text" class="form-control form-control-sm" value="(21) 99999-9999" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <label class="form-label">E-mail</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">@</span>
+                                            <input type="email" class="form-control form-control-sm" aria-describedby="inputGroupPrepend" value="joao.ramos1988@outlook.com" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label class="form-label">Senha</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                            <input type="password" class="form-control form-control-sm" aria-describedby="inputGroupPrepend" value="***********" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Status</label>
+                                        <select class="form-select form-select-sm" required>
+                                            <option selected disabled value="">Ativo</option>
+                                            <option>Inativo</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 ms-3">
+                                        <label class="form-label">Visitante</label>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" checked>
+                                            <label class="form-check-label"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 ms-3">
+                                        <label class="form-label">Administrador</label>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox">
+                                            <label class="form-check-label"></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" required>
+                                            <label class="form-check-label">
+                                                Enviar convite - E-mail.
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button class="btn btn-sm btn-warning" type="submit">Cancelar</button>
+                                            <button class="btn btn-sm btn-primary" type="submit">Salvar</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                    </div>
                 </div>
                 <div class="modal-footer m-auto">
                     <button type="submit" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Fechar <i class="bi bi-box-arrow-right"></i></button>
