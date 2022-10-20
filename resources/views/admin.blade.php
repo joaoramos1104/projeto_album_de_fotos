@@ -306,7 +306,7 @@
                 <h5 class="modal-title" id="staticBackdropLabelGerConvite">{{ 'Gerenciar Convites ' }}</h5>
                 <i class="bi bi-envelope-check"></i>
             </div>
-            <div class="container-fluid">
+            <div class="container-fluid bg-white">
                 <div class="modal-body p-3">
                     <h3>Convidados e Usuários</h3>
                     <div class="row p-3">
@@ -379,7 +379,7 @@
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col">
                                             <button class="btn btn-sm btn-warning" type="submit">Cancelar</button>
                                             <button class="btn btn-sm btn-primary" type="submit">Salvar</button>
                                         </div>
@@ -388,8 +388,8 @@
                             </div>
                         </div>
                 </div>
-                <div class="modal-footer m-auto">
-                    <button type="submit" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Fechar <i class="bi bi-box-arrow-right"></i></button>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-sm btn-warning m-auto mt-3" data-bs-dismiss="modal">Fechar <i class="bi bi-box-arrow-right"></i></button>
                 </div>
             </div>
         </div>
