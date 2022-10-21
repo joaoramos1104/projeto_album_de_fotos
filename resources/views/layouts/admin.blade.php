@@ -67,10 +67,8 @@
                 success: function (response){
                     function notify(from, align, icon, type, animIn, animOut){
                         $.growl({
-                            icon: icon,
-                            title: ' Sucesso, ',
+                            title: ' Sucesso: ',
                             message: 'Registro realizado!',
-                            url: ''
                         },{
                             element: 'body',
                             type: type,
@@ -86,7 +84,7 @@
                             spacing: 10,
                             z_index: 2031,
                             delay: 2500,
-                            timer: 10000,
+                            timer: 5000,
                             url_target: '_blank',
                             mouse_over: false,
                             animate: {
@@ -94,15 +92,10 @@
                                 exit: animOut
                             },
                             icon_type: 'class',
-                            template: '<div data-growl="container" class="alert alert-success" role="alert">' +
-                                '<button type="button" class="close" data-growl="dismiss">' +
-                                '<span aria-hidden="true">&times;</span>' +
-                                '<span class="sr-only">Close</span>' +
-                                '</button>' +
-                                '<span data-growl="icon"></span>' +
-                                '<span data-growl="title"></span>' +
-                                '<span data-growl="message"></span>' +
-                                '<a href="#" data-growl="url"></a>' +
+                            template:
+                                '<div class="alert alert-success alert-dismissable growl-animated animated fadeInDown" role="alert">'+
+                                '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
+                                '<button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>'+
                                 '</div>'
                         });
 
@@ -124,10 +117,8 @@
                 error: function (response){
                     function notify(from, align, icon, type, animIn, animOut){
                         $.growl({
-                            icon: icon,
-                            title: ' Error ',
+                            title: ' Error: ',
                             message: response.responseJSON.message,
-                            url: ''
                         },{
                             element: 'body',
                             type: type,
@@ -143,7 +134,7 @@
                             spacing: 10,
                             z_index: 2031,
                             delay: 2500,
-                            timer: 10000,
+                            timer: 5000,
                             url_target: '_blank',
                             mouse_over: false,
                             animate: {
@@ -151,15 +142,10 @@
                                 exit: animOut
                             },
                             icon_type: 'class',
-                            template: '<div data-growl="container" class="alert alert-danger" role="alert">' +
-                                '<button type="button" class="close" data-growl="dismiss">' +
-                                '<span aria-hidden="true">&times;</span>' +
-                                '<span class="sr-only">Close</span>' +
-                                '</button>' +
-                                '<span data-growl="icon"></span>' +
-                                '<span data-growl="title"></span>' +
-                                '<span data-growl="message"></span>' +
-                                '<a href="#" data-growl="url"></a>' +
+                            template:
+                                '<div class="alert alert-danger alert-dismissable growl-animated fadeInDown" role="alert">'+
+                                '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
+                                '<button type="button" class="btn-close btn-close-white float-end" data-bs-dismiss="alert" aria-label="Close"></button>'+
                                 '</div>'
                         });
 

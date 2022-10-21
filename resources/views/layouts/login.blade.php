@@ -56,8 +56,7 @@
                         type: "post",
                         dataType: 'json',
                         success: function (response){
-                                // window.location.href = response.intended
-
+                                window.location.href = response.intended
                         },
                         error: function (response){
                             console.log(response)
