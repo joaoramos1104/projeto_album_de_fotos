@@ -1,9 +1,6 @@
 @extends('layouts.login')
 
 @section('content')
-    <style>
-
-    </style>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">

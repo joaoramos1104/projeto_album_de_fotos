@@ -38,40 +38,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
-{{--    @hasSection("javascript")--}}
-{{--        @yield('javascript')--}}
-{{--    @endif--}}
-        <script>
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-            });
-            $(function (){
-                $('form[name="formLogin"]').submit(function (event){
-                    event.preventDefault()
-                    $.ajax({
-                        data: $(this).serialize(),
-                        url: "{{ route('login') }}",
-                        type: "post",
-                        dataType: 'json',
-                        success: function (response){
-                                window.location.href = response.intended
-                        },
-                        error: function (response){
-                            console.log(response)
-                            response.responseJSON.message ='Os dados informados não conferem! Verifique se os dados estão corretos e se seu convite foi aceito.'
-                            var message = response.responseJSON.message
-                                $('.messageBox').append(
-                                    '<div class=" mt-1 alert alert-danger shadow alert-dismissible fade show" role="alert"><strong><i class="bi bi-exclamation-circle"> </i> '
-                                    + message +
-                                    '</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
-                                )
-                            }
+        <!-- app.js -->
+        <script src="{{ asset('assets/js/login.js') }}"></script>
 
-                    });
-                });
-            });
-        </script>
     </body>
 </html>

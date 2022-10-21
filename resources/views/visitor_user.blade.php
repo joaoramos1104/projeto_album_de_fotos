@@ -1,11 +1,6 @@
 @extends('layouts.admin')
-
-<style>
-    body {
-        background: #fff !important;
-    }
-</style>
 @section('content')
+    <x-navbar />
 
     <div class="container">
         <div class="p-3">
@@ -111,7 +106,7 @@
                                     <div class="col">
                                         <div class="col float-end">
                                             <button class="btn btn-sm btn-success m-1" type="submit">Salvar</button>
-                                            <button type="button" class="btn btn-sm btn-warning m-1" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
+                                            <button type="button" id="cleanFormCresteUserVisitor" class="btn btn-sm btn-warning m-1" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
                                         </div>
                                     </div>
                                 </form>

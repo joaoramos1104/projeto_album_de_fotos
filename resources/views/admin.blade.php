@@ -1,36 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="containe-fluid">
-    <nav class="navbar">
-        <div class="container">
-            <div class="row">
-                <ul class="navbar-nav ms-1">
-                    <li class="nav-item">
-                        <strong><a class="nav-link fst-italic" href="{{ route('home') }}"><img src="assets/img/logo/logo3.png" class="img-logo shadow" alt="">
-                            {{' Meu Álbum' }}</a></strong>
-                    </li>
-                </ul>
-            </div>
-            <ul class="nav navbar float-end social-icons">
-                <li class="nav-item">
-                    <strong>{{ 'Administrador' }}</strong> <p>{{ Auth::user()->name }}</p>
-                </li>
-                <li class="nav-item ms-2">
-                    <a href="{{ route('logout') }}" class="btn btn-sm btn-dark"
-                       onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">Sair <i class="bi bi-box-arrow-right"></i></a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
+    <x-navbar />
 <div class="container text-center">
     <button class="btn btn-light shadow" data-bs-toggle="modal" data-bs-target="#novo">Novo Álbum <i class="bi bi-folder-plus"></i></button>
-    <button class="btn btn-light shadow" data-bs-toggle="modal" data-bs-target="#ger-convite">Gerenciar Convites <i class="bi bi-envelope-check"></i></button>
+    <a href="/visitor_user" class="btn btn-light shadow" >Gerenciar Convites <i class="bi bi-envelope-check"></i></a>
 </div>
 <div class="container mt-3">
     <hr class="border-bottom border-light">
