@@ -10,7 +10,9 @@ use App\Models\Image;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -150,6 +152,43 @@ class AdminController extends Controller
             return redirect()->route('admin');
         }
         return redirect()->route('admin');
+    }
+
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\Models\User
+     */
+    protected function create(Request $data)
+    {
+        $validated = $this->validate($data, [
+             'name' => ['required', 'string', 'max:255'],
+             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+             'password' => ['required', 'string', 'min:8', 'confirmed']
+        ],
+    );
+
+
+            $data['admin_user'] = 0;
+            $data['visitor_user'] = 0;
+            if ($data->input('admin_user') == 'on'){
+                $data['admin_user'] = 1;
+            }
+            if ($data->input('visitor_user') == 'on'){
+                $data['visitor_user'] = 1;
+            }
+
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'phone' => $data['phone_visitor_user'],
+                'active' => $data['status_visitor_user'],
+                'admin' => $data['admin_user'],
+                'visitor' => $data['visitor_user'],
+                'password' => Hash::make($data['password']),
+            ]);
     }
 
 }

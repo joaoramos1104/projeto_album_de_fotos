@@ -318,60 +318,68 @@
                             </div>
 
                             <div class="col-md-5 col-sm-12 p-3 m-auto">
-                                <form class="row g-3">
+                                <form class="row g-3" name="formVisitorUser">
+                                    @csrf
                                     <div class="col-md-7">
                                         <label class="form-label">Nome</label>
                                         <div class="input-group">
                                         <span class="input-group-text"><i class="bi bi-person-bounding-box"></i></span>
-                                        <input type="text" class="form-control form-control-sm" value="João F. Ramos" required>
+                                        <input type="text" class="form-control form-control-sm" name="name" value="" required>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <label  class="form-label">Telefone</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                                        <input type="text" class="form-control form-control-sm" value="(21) 99999-9999" required>
+                                        <input type="text" class="form-control form-control-sm" name="phone_visitor_user" value="" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-12">
                                         <label class="form-label">E-mail</label>
                                         <div class="input-group">
                                             <span class="input-group-text">@</span>
-                                            <input type="email" class="form-control form-control-sm" aria-describedby="inputGroupPrepend" value="joao.ramos1988@outlook.com" required>
+                                            <input type="email" class="form-control form-control-sm" aria-describedby="inputGroupPrepend" name="email" value="" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-5">
+                                    <div class="col-md-6">
                                         <label class="form-label">Senha</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                                            <input type="password" class="form-control form-control-sm" aria-describedby="inputGroupPrepend" value="***********" required>
+                                            <input type="password" class="form-control form-control-sm" name="password" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Confirmar Senha</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                            <input type="password" class="form-control form-control-sm" name="password_confirmation" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <label class="form-label">Status</label>
-                                        <select class="form-select form-select-sm" required>
-                                            <option selected disabled value="">Ativo</option>
-                                            <option>Inativo</option>
+                                        <select class="form-select form-select-sm" name="status_visitor_user" required>
+                                            <option value="1">Ativo</option>
+                                            <option value="0">Inativo</option>
                                         </select>
                                     </div>
                                     <div class="col-md-3 ms-3">
                                         <label class="form-label">Visitante</label>
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" checked>
+                                            <input class="form-check-input" name="visitor_user" type="checkbox" checked>
                                             <label class="form-check-label"></label>
                                         </div>
                                     </div>
                                     <div class="col-md-3 ms-3">
                                         <label class="form-label">Administrador</label>
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox">
+                                            <input class="form-check-input" name="admin_user" type="checkbox">
                                             <label class="form-check-label"></label>
                                         </div>
                                     </div>
 
                                     <div class="col-12">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" required>
+                                            <input class="form-check-input" type="checkbox" name="email_send_visitor">
                                             <label class="form-check-label">
                                                 Enviar convite - E-mail.
                                             </label>
@@ -380,7 +388,7 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col">
-                                            <button class="btn btn-sm btn-warning" type="submit">Cancelar</button>
+                                            <button class="btn btn-sm btn-warning" type="button">Cancelar</button>
                                             <button class="btn btn-sm btn-primary" type="submit">Salvar</button>
                                         </div>
                                     </div>
@@ -389,7 +397,7 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-sm btn-warning m-auto mt-3" data-bs-dismiss="modal">Fechar <i class="bi bi-box-arrow-right"></i></button>
+                    <button type="button" class="btn btn-sm btn-warning m-auto mt-3" data-bs-dismiss="modal">Fechar <i class="bi bi-box-arrow-right"></i></button>
                 </div>
             </div>
         </div>

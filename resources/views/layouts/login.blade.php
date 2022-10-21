@@ -56,9 +56,11 @@
                         type: "post",
                         dataType: 'json',
                         success: function (response){
-                                window.location.href = response.intended
+                                // window.location.href = response.intended
+
                         },
                         error: function (response){
+                            console.log(response)
                             response.responseJSON.message ='Os dados informados não conferem! Verifique se os dados estão corretos e se seu convite foi aceito.'
                             var message = response.responseJSON.message
                                 $('.messageBox').append(

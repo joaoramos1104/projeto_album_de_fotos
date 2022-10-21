@@ -23,7 +23,12 @@
 
     <!-- Data Tables css -->
     <link rel="stylesheet" href="{{ asset('assets/css/data-tables/data-tables.css') }}">
-{{--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">--}}
+
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+
+    <!-- notification CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/notification/notification.css') }}">
 
 </head>
 <body>
@@ -38,10 +43,144 @@
 <!-- Data Tables js -->
 <script src="{{ asset('assets/js/data-tables/jquery-data-tables.min.js') }}"></script>
 <script src="{{ asset('assets/js/data-tables/data-tables-act.js') }}"></script>
-{{--<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>--}}
+
+<!--  notification JS -->
+<script src="{{ asset('assets/js/notification/bootstrap-growl.min.js') }}"></script>
+<script src="{{ asset('assets/js/notification/notification-active.js') }}"></script>
+
+<script src="{{ asset('assets/js/notification/notify.min.js') }}"></script>
 
 <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+    });
+    $(function (){
+        $('form[name="formVisitorUser"]').submit(function (event){
+            event.preventDefault()
+            $.ajax({
+                data: $(this).serialize(),
+                url: "{{ route('create_visitor_user') }}",
+                type: "post",
+                dataType: 'json',
+                success: function (response){
+                    function notify(from, align, icon, type, animIn, animOut){
+                        $.growl({
+                            icon: icon,
+                            title: ' Sucesso, ',
+                            message: 'Registro realizado!',
+                            url: ''
+                        },{
+                            element: 'body',
+                            type: type,
+                            allow_dismiss: true,
+                            placement: {
+                                from: from,
+                                align: align
+                            },
+                            offset: {
+                                x: 20,
+                                y: 85
+                            },
+                            spacing: 10,
+                            z_index: 2031,
+                            delay: 2500,
+                            timer: 10000,
+                            url_target: '_blank',
+                            mouse_over: false,
+                            animate: {
+                                enter: animIn,
+                                exit: animOut
+                            },
+                            icon_type: 'class',
+                            template: '<div data-growl="container" class="alert alert-success" role="alert">' +
+                                '<button type="button" class="close" data-growl="dismiss">' +
+                                '<span aria-hidden="true">&times;</span>' +
+                                '<span class="sr-only">Close</span>' +
+                                '</button>' +
+                                '<span data-growl="icon"></span>' +
+                                '<span data-growl="title"></span>' +
+                                '<span data-growl="message"></span>' +
+                                '<a href="#" data-growl="url"></a>' +
+                                '</div>'
+                        });
 
+                    };
+
+                    $( function(){
+                        var nFrom = $(this).attr('data-from');
+                        var nAlign = $(this).attr('data-align');
+                        var nIcons = $(this).attr('data-icon');
+                        var nType = $(this).attr('data-type');
+                        var nAnimIn = $(this).attr('data-animation-in');
+                        var nAnimOut = $(this).attr('data-animation-out');
+
+                        notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut);
+                    });
+                    $('[data-name="formVisitorUser"]').val('');
+
+                },
+                error: function (response){
+                    function notify(from, align, icon, type, animIn, animOut){
+                        $.growl({
+                            icon: icon,
+                            title: ' Error ',
+                            message: response.responseJSON.message,
+                            url: ''
+                        },{
+                            element: 'body',
+                            type: type,
+                            allow_dismiss: true,
+                            placement: {
+                                from: from,
+                                align: align
+                            },
+                            offset: {
+                                x: 20,
+                                y: 85
+                            },
+                            spacing: 10,
+                            z_index: 2031,
+                            delay: 2500,
+                            timer: 10000,
+                            url_target: '_blank',
+                            mouse_over: false,
+                            animate: {
+                                enter: animIn,
+                                exit: animOut
+                            },
+                            icon_type: 'class',
+                            template: '<div data-growl="container" class="alert alert-danger" role="alert">' +
+                                '<button type="button" class="close" data-growl="dismiss">' +
+                                '<span aria-hidden="true">&times;</span>' +
+                                '<span class="sr-only">Close</span>' +
+                                '</button>' +
+                                '<span data-growl="icon"></span>' +
+                                '<span data-growl="title"></span>' +
+                                '<span data-growl="message"></span>' +
+                                '<a href="#" data-growl="url"></a>' +
+                                '</div>'
+                        });
+
+                    };
+
+                    $( function(){
+                        var nFrom = $(this).attr('data-from');
+                        var nAlign = $(this).attr('data-align');
+                        var nIcons = $(this).attr('data-icon');
+                        var nType = $(this).attr('data-type');
+                        var nAnimIn = $(this).attr('data-animation-in');
+                        var nAnimOut = $(this).attr('data-animation-out');
+
+                        notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut);
+                    });
+
+                }
+
+            });
+        });
+    });
 </script>
 </body>
 </html>
