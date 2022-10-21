@@ -17,7 +17,7 @@ $(function (){
             success: function (response){
                 function notify(from, align, icon, type, animIn, animOut){
                     $.growl({
-                        title: ' Sucesso: ',
+                        title: ' <i class="bi bi-check2-square"></i> ',
                         message: 'Registro realizado!',
                     },{
                         element: 'body',
@@ -43,7 +43,7 @@ $(function (){
                         },
                         icon_type: 'class',
                         template:
-                            '<div class="alert alert-success alert-dismissable growl-animated animated fadeInDown" role="alert">'+
+                            '<div class="alert alert-success" role="alert">'+
                             '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
                             '<button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>'+
                             '</div>'
@@ -67,7 +67,7 @@ $(function (){
             error: function (response){
                 function notify(from, align, icon, type, animIn, animOut){
                     $.growl({
-                        title: ' Error: ',
+                        title: ' <i class="bi bi-exclamation-circle"> </i> ',
                         message: response.responseJSON.message,
                     },{
                         element: 'body',
@@ -93,7 +93,7 @@ $(function (){
                         },
                         icon_type: 'class',
                         template:
-                            '<div class="alert alert-danger alert-dismissable growl-animated fadeInDown" role="alert">'+
+                            '<div class="alert alert-danger" role="alert">'+
                             '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
                             '<button type="button" class="btn-close btn-close-white float-end" data-bs-dismiss="alert" aria-label="Close"></button>'+
                             '</div>'
@@ -118,6 +118,6 @@ $(function (){
     });
 });
 
-$("#cleanFormCresteUserVisitor").click(function(){
+$("#cleanFormCreateUserVisitor").click(function(){
     $('[data-name="formVisitorUser"]').val('');
 });

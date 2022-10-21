@@ -8,7 +8,7 @@ $(function (){
         event.preventDefault()
         $.ajax({
             data: $(this).serialize(),
-            url: "/login'",
+            url: "/login",
             type: "post",
             dataType: 'json',
             success: function (response){
