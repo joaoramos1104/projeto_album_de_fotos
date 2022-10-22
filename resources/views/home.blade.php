@@ -130,7 +130,6 @@
     </div>
     @endforeach
 
-    <x-footer />
 @endsection
 
 

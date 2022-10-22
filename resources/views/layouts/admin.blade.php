@@ -37,6 +37,7 @@
 <body>
 <main>
     @yield('content')
+    <x-footer />
 </main>
 
 <script src="{{ asset('assets/js/jquery/jquery-3.6.1.js') }}"></script>
