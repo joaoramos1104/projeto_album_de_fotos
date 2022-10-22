@@ -47,6 +47,7 @@ Route::middleware(['admin'])->group(function (){
     Route::delete('/delete_comment/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyComment'])->name('delete_comment');
     Route::get('/visitors-users/', [App\Http\Controllers\Admin\AdminController::class, 'getVisitorsUsers'])->name('visitors-users');
     Route::post('/create_visitor_user/', [App\Http\Controllers\Admin\AdminController::class, 'create'])->name('create_visitor_user');
+
     Route::get('/visitors_users', function () {
         return view('/visitors_users');
     })->name('visitors_users');

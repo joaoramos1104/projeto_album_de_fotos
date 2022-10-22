@@ -103,7 +103,7 @@
                                     <hr>
                                     <div class="col">
                                         <div class="col float-end">
-                                            <button type="button" id="cleanFormCreateUserVisitor" class="btn btn-sm btn-warning m-1" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
+                                            <button type="button" id="cleanFormCreateUserVisitor" class="btn btn-sm btn-warning m-1" data-bs-dismiss="modal">Cancelar <i class="bi bi-arrow-bar-right"></i></button>
                                             <button class="btn btn-sm btn-success m-1" type="submit">Salvar <i class="bi bi-check2"></i></button>
                                         </div>
                                     </div>

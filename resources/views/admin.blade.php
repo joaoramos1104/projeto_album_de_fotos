@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="modal-footer m-auto">
-                            <button type="button" class="btn btn-sm btn-warning shadow" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
+                            <button type="button" class="btn btn-sm btn-warning shadow" data-bs-dismiss="modal">Sair <i class="bi bi-arrow-bar-right"></i></i></button>
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                             </div>
                         </div>
                         <div class="modal-footer m-auto">
-                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar <i class="bi bi-box-arrow-right"></i></button>
+                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar <i class="bi bi-arrow-bar-right"></i></button>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                                                 <input type="text" class="form-control form-control-sm" aria-describedby="inputDecricao" name="description" value="{{ $theme->description_theme }}">
                                             </div>
                                             <div class="col-2 m-auto">
-                                                <button type="submit" class="input-group-text btn btn-sm btn-outline-success shadow" data-bs-dismiss="modal">Salvar <i class="bi bi-arrow-bar-right"></i></button>
+                                                <button type="submit" class="input-group-text btn btn-sm btn-outline-success shadow" data-bs-dismiss="modal">Salvar <i class="bi bi-check2"></i></i></button>
                                             </div>
                                         </form>
                                         <form method="post" action="{{ route('nova_foto') }}" enctype="multipart/form-data">
@@ -160,7 +160,7 @@
                                             <div class="input-group shadow">
                                                 <input type="hidden" name="theme_id" value="{{ $theme->id }}">
                                                 <input type="file" class="form-control form-control-sm" name="photo">
-                                                <button type="submit" class="input-group-text btn btn-sm btn-outline-success">Enviar <i class="bi bi-arrow-bar-right"></i></button>
+                                                <button type="submit" class="input-group-text btn btn-sm btn-outline-success">Enviar <i class="bi bi-check2"></i></button>
                                             </div>
                                         </form>
                                     </div>
@@ -184,7 +184,7 @@
                                             </div>
                                     </div>
                                     <div class="col modal-footer">
-                                        <button type="button" class="btn btn-sm btn-warning m-auto shadow mt-1" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
+                                        <button type="button" class="btn btn-sm btn-warning m-auto shadow mt-1" data-bs-dismiss="modal">Sair <i class="bi bi-arrow-bar-right"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -227,11 +227,11 @@
                                         <input type="text" class="form-control form-control-sm" aria-describedby="inputDecricao" name="description" value="" placeholder="Descrição" required>
                                     </div>
                                     <div class="col-2 m-auto">
-                                        <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Salvar <i class="bi bi-arrow-bar-right"></i></button>
+                                        <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Salvar <i class="bi bi-check2"></i></button>
                                     </div>
                                 </div>
                                 <div class="modal-footer m-auto">
-                                    <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
+                                    <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Sair <i class="bi bi-arrow-bar-right"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -258,119 +258,13 @@
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" name="name_album" value="" placeholder="Nome do novo Álbum" required>
                             <div class="input-group-append">
-                                <button class="btn btn-outline-success" type="submit" id="button-addon">Salvar <i class="bi bi-check2-circle"></i></button>
+                                <button class="btn btn-outline-success" type="submit" id="button-addon">Salvar <i class="bi bi-check2"></i></i></button>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer m-auto">
-                    <button type="submit" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancelar <i class="bi bi-box-arrow-right"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Gerenciar Convites -->
-<div class="modal fade" id="ger-convite" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelGerConvite" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-fullscreen">
-        <div class="modal-content text-dark">
-            <div class="modal-header bg-white">
-                <h5 class="modal-title" id="staticBackdropLabelGerConvite">{{ 'Gerenciar Convites ' }}</h5>
-                <i class="bi bi-envelope-check"></i>
-            </div>
-            <div class="container-fluid bg-white">
-                <div class="modal-body p-3">
-                    <h3>Convidados e Usuários</h3>
-                    <div class="row p-3">
-                            <div class="col-md-7 p-3">
-                                <div class="table-responsive p-3 small">
-                                    <table id="table_user" class="table table-sm table-hover table-borderless" style="width: 100%">
-                                    </table>
-                                </div>
-                            </div>
-
-                            <div class="col-md-5 col-sm-12 p-3 m-auto">
-                                <form class="row g-3" name="formVisitorUser">
-                                    @csrf
-                                    <div class="col-md-7">
-                                        <label class="form-label">Nome</label>
-                                        <div class="input-group">
-                                        <span class="input-group-text"><i class="bi bi-person-bounding-box"></i></span>
-                                        <input type="text" class="form-control form-control-sm" name="name" value="" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <label  class="form-label">Telefone</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                                        <input type="text" class="form-control form-control-sm" name="phone_visitor_user" value="" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="form-label">E-mail</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text">@</span>
-                                            <input type="email" class="form-control form-control-sm" aria-describedby="inputGroupPrepend" name="email" value="" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Senha</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                                            <input type="password" class="form-control form-control-sm" name="password" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Confirmar Senha</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                                            <input type="password" class="form-control form-control-sm" name="password_confirmation" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="form-label">Status</label>
-                                        <select class="form-select form-select-sm" name="status_visitor_user" required>
-                                            <option value="1">Ativo</option>
-                                            <option value="0">Inativo</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3 ms-3">
-                                        <label class="form-label">Visitante</label>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" name="visitor_user" type="checkbox" checked>
-                                            <label class="form-check-label"></label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 ms-3">
-                                        <label class="form-label">Administrador</label>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" name="admin_user" type="checkbox">
-                                            <label class="form-check-label"></label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="email_send_visitor">
-                                            <label class="form-check-label">
-                                                Enviar convite - E-mail.
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col">
-                                            <button class="btn btn-sm btn-warning" type="button">Cancelar</button>
-                                            <button class="btn btn-sm btn-primary" type="submit">Salvar</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-warning m-auto mt-3" data-bs-dismiss="modal">Fechar <i class="bi bi-box-arrow-right"></i></button>
+                    <button type="submit" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancelar <i class="bi bi-arrow-bar-right"></i></button>
                 </div>
             </div>
         </div>
