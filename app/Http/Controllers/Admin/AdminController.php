@@ -134,7 +134,7 @@ class AdminController extends Controller
     public function destroyTheme ($id)
     {
         $theme = Theme::with('hasImages')->find($id);
-        if (isset($theme))
+        if ($theme)
         {
             foreach ($theme->hasImages as $img)
             {
@@ -163,22 +163,22 @@ class AdminController extends Controller
 
     public function updateTheme(Request $request, $id)
     {
-        if (isset($request))
+        $theme = Theme::find($id);
+        if ($theme)
         {
-            $theme = Theme::find($id);
             $theme->name_theme = $request->input('name');
             $theme->description_theme = $request->input('description');
             $theme->save();
-
             return redirect()->route('admin');
         }
+        return redirect()->route('admin');
     }
 
 
     public function destroyPhoto ($id)
     {
         $image = Image::find($id);
-        if (isset($image))
+        if ($image)
         {
             $photo_url = $image->photo_url;
             Storage::delete([$photo_url]);
@@ -191,7 +191,7 @@ class AdminController extends Controller
     public function destroyComment ($id)
     {
         $comment = Comment::find($id);
-        if (isset($comment))
+        if ($comment)
         {
             $comment->delete();
             return redirect()->route('admin');
