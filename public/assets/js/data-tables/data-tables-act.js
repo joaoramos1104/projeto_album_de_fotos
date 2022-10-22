@@ -2,7 +2,7 @@
     "use strict";
     $(document).ready(function () {
         $.ajax({
-            url: "/visitor-user",
+            url: "/visitors-users",
             dataType: 'json',
             success: function (response) {
                 var dataSet = [];
@@ -31,7 +31,7 @@
                         value.admin,
                         value.visitor,
                         value.active,
-                        '<a href="/edit_user_visitor/'+ value.id +'" class="btn btn-sm btn-outline-light text-dark shadow">Editar <i class="bi bi-pencil-square"></i></a>'
+                        '<a href="/edit_visitor_user/'+ value.id +'" class="btn btn-sm btn-outline-light text-dark shadow">Editar <i class="bi bi-pencil-square"></i></a>'
                     ]);
 
                 })

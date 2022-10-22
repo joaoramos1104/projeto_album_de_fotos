@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-navbar />
     @foreach($albums as $album)
     <div class="container mb-3 text-center ">
         <h3 class="mb-3 p-3 fst-italic">{{ $album->name }} <i class="bi bi-image"></i></h3>

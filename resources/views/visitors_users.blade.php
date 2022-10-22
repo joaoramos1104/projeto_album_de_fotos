@@ -1,7 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-    <x-navbar />
-
     <div class="container">
         <div class="p-3">
             <h5>Convidados e Usuários</h5>
@@ -35,41 +33,41 @@
                         <h3>Convidados e Usuários</h3>
                         <div class="row p-3">
                             <div class="col-12 col-sm-12 p-3 m-auto">
-                                <form class="row g-3" name="formVisitorUser">
+                                <form class="row g-3" id="formCreateVisitorUser" action="{{ route('create_visitor_user') }}">
                                     @csrf
                                     <div class="col-md-7">
                                         <label class="form-label">Nome</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-person-bounding-box"></i></span>
-                                            <input type="text" class="form-control form-control-sm" name="name" value="" data-name="formVisitorUser" required>
+                                            <input type="text" class="form-control form-control-sm" name="name" value="" data-name="formCreateVisitorUser" required>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <label  class="form-label">Telefone</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                                            <input type="text" class="form-control form-control-sm" name="phone_visitor_user" value="" data-name="formVisitorUser" required>
+                                            <input type="text" class="form-control form-control-sm" name="phone_visitor_user" value="" data-name="formCreateVisitorUser" required>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <label class="form-label">E-mail</label>
                                         <div class="input-group">
                                             <span class="input-group-text">@</span>
-                                            <input type="email" class="form-control form-control-sm" aria-describedby="inputGroupPrepend" name="email" value="" data-name="formVisitorUser" required>
+                                            <input type="email" class="form-control form-control-sm" aria-describedby="inputGroupPrepend" name="email" value="" data-name="formCreateVisitorUser" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Senha</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                                            <input type="password" class="form-control form-control-sm" name="password" data-name="formVisitorUser" required>
+                                            <input type="password" class="form-control form-control-sm" name="password" data-name="formCreateVisitorUser" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Confirmar Senha</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                                            <input type="password" class="form-control form-control-sm" name="password_confirmation" data-name="formVisitorUser" required>
+                                            <input type="password" class="form-control form-control-sm" name="password_confirmation" data-name="formCreateVisitorUser" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -105,8 +103,8 @@
                                     <hr>
                                     <div class="col">
                                         <div class="col float-end">
-                                            <button class="btn btn-sm btn-success m-1" type="submit">Salvar</button>
                                             <button type="button" id="cleanFormCreateUserVisitor" class="btn btn-sm btn-warning m-1" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
+                                            <button class="btn btn-sm btn-success m-1" type="submit">Salvar <i class="bi bi-check2"></i></button>
                                         </div>
                                     </div>
                                 </form>

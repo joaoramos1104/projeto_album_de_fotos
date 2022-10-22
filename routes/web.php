@@ -45,11 +45,14 @@ Route::middleware(['admin'])->group(function (){
     Route::post('/nova_foto', [App\Http\Controllers\Admin\AdminController::class, 'storePhoto'])->name('nova_foto');
     Route::delete('/delete_photo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyPhoto'])->name('delete_photo');
     Route::delete('/delete_comment/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyComment'])->name('delete_comment');
-    Route::get('/visitor-user/', [App\Http\Controllers\Admin\AdminController::class, 'getVisitorUser'])->name('visitor-user');
+    Route::get('/visitors-users/', [App\Http\Controllers\Admin\AdminController::class, 'getVisitorsUsers'])->name('visitors-users');
     Route::post('/create_visitor_user/', [App\Http\Controllers\Admin\AdminController::class, 'create'])->name('create_visitor_user');
-    Route::get('/visitor_user', function () {
-        return view('/visitor_user');
-    });
+    Route::get('/visitors_users', function () {
+        return view('/visitors_users');
+    })->name('visitors_users');
+
+    Route::get('/edit_visitor_user/{id}', [App\Http\Controllers\Admin\AdminController::class, 'editVisitorUser'])->name('edit_visitor_user');
+    Route::put('/update_visitor_user/{id}', [App\Http\Controllers\Admin\AdminController::class, 'updateVisitorUser'])->name('update_visitor_user');
 
 
 });

@@ -29,9 +29,54 @@ class AdminController extends Controller
     }
 
 
-    public function getVisitorUser()
+    public function getVisitorsUsers()
     {
         return User::all()->toJson();
+    }
+
+    public function editVisitorUser($id)
+    {
+        $data =  User::findOrFail($id);
+        if ($data){
+            return view('edit_visitor_user', compact('data'));
+        }
+        return redirect()->route('visitors_users');
+    }
+
+    public function updateVisitorUser(Request $request, $id)
+    {
+        $visitor_user = User::find($id);
+
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'phone' => ['required', 'string']
+        ]);
+            if (isset($request->password)){
+                $this->validate($request, [
+                    'password' => ['required', 'string', 'min:8', 'confirmed'],
+                ]);
+                $visitor_user->password = Hash::make($request->input('password'));
+            }
+
+        $request['admin'] = 0;
+        $request['visitor'] = 0;
+            if ($request->input('admin') == 'on'){
+                $request['admin'] = 1;
+            }
+            if ($request->input('visitor') == 'on'){
+                $request['visitor'] = 1;
+            }
+
+            $visitor_user->name = $request['name'];
+            $visitor_user->email = $request['email'];
+            $visitor_user->phone = $request['phone'];
+            $visitor_user->active = $request['status'];
+            $visitor_user->admin = $request['admin'];
+            $visitor_user->visitor = $request['visitor'];
+            $visitor_user->save();
+        return $visitor_user->toJson();
+
     }
 
     public function storeAlbum(Request $request)

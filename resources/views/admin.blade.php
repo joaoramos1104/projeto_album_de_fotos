@@ -1,10 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-    <x-navbar />
 <div class="container text-center">
     <button class="btn btn-light shadow" data-bs-toggle="modal" data-bs-target="#novo">Novo Álbum <i class="bi bi-folder-plus"></i></button>
-    <a href="/visitor_user" class="btn btn-light shadow" >Gerenciar Convites <i class="bi bi-envelope-check"></i></a>
+    <a href="{{ route('visitors_users') }}" class="btn btn-light shadow" >Gerenciar Convites <i class="bi bi-envelope-check"></i></a>
 </div>
 <div class="container mt-3">
     <hr class="border-bottom border-light">
