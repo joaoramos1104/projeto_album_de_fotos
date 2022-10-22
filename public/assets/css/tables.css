@@ -1,0 +1,82 @@
+
+/*----------------------------------------*/
+
+/* Data Table CSS
+/*----------------------------------------*/
+.dataTables_filter, .dataTables_length {
+    padding: 20px 15px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.dataTables_length select {
+    margin: 0 8px !important;
+}
+.dataTables_filter input, .dataTables_filter select, .dataTables_length input, .dataTables_length select {
+    border: 1px solid #eee;
+    height: 30px;
+    padding: 7px 15px;
+    font-size: 13px;
+    border-radius: 2px;
+    line-height: 100%;
+    background-color: #fff;
+    outline:none;
+}
+.dataTables_filter input:focus, .dataTables_filter select:focus, .dataTables_length input:focus, .dataTables_length select:focus, .dataTables_length option:focus {
+    border: 1px solid #00c292 !important;
+}
+.dataTables_wrapper .dataTables_filter {
+    width: 30% !important;
+}
+.dataTables_wrapper .dataTables_filter input, .dataTables_wrapper .dataTables_filter label {
+    width: 100% !important;
+}
+.dataTables_filter label:after {
+    position: absolute !important;
+    font-size: 14px !important;
+    right: 0px !important;
+    top: 8px !important;
+}
+.dataTables_wrapper .dataTables_filter input {
+    margin: 0!important;
+    padding: 0px 0px 0px 10px !important;
+}
+.dataTables_filter label {
+    position: relative !important;
+    font-size: 0 !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous:before {
+    content: '<';
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.next:before, .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before {
+    font-size: 24px !important;
+    line-height: 35px !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.next, .dataTables_wrapper .dataTables_paginate .paginate_button.previous {
+    font-size: 0 !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.next:before {
+    content: '>' !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:focus, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: linear-gradient(to bottom, #35b973, #41a257) !important;
+    color: white !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%!important;
+    background-color: #f1f1f1;
+    vertical-align: top;
+    color: #7E7E7E!important;
+    margin: 0 2px;
+    border: 0!important;
+    line-height: 18px;
+    box-shadow: 0 .5rem 1rem rgba(20, 119, 78, 0.377)!important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_wrapper .dataTables_paginate .paginate_button:focus {
+    color: white !important;
+    border: 0px solid #ccc;
+    background: linear-gradient(to bottom, #35b973, #41a257) !important;
+}
+

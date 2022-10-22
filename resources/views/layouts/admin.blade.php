@@ -19,6 +19,9 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
 
     <!-- Style -->
+    <link rel="stylesheet" href="{{ asset('assets/css/tables.css') }}">
+
+    <!-- tables -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
     <!-- Data Tables css -->

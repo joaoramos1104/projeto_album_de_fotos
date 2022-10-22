@@ -31,10 +31,13 @@
                         value.admin,
                         value.visitor,
                         value.active,
+                        '<a href="/edit_user_visitor/'+ value.id +'" class="btn btn-sm btn-outline-light text-dark shadow">Editar <i class="bi bi-pencil-square"></i></a>'
                     ]);
 
                 })
                 $('#table_user').DataTable( {
+                    "lengthMenu": [5, 10, 15, 20],
+                    "pageLength": 5,
                     "language": {
                         "lengthMenu": "Exibir _MENU_ Por Página",
                         "zeroRecords": "Nothing found - sorry",
@@ -53,6 +56,7 @@
                         {title: 'Admin'},
                         {title: 'Visitante'},
                         {title: 'status'},
+                        {title: 'Ação'},
                     ]
                 } );
             },
