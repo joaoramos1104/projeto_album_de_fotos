@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="card text-dark">
+        <div class="card text-dark shadow">
             <div class="card-header bg-white">
                 <div class="float-start p-3">
                     <h5 class="card-title">{{ 'Editar Convites ' }}</h5>
