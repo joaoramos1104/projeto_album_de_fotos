@@ -47,16 +47,19 @@
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before {
     content: '<';
+    color: #696767F0;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.next:before, .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before {
-    font-size: 24px !important;
+    font-size: 14px !important;
     line-height: 35px !important;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.next, .dataTables_wrapper .dataTables_paginate .paginate_button.previous {
     font-size: 0 !important;
+
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.next:before {
     content: '>' !important;
+    color: #696767F0;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:focus, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
     background: linear-gradient(to bottom, #35b973, #41a257) !important;
@@ -71,7 +74,6 @@
     color: #7E7E7E!important;
     margin: 0 2px;
     border: 0!important;
-    line-height: 18px;
     box-shadow: 0 .5rem 1rem rgba(20, 119, 78, 0.377)!important;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_wrapper .dataTables_paginate .paginate_button:focus {

@@ -10,7 +10,7 @@
                         </table>
                         <div class="row mt-3">
                             <div class="col">
-                                <button class="btn btn-sm btn-success float-end shadow" data-bs-toggle="modal" data-bs-target="#ger-convite">Novo Convite <i class="bi bi-envelope-check"></i></button>
+                                <button class="btn btn-sm btn-success float-end shadow" data-bs-toggle="modal" data-bs-target="#new-visitor">Novo Convite <i class="bi bi-envelope-check"></i></button>
                             </div>
                         </div>
                     </div>
@@ -21,11 +21,11 @@
 
 
     <!-- Modal Gerenciar Convites -->
-    <div class="modal fade" id="ger-convite" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelGerConvite" aria-hidden="true">
+    <div class="modal fade" id="new-visitor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelNewVisitor" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content text-dark">
                 <div class="modal-header bg-white">
-                    <h5 class="modal-title" id="staticBackdropLabelGerConvite">{{ 'Novos Convites ' }}</h5>
+                    <h5 class="modal-title" id="staticBackdropLabelNewVisitor">{{ 'Novos Convites ' }}</h5>
                     <i class="bi bi-envelope-check"></i>
                 </div>
                 <div class="container-fluid bg-white">
@@ -103,7 +103,7 @@
                                     <hr>
                                     <div class="col">
                                         <div class="col float-end">
-                                            <button type="button" id="cleanFormCreateUserVisitor" class="btn btn-sm btn-warning m-1" data-bs-dismiss="modal">Cancelar <i class="bi bi-arrow-bar-right"></i></button>
+                                            <button type="button" id="cleanFormCreateUserVisitor" class="btn btn-sm btn-warning m-1" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
                                             <button class="btn btn-sm btn-success m-1" type="submit">Salvar <i class="bi bi-check2"></i></button>
                                         </div>
                                     </div>
@@ -117,3 +117,4 @@
     </div>
 
 @endsection
+

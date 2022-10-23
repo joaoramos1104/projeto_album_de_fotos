@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use function MongoDB\BSON\toJSON;
 
 class AdminController extends Controller
 {
@@ -59,19 +60,26 @@ class AdminController extends Controller
                 $visitor_user->password = Hash::make($request->input('password'));
             }
 
-        $request['admin'] = 0;
-        $request['visitor'] = 0;
             if ($request->input('admin') == 'on'){
                 $request['admin'] = 1;
+            } else {
+                $request['admin'] = 0;
             }
             if ($request->input('visitor') == 'on'){
                 $request['visitor'] = 1;
+            } else {
+                $request['visitor'] = 0;
+            }
+            if ($request->input('active') == 'on'){
+                $request['active'] = 1;
+            } else {
+                $request['active'] = 0;
             }
 
             $visitor_user->name = $request['name'];
             $visitor_user->email = $request['email'];
             $visitor_user->phone = $request['phone'];
-            $visitor_user->active = $request['status'];
+            $visitor_user->active = $request['active'];
             $visitor_user->admin = $request['admin'];
             $visitor_user->visitor = $request['visitor'];
             $visitor_user->save();

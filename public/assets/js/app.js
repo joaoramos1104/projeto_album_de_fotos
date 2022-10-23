@@ -1,11 +1,11 @@
 
-
-// Formulário criação de novo convite e usuário. -- visitor_user
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
 });
+
+// Form Create Visitor User
 $(function (){
     $('#formCreateVisitorUser').submit(function (event){
         event.preventDefault()
@@ -136,6 +136,7 @@ $(function (){
             type: 'post',
             dataType: 'json',
             success: function (response) {
+                console.log(response)
                 function notify(from, align, icon, type, animIn, animOut) {
                     $.growl({
                         title: ' <i class="bi bi-check2-square"></i> ',
@@ -240,4 +241,36 @@ $(function (){
 
         });
     });
+});
+
+// Check
+$('#active').click(function () {
+    if ($("#active").prop("checked") == true) {
+        $( ".strong-active" ).remove();
+        $( ".activelabel" ).append( "<strong class='strong-active'>Ativo</strong>" );
+    } else {
+        $( ".strong-active" ).remove();
+        $( ".activelabel" ).append( "<strong class='strong-active'>Inativo</strong>" );
+
+    }
+});
+$('#visitor').click(function () {
+    if ($("#visitor").prop("checked") == true) {
+        $( ".strong-visitor" ).remove();
+        $( ".visitorlabel" ).append( "<strong class='strong-visitor'>Sim</strong>" );
+    } else {
+        $( ".strong-visitor" ).remove();
+        $( ".visitorlabel" ).append( "<strong class='strong-visitor'>Não</strong>" );
+
+    }
+});
+$('#admin').click(function () {
+    if ($("#admin").prop("checked") == true) {
+        $( ".strong-admin" ).remove();
+        $( ".adminlabel" ).append( "<strong class='strong-admin'>Sim</strong>" );
+    } else {
+        $( ".strong-admin" ).remove();
+        $( ".adminlabel" ).append( "<strong class='strong-admin'>Não</strong>" );
+
+    }
 });
