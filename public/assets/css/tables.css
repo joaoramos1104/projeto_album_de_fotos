@@ -46,19 +46,19 @@
     font-size: 0 !important;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before {
-    content: '<';
+    content: '\F12C';
     color: #696767F0;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.next:before, .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before {
-    font-size: 14px !important;
-    line-height: 35px !important;
+    font-size: 20px !important;
+    line-height: 45px !important;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.next, .dataTables_wrapper .dataTables_paginate .paginate_button.previous {
     font-size: 0 !important;
 
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.next:before {
-    content: '>' !important;
+    content: '\F135' !important;
     color: #696767F0;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:focus, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {

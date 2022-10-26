@@ -1,5 +1,13 @@
+
+@font-face {
+    font-family: 'bootstrap-icons';
+    src: url('/assets/bootstrap/bootstrap-icons-1.9.1/fonts/bootstrap-icons.woff') format('woff');
+    src: url('/assets/bootstrap/bootstrap-icons-1.9.1/fonts/bootstrap-icons.woff') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 body {
-    font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "bootstrap-icons";
     background: #fff;
     color: #fff;
     background: linear-gradient(to bottom, rgb(20 196 240 / 0%) 0%, rgb(0 0 0 / 45%) 100%), url(/assets/img/7.jpg) no-repeat;
