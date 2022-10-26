@@ -31,7 +31,7 @@
                         value.admin,
                         value.visitor,
                         value.active,
-                        '<a href="/edit_visitor_user/'+ value.id +'" class="btn btn-sm btn-outline-warning border-0 text-dark shadow">Editar <i class="bi bi-pen"></i></a>'
+                        '<a href="/edit_visitor_user/'+ value.id +'" class="btn btn-sm btn-outline-warning border-0 shadow-sm">Editar <i class="text-secondary bi bi-pen"></i></a>'
                     ]);
 
                 })

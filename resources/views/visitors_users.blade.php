@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 @section('content')
     <div class="container">
-        <div class="p-3">
-            <h5>Convidados e Usuários</h5>
+        <div class="row p-3">
+            <div class="mt-1">
+                <h5>Convidados e Usuários</h5>
+                <div class="col">
+                    <button class="btn btn-sm btn-success shadow" data-bs-toggle="modal" data-bs-target="#new-visitor">Novo Convite <i class="bi bi-envelope-check"></i></button>
+                </div>
+            </div>
             <div class="row p-3">
                 <div class="col-md-12 p-3 rounded shadow  bg-white">
                     <div class="table-responsive p-3">
                         <table id="table_user" class="table table-sm table-hover table-borderless small" style="width: 100%">
                         </table>
-                        <div class="row mt-3">
-                            <div class="col">
-                                <button class="btn btn-sm btn-success float-end shadow" data-bs-toggle="modal" data-bs-target="#new-visitor">Novo Convite <i class="bi bi-envelope-check"></i></button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
