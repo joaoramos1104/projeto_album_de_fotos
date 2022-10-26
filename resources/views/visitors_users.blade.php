@@ -11,7 +11,7 @@
             <div class="row p-3">
                 <div class="col-md-12 p-3 rounded shadow  bg-white">
                     <div class="table-responsive p-3">
-                        <table id="table_user" class="table table-sm table-hover table-borderless small" style="width: 100%">
+                        <table id="table_user" class="table table-sm table-hover table-borderless small p-3" style="width: 100%">
                         </table>
                     </div>
                 </div>
@@ -20,11 +20,11 @@
     </div>
 
 
-    <!-- Modal Gerenciar Convites -->
+    <!-- Modal Novo Convite -->
     <div class="modal fade" id="new-visitor" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelNewVisitor" aria-hidden="true">
-        <div class="modal-dialog modal-lg shadow-lg">
+        <div class="modal-dialog modal-lg shadow-lg rounded-0">
             <div class="modal-content text-dark">
-                <div class="modal-header bg-white">
+                <div class="modal-header bg-white rounded-0">
                     <h5 class="modal-title" id="staticBackdropLabelNewVisitor">{{ 'Novos Convites ' }}</h5>
                     <i class="bi bi-envelope-check"></i>
                 </div>
@@ -103,8 +103,8 @@
                                     <hr>
                                     <div class="col">
                                         <div class="col float-end">
-                                            <button type="button" id="cleanFormCreateUserVisitor" class="btn btn-sm btn-warning m-1" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
-                                            <button class="btn btn-sm btn-success m-1" type="submit">Salvar <i class="bi bi-check2"></i></button>
+                                            <button type="button" id="cleanFormCreateUserVisitor" class="btn btn-sm btn-warning m-1 shadow" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
+                                            <button class="btn btn-sm btn-success m-1 shadow" type="submit">Salvar <i class="bi bi-check2"></i></button>
                                         </div>
                                     </div>
                                 </form>

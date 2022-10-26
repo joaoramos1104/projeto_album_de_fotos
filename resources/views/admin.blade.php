@@ -54,15 +54,15 @@
 
             <!-- Modal Comment-->
             <div class="modal fade" id="comment{{ $theme->id }}" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ $theme->id }}" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered shadow-lg small">
-                    <div class="modal-content modal-comment">
+                <div class="modal-dialog modal-lg modal-dialog-centered small">
+                    <div class="modal-content modal-comment shadow-lg bg-white rounded-0">
                         <div class="modal-header bg-white">
                             <h5 class="modal-title text-dark" id="staticBackdropLabel{{ $theme->id }}"> Comentários - {{ $theme->name_theme }} </h5>
                             <i class="bi bi-image"></i>
                         </div>
                         <div class="container p-3">
                             <div class="modal-body">
-                                <div class="list-group shadow scroll-comments">
+                                <div class="list-group scroll-comments">
                                     @foreach($theme->comments as $comment)
                                         <div class="list-group-item list-group-item-action">
                                             <div class="d-flex w-100 justify-content-between">
@@ -201,8 +201,8 @@
 
 <!-- Modal Adicionar Tema -->
 <div class="modal fade" id="add{{ $album->id }}" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelAdd{{ $album->id }}" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered shadow-lg">
-        <div class="modal-content text-dark">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content text-dark shadow-lg bg-white rounded-0">
             <div class="modal-header bg-white">
                 <h5 class="modal-title" id="staticBackdropLabelAdd{{ $album->id }}">{{ $album->name }} - Adicionar Temas e Fotos</h5>
                 <i class="bi bi-image"></i>
@@ -231,7 +231,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer m-auto">
-                                    <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
+                                    <button type="button" class="btn btn-sm btn-warning shadow" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -245,8 +245,8 @@
 
 <!-- Modal Novo -->
 <div class="modal fade" id="novo" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelNovo" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered shadow-lg">
-        <div class="modal-content text-dark">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content text-dark shadow-lg bg-white rounded-0">
             <div class="modal-header bg-white">
                 <h5 class="modal-title" id="staticBackdropLabelNovo">Novo Álbum</h5>
                 <i class="bi bi-image"></i>
@@ -264,7 +264,7 @@
                     </form>
                 </div>
                 <div class="modal-footer m-auto">
-                    <button type="submit" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
+                    <button type="submit" class="btn btn-sm btn-warning shadow" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
                 </div>
             </div>
         </div>
