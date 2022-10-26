@@ -47,8 +47,8 @@
             </div>
 
                 <!-- Modal Comment-->
-                <div class="modal fade" id="comment{{ $theme->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ $theme->id }}" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal fade" id="comment{{ $theme->id }}" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ $theme->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered shadow-lg">
                         <div class="modal-content modal-comment rounded-0">
                             <div class="modal-header text-black">
                                 <h5 class="modal-title" id="staticBackdropLabel{{ $theme->id }}"> Comentários - {{ $theme->name_theme }} </h5>

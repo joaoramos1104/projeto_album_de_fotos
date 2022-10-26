@@ -21,8 +21,8 @@
 
 
     <!-- Modal Gerenciar Convites -->
-    <div class="modal fade" id="new-visitor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelNewVisitor" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    <div class="modal fade" id="new-visitor" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelNewVisitor" aria-hidden="true">
+        <div class="modal-dialog modal-lg shadow-lg">
             <div class="modal-content text-dark">
                 <div class="modal-header bg-white">
                     <h5 class="modal-title" id="staticBackdropLabelNewVisitor">{{ 'Novos Convites ' }}</h5>

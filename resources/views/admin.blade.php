@@ -53,8 +53,8 @@
         </div>
 
             <!-- Modal Comment-->
-            <div class="modal fade" id="comment{{ $theme->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ $theme->id }}" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal fade" id="comment{{ $theme->id }}" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ $theme->id }}" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered shadow-lg small">
                     <div class="modal-content modal-comment">
                         <div class="modal-header bg-white">
                             <h5 class="modal-title text-dark" id="staticBackdropLabel{{ $theme->id }}"> Comentários - {{ $theme->name_theme }} </h5>
@@ -66,7 +66,7 @@
                                     @foreach($theme->comments as $comment)
                                         <div class="list-group-item list-group-item-action">
                                             <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">{{ $comment->name_user }}</h5>
+                                                <h6 class="mb-1">{{ $comment->name_user }}</h6>
                                                 <small>{{ $comment->created_at->format('d/m/Y - H:i') }}</small>
                                             </div>
                                             <p class="mb-1 float-start text-success">{{ $comment->comments }}</p>
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="modal-footer m-auto">
-                            <button type="button" class="btn btn-sm btn-warning shadow" data-bs-dismiss="modal">Sair <i class="bi bi-arrow-bar-right"></i></i></button>
+                            <button type="button" class="btn btn-sm btn-warning shadow" data-bs-dismiss="modal">Sair <i class="bi bi-arrow-bar-right"></i></button>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                                                 <input type="text" class="form-control form-control-sm" aria-describedby="inputDecricao" name="description" value="{{ $theme->description_theme }}">
                                             </div>
                                             <div class="col-2 m-auto">
-                                                <button type="submit" class="input-group-text btn btn-sm btn-outline-success shadow" data-bs-dismiss="modal">Salvar <i class="bi bi-check2"></i></i></button>
+                                                <button type="submit" class="input-group-text btn btn-sm btn-outline-success shadow" data-bs-dismiss="modal">Salvar <i class="bi bi-check2"></i></button>
                                             </div>
                                         </form>
                                         <form method="post" action="{{ route('nova_foto') }}" enctype="multipart/form-data">
@@ -200,8 +200,8 @@
 </div>
 
 <!-- Modal Adicionar Tema -->
-<div class="modal fade" id="add{{ $album->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelAdd{{ $album->id }}" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal fade" id="add{{ $album->id }}" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelAdd{{ $album->id }}" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered shadow-lg">
         <div class="modal-content text-dark">
             <div class="modal-header bg-white">
                 <h5 class="modal-title" id="staticBackdropLabelAdd{{ $album->id }}">{{ $album->name }} - Adicionar Temas e Fotos</h5>
@@ -231,7 +231,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer m-auto">
-                                    <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Sair <i class="bi bi-arrow-bar-right"></i></button>
+                                    <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -244,8 +244,8 @@
 @endforeach
 
 <!-- Modal Novo -->
-<div class="modal fade" id="novo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelNovo" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal fade" id="novo" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelNovo" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered shadow-lg">
         <div class="modal-content text-dark">
             <div class="modal-header bg-white">
                 <h5 class="modal-title" id="staticBackdropLabelNovo">Novo Álbum</h5>
@@ -258,13 +258,13 @@
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" name="name_album" value="" placeholder="Nome do novo Álbum" required>
                             <div class="input-group-append">
-                                <button class="btn btn-outline-success" type="submit" id="button-addon">Salvar <i class="bi bi-check2"></i></i></button>
+                                <button class="btn btn-outline-success" type="submit" id="button-addon">Salvar <i class="bi bi-check2"></i></button>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer m-auto">
-                    <button type="submit" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancelar <i class="bi bi-arrow-bar-right"></i></button>
+                    <button type="submit" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
                 </div>
             </div>
         </div>
