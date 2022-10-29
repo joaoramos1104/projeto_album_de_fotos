@@ -230,6 +230,13 @@ footer {
     text-align: center;
     padding: 5px;
 }
+.scroll-photo-theme {
+
+    height: 50vh;
+    overflow-x: hidden;
+    text-align: center;
+    padding: 5px;
+}
 
 .scroll-comments {
     height: 40vh;

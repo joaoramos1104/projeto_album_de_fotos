@@ -24,7 +24,7 @@ class IndexController extends Controller
     public function index()
     {
         $albums = Album::with('themes.hasImages','themes.comments')->get();
-        return view('home', compact('albums'));
+        return view('app.home', compact('albums'));
     }
 
     public function storyComments(Request $request)

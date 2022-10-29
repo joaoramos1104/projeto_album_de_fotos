@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('index');
+    return view('app.index');
 })->name('/');
 
 Route::get('/login', function () {
@@ -41,7 +41,13 @@ Route::middleware(['admin'])->group(function (){
     Route::delete('/delete_album/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyAlbum'])->name('delete_album');
     Route::post('/novo_tema', [App\Http\Controllers\Admin\AdminController::class, 'storeTheme'])->name('novo_tema');
     Route::delete('/excluir_tema/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyTheme'])->name('excluir_tema');
-    Route::put('/editar_tema/{id}', [App\Http\Controllers\Admin\AdminController::class, 'updateTheme'])->name('editar_tema');
+    Route::put('/edit_theme/{id}', [App\Http\Controllers\Admin\AdminController::class, 'updateTheme'])->name('editar_tema');
+    Route::get('/editar_tema/{id}', [App\Http\Controllers\Admin\AdminController::class, 'getTheme'])->name('get-theme');
+
+    Route::get('/edit_theme', function () {
+        return view('/admin.edit_theme');
+    })->name('edit_theme');
+
     Route::post('/nova_foto', [App\Http\Controllers\Admin\AdminController::class, 'storePhoto'])->name('nova_foto');
     Route::delete('/delete_photo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyPhoto'])->name('delete_photo');
     Route::delete('/delete_comment/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyComment'])->name('delete_comment');
@@ -49,11 +55,10 @@ Route::middleware(['admin'])->group(function (){
     Route::post('/create_visitor_user/', [App\Http\Controllers\Admin\AdminController::class, 'create'])->name('create_visitor_user');
 
     Route::get('/visitors_users', function () {
-        return view('/visitors_users');
+        return view('/admin.visitors_users');
     })->name('visitors_users');
 
     Route::get('/edit_visitor_user/{id}', [App\Http\Controllers\Admin\AdminController::class, 'editVisitorUser'])->name('edit_visitor_user');
     Route::put('/update_visitor_user/{id}', [App\Http\Controllers\Admin\AdminController::class, 'updateVisitorUser'])->name('update_visitor_user');
-
 
 });

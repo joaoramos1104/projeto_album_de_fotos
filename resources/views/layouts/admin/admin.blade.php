@@ -51,9 +51,6 @@
 
 <!--  notification JS -->
 <script src="{{ asset('assets/js/notification/bootstrap-growl.min.js') }}"></script>
-<script src="{{ asset('assets/js/notification/notification-active.js') }}"></script>
-
-<script src="{{ asset('assets/js/notification/notify.min.js') }}"></script>
 
 <!-- app.js -->
 <script src="{{ asset('assets/js/app.js') }}"></script>

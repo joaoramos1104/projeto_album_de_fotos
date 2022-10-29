@@ -26,7 +26,7 @@ class AdminController extends Controller
     public function index()
     {
         $albums = Album::with('themes.hasImages')->get();
-        return view('admin', compact('albums'));
+        return view('admin.admin', compact('albums'));
     }
 
 
@@ -39,7 +39,7 @@ class AdminController extends Controller
     {
         $data =  User::findOrFail($id);
         if ($data){
-            return view('edit_visitor_user', compact('data'));
+            return view('admin.edit_visitor_user', compact('data'));
         }
         return redirect()->route('visitors_users');
     }
@@ -157,17 +157,26 @@ class AdminController extends Controller
 
     public function storePhoto (Request $request)
     {
+
+        $request->validate([
+           'photo_url' => 'required',
+        ]);
+
         $themeImage = new Image();
-        if ($request->input('theme_id') AND $request->file('photo'))
-        {
-            $themeImage->theme_id = $request->input('theme_id');
-            $themeImage->photo_url = $request->file('photo')->store('url_img');
+            $themeImage->theme_id = $request->theme_id;
+            $themeImage->photo_url = $request->photo_url->store('url_img');
             $themeImage->save();
-            return redirect()->route('admin');
+            return $themeImage->toJson();
+    }
+
+    public function getTheme($id)
+    {
+        $theme =  Theme::find($id);
+        if ($theme){
+            return view('admin.edit_theme', compact('theme'));
         }
         return redirect()->route('admin');
     }
-
 
     public function updateTheme(Request $request, $id)
     {
@@ -177,7 +186,7 @@ class AdminController extends Controller
             $theme->name_theme = $request->input('name');
             $theme->description_theme = $request->input('description');
             $theme->save();
-            return redirect()->route('admin');
+            return $theme->toJson();
         }
         return redirect()->route('admin');
     }

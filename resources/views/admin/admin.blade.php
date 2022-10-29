@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.admin.admin')
 
 @section('content')
 <div class="container text-center">
@@ -45,7 +45,7 @@
                             </form>
                         </div>
                         <div class="col-6 m-auto">
-                            <a href="#" class="btn btn-sm btn-light shadow" data-bs-toggle="modal" data-bs-target="#ModalEdit{{ $theme->id }}">Editar <i class="bi bi-pencil-square"></i></a>
+                            <a href="{{ route('get-theme', $theme->id) }}" class="btn btn-sm btn-light shadow">Editar <i class="bi bi-pencil-square"></i></a>
                         </div>
                     </div>
                 </div>
@@ -120,74 +120,6 @@
                         </div>
                         <div class="modal-footer m-auto">
                             <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar <i class="bi bi-arrow-bar-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal edit-->
-            <div class="modal fade" id="ModalEdit{{ $theme->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEdit{{ $theme->id }}" aria-hidden="true">
-                <div class="modal-dialog modal-fullscreen">
-                    <div class="modal-content text-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabelEdit{{ $theme->id }}">Editar -
-                                {{ $theme->name_theme }}</h5>
-                            <i class="bi bi-image"></i>
-                        </div>
-                        <div class="container-fluid bg-light">
-                            <div class="modal-body bg-white">
-                                <div class="row col">
-                                    <div class="col-md-5 col-sm-12 border-end border-darck m-auto">
-                                        <form class="p-2" method="post" action="{{ route('editar_tema', $theme->id) }}">
-                                            @method('PUT')
-                                            @csrf
-                                            <input type="hidden" name="album_id" value="{{ $theme->id }}">
-                                            <div class="m-1 input-group shadow">
-                                                <span class="input-group-text" id="EditTema">Tema</span>
-                                                <input type="text" class="form-control form-control-sm" aria-describedby="EditTema" name="name" value="{{ $theme->name_theme }}">
-                                            </div>
-                                            <div class="m-1 input-group shadow">
-                                                <span class="input-group-text" id="inputDecricao" >Descrição</span>
-                                                <input type="text" class="form-control form-control-sm" aria-describedby="inputDecricao" name="description" value="{{ $theme->description_theme }}">
-                                            </div>
-                                            <div class="col-2 m-auto">
-                                                <button type="submit" class="input-group-text btn btn-sm btn-outline-success shadow" data-bs-dismiss="modal">Salvar <i class="bi bi-check2"></i></button>
-                                            </div>
-                                        </form>
-                                        <form method="post" action="{{ route('nova_foto') }}" enctype="multipart/form-data">
-                                            @csrf
-                                            <strong><p>Adicionar nova Foto</p></strong>
-                                            <div class="input-group shadow">
-                                                <input type="hidden" name="theme_id" value="{{ $theme->id }}">
-                                                <input type="file" class="form-control form-control-sm" name="photo">
-                                                <button type="submit" class="input-group-text btn btn-sm btn-outline-success">Enviar <i class="bi bi-check2"></i></button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="col-md-7 col-sm-12 scroll">
-                                            <div class="row col">
-                                                @foreach($theme->hasImages as $image)
-                                                <div class="card card-edit text-center">
-                                                    <img src="{{ env('APP_URL') }}/storage/{{ $image->photo_url }}" class="tabel-img" alt="...">
-                                                    <div class="card-body">
-                                                        <button class="btn btn-sm btn-danger shadow"
-                                                            onclick="event.preventDefault();
-                                                            document.getElementById('delete_photo{{$image->id}}').submit();">Excluir <i class="bi bi-x"></i>
-                                                        </button>
-                                                        <form id="delete_photo{{$image->id}}" action="{{ route('delete_photo', $image->id) }}" method="POST" class="d-none">
-                                                            @csrf
-                                                            @method("DELETE")
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                @endforeach
-                                            </div>
-                                    </div>
-                                    <div class="col modal-footer">
-                                        <button type="button" class="btn btn-sm btn-warning m-auto shadow mt-1" data-bs-dismiss="modal">Sair <i class="bi bi-arrow-bar-right"></i></button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
