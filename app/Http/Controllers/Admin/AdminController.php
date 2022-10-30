@@ -111,6 +111,12 @@ class AdminController extends Controller
 
     public function storeTheme(Request $request)
     {
+        $request->validate([
+            'photo_url' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'name_theme' => 'required',
+            'description_theme' => 'required',
+        ]);
+
         $theme = new Theme();
 
         if ($request->album_id && $request->name && $request->description){
@@ -159,7 +165,7 @@ class AdminController extends Controller
     {
 
         $request->validate([
-           'photo_url' => 'required',
+           'photo_url' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
         $themeImage = new Image();
