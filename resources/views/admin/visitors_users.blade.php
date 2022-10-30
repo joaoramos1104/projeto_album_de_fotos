@@ -1,11 +1,12 @@
 @extends('layouts.admin.admin')
 @section('content')
     <div class="container">
-        <div class="row p-3">
+        <div class="row">
             <div class="mt-1">
                 <h5>Convidados e Usuários</h5>
-                <div class="col">
+                <div class="col float-end p-3">
                     <button class="btn btn-sm btn-success shadow" data-bs-toggle="modal" data-bs-target="#new-visitor">Novo Convite <i class="bi bi-envelope-check"></i></button>
+                    <a  href="{{ route('visitors_users') }}" type="button" class="btn btn-sm btn-warning">Voltar <i class="bi bi-arrow-return-left"></i></a>
                 </div>
             </div>
             <div class="row p-3">

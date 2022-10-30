@@ -200,7 +200,7 @@ class AdminController extends Controller
             $photo_url = $image->photo_url;
             Storage::delete([$photo_url]);
             $image->delete();
-            return redirect()->route('admin');
+            return redirect()->back()->with('success','Foto removida com sucesso.');;
         }
         return redirect()->route('admin');
     }

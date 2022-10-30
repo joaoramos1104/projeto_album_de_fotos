@@ -37,19 +37,19 @@
                                 <strong><p>Adicionar nova Foto</p></strong>
                                 <div class="input-group shadow">
                                     <input type="hidden" name="theme_id" value="{{ $theme->id }}">
-                                    <input type="file" class="form-control form-control-sm" name="photo_url">
+                                    <input type="file" class="form-control form-control-sm" data-name="photo_url" name="photo_url">
                                     <button type="submit" class="input-group-text btn btn-sm btn-outline-success">Enviar <i class="bi bi-check2"></i></button>
                                 </div>
                             </form>
                         </div>
 
                         <div class="col-md-7 col-sm-12 scroll-photo-theme">
-                            <div class="row col">
+                            <div class="row col" id="photo_edit">
                                 @foreach($theme->hasImages as $image)
-                                    <div id="card-edit" class="card card-edit text-center">
-                                        <img id="img-card-edit" src="{{ env('APP_URL') }}/storage/{{ $image->photo_url }}" class="tabel-img" alt="...">
+                                    <div class="card card-edit text-center">
+                                        <img src="{{ env('APP_URL') }}/storage/{{ $image->photo_url }}" class="tabel-img" alt="...">
                                         <div class="card-body">
-                                            <button class="btn btn-sm btn-danger shadow"
+                                            <button class="btn btn-sm btn-danger shadow" id="button-delete-photo"
                                                     onclick="event.preventDefault();
                                                             document.getElementById('delete_photo{{$image->id}}').submit();">Excluir <i class="bi bi-x"></i>
                                             </button>
@@ -59,6 +59,11 @@
                                             </form>
                                         </div>
                                     </div>
+
+                                    <script>
+
+                                    </script>
+
                                 @endforeach
                             </div>
                         </div>
