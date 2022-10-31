@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="modal-footer m-auto">
-                            <button type="button" class="btn btn-sm btn-warning shadow" data-bs-dismiss="modal">Sair <i class="bi bi-arrow-bar-right"></i></button>
+                            <button type="button" class="btn btn-sm btn-warning shadow" data-bs-dismiss="modal">Voltar <i class="bi bi-arrow-return-left"></i></button>
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                             </div>
                         </div>
                         <div class="modal-footer m-auto">
-                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar <i class="bi bi-arrow-bar-right"></i></button>
+                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Voltar <i class="bi bi-arrow-return-left"></i></i></button>
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
 </div>
 
 <!-- Modal Adicionar Tema -->
-<div class="modal fade" id="add{{ $album->id }}" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelAdd{{ $album->id }}" aria-hidden="true">
+<div class="modal fade" id="add{{ $album->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelAdd{{ $album->id }}" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content text-dark shadow-lg bg-white rounded-0" id="modal-new-theme">
             <div class="modal-header bg-white">
@@ -163,7 +163,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer m-auto">
-                                    <button type="button" class="btn btn-sm btn-warning shadow" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
+                                    <button type="button" class="btn btn-sm btn-warning shadow" data-bs-dismiss="modal">Voltar <i class="bi bi-arrow-return-left"></i></button>
                                 </div>
                             </form>
                         </div>

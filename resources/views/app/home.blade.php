@@ -80,7 +80,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer m-auto">
-                                <button type="button" class="btn btn-sm btn-warning" id="clean{{ $theme->id }}" data-bs-dismiss="modal">Sair <i class="bi bi-box-arrow-right"></i></button>
+                                <button type="button" class="btn btn-sm btn-warning" id="clean{{ $theme->id }}" data-bs-dismiss="modal">Voltar <i class="bi bi-arrow-return-left"></i></button>
                             </div>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer m-auto">
-                                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar <i class="bi bi-box-arrow-right"></i></button>
+                                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Voltar <i class="bi bi-arrow-return-left"></i></button>
                             </div>
                         </div>
                     </div>
