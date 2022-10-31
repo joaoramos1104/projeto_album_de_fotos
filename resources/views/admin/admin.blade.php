@@ -9,7 +9,7 @@
     <hr class="border-bottom border-light">
 </div>
 @foreach($albums as $album)
-<div class="container mb-3 text-center">
+<div class="container mb-3 text-center"  id="content-album">
     <div class="row justify-content-center">
         <h3 class="mb-1 p-3 fst-italic">{{ $album->name }} <i class="bi bi-image"></i></h3>
         <div class="col">
@@ -37,9 +37,9 @@
                         <div class="col-6 m-auto">
                             <a href="{{ route('excluir_tema', $theme->id) }}" class="btn btn-sm btn-danger"
                                onclick="event.preventDefault();
-                               document.getElementById('excluir_tema').submit();">Excluir <i class="bi bi-x"></i>
+                               document.getElementById('excluir_tema{{ $theme->id }}').submit();">Excluir <i class="bi bi-x"></i>
                             </a>
-                            <form id="excluir_tema" action="{{ route('excluir_tema', $theme->id) }}" method="POST" class="d-none">
+                            <form id="excluir_tema{{ $theme->id }}" action="{{ route('excluir_tema', $theme->id) }}" method="POST" class="d-none">
                                 @csrf
                                 @method("DELETE")
                             </form>
@@ -134,7 +134,7 @@
 <!-- Modal Adicionar Tema -->
 <div class="modal fade" id="add{{ $album->id }}" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelAdd{{ $album->id }}" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content text-dark shadow-lg bg-white rounded-0">
+        <div class="modal-content text-dark shadow-lg bg-white rounded-0" id="modal-new-theme">
             <div class="modal-header bg-white">
                 <h5 class="modal-title" id="staticBackdropLabelAdd{{ $album->id }}">{{ $album->name }} - Adicionar Temas e Fotos</h5>
                 <i class="bi bi-image"></i>
@@ -142,24 +142,24 @@
             <div class="container-fluid">
                 <div class="modal-body">
                     <div class="row col">
-                        <div class="border-end border-darck m-auto">
-                            <form method="post" action="{{ route('novo_tema') }}" enctype="multipart/form-data">
+                        <div class="border-end border-darck m-auto" id="form-new-theme">
+                            <form id="new-theme" name="new-theme" method="post" action="{{ route('novo_tema') }}" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="album_id" value="{{ $album->id }}">
                                 <div class="input-group m-1">
-                                    <input type="file" class="form-control" name="photo_url[]" multiple>
+                                    <input type="file" class="form-control" data-name="form-new-theme" name="photo_url[]" multiple>
                                 </div>
                                 <div class="row">
                                     <div class="m-1 input-group">
                                         <span class="input-group-text" id="AddTema">Tema</span>
-                                        <input type="text" class="form-control form-control-sm" aria-describedby="AddTema" name="name" value="" placeholder="Tema" required>
+                                        <input type="text" class="form-control form-control-sm" aria-describedby="AddTema" data-name="form-new-theme" name="name"  value="" placeholder="Tema" required>
                                     </div>
                                     <div class="m-1 input-group">
                                         <span class="input-group-text" id="inputDecricao" >Descrição</span>
-                                        <input type="text" class="form-control form-control-sm" aria-describedby="inputDecricao" name="description" value="" placeholder="Descrição" required>
+                                        <input type="text" class="form-control form-control-sm" aria-describedby="inputDecricao" data-name="form-new-theme" name="description" value="" placeholder="Descrição" required>
                                     </div>
                                     <div class="col-2 m-auto">
-                                        <button type="submit" class="input-group-text btn btn-sm btn-outline-success" data-bs-dismiss="modal">Salvar <i class="bi bi-check2"></i></button>
+                                        <button type="submit" class="input-group-text btn btn-sm btn-outline-success">Salvar <i class="bi bi-check2"></i></button>
                                     </div>
                                 </div>
                                 <div class="modal-footer m-auto">
@@ -197,6 +197,21 @@
                 </div>
                 <div class="modal-footer m-auto">
                     <button type="submit" class="btn btn-sm btn-warning shadow" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal loading -->
+<div class="modal fade" id="loading" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark shadow-lg">
+
+            <div class="modal-body">
+                <div class="d-flex justify-content-center text-success">
+                    <div class="spinner-border" role="status"> </div>
+                    <strong> Loading...</strong>
                 </div>
             </div>
         </div>

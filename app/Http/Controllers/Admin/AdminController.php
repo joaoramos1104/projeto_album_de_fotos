@@ -112,17 +112,15 @@ class AdminController extends Controller
     public function storeTheme(Request $request)
     {
         $request->validate([
-            'photo_url' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'name_theme' => 'required',
-            'description_theme' => 'required',
+            'photo_url.*' => ['required','image','mimes:jpg,png,jpeg,gif,svg'],
+            'name_theme.*' => ['required'],
+            'description_theme.*' => ['required'],
         ]);
 
         $theme = new Theme();
-
-        if ($request->album_id && $request->name && $request->description){
-            $theme->album_id = $request->album_id;
-            $theme->name_theme = $request->name;
-            $theme->description_theme = $request->description;
+            $theme->album_id = $request['album_id'];
+            $theme->name_theme = $request['name'];
+            $theme->description_theme = $request['description'];
             $theme->save();
 
             if ($request->hasFile('photo_url')){
@@ -130,9 +128,7 @@ class AdminController extends Controller
                 $theme->hasImages()->createMany($image);
             }
 
-            return redirect('admin')->with("success","Thema Inserido!");
-        }
-        return redirect('admin')->with("error","Ocorreu um erro inexperado");
+            return $theme->toJson();
     }
 
     private function hasImages(Request $request, $imageColum){

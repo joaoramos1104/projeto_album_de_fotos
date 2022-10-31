@@ -27,7 +27,7 @@ function notification (title, message, template){
             spacing: 10,
             z_index: 2031,
             delay: 2500,
-            timer: 3000,
+            timer: 5000,
             url_target: '_blank',
             mouse_over: false,
             animate: {
@@ -58,12 +58,13 @@ function notification (title, message, template){
 $(function (){
     $('#formCreateVisitorUser').submit(function (event){
         event.preventDefault()
-        url = document.getElementById('formCreateVisitorUser').action;
+        var url = $(this).attr("action");
         $.ajax({
             data: $(this).serialize(),
             url: url,
             type: "post",
             dataType: 'json',
+
             success: function (response){
                 title = ' <i class="bi bi-check2-square"></i> '
                 message = 'Registro realizado com sucesso!'
@@ -97,7 +98,7 @@ $(function (){
 $(function () {
     $('#formEditVisitorUser').submit(function (event) {
         event.preventDefault()
-        url = document.getElementById("formEditVisitorUser").action;
+        var url = $(this).attr("action");
         $.ajax({
             data: $(this).serialize(),
             url: url,
@@ -156,6 +157,60 @@ $(function () {
 
         }
     });
+});
+
+// New Theme
+$(function () {
+    $('#new-theme').submit(function (event)  {
+        event.preventDefault()
+        var url = $(this).attr("action");
+        var formData = new FormData($(this)[0])
+        var form = formData
+
+        $.ajax({
+            data: form,
+            url: url,
+            type: 'post',
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+
+            beforeSend: function () {
+                  $('#loading').modal('show');
+            },
+
+            success: function (response) {
+                console.log(response)
+                title = ' <i class="bi bi-check2-square"></i> '
+                message = 'Foto adicionada com sucesso!'
+                template = '<div class="alert alert-success" role="alert">'+
+                    '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
+                    '</div>'
+                notification(title, message, template)
+
+                // recarregar a div
+                 $("#content-album").load(location.href + " #content-album");
+                $('[data-name="form-new-theme"]').val('');
+            },
+
+            error: function (response) {
+                console.log(response)
+                title = ' <i class="bi bi-exclamation-circle"> </i> '
+                message = response.responseJSON.message
+                template = '<div class="alert alert-danger" role="alert">'+
+                    '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
+                    '</div>'
+
+                notification(title, message, template)
+            },
+
+            complete: function(){
+                $('#loading').modal('hide');
+            }
+
+        })
+    })
+
 });
 
 // Edit theme
