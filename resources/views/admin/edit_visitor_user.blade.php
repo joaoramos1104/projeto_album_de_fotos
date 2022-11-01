@@ -78,8 +78,9 @@
 
                                 <div class="col-12">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="email_send_visitor">
-                                        <label class="form-check-label"><strong>Enviar convite - E-mail.</strong></label>
+                                        <input class="form-check-input" type="checkbox" name="send-mail">
+                                        <label class="form-check-label"><strong>Enviar E-mail.</strong></label>
+                                        <div id="message-email" class="col-4"></div>
                                     </div>
                                 </div>
                                 <hr>

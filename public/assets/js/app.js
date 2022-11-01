@@ -68,10 +68,13 @@ $(function (){
             success: function (response){
                 title = ' <i class="bi bi-check2-square"></i> '
                 message = 'Registro realizado com sucesso!'
-                template =  '<div class="alert alert-success" role="alert">'+
+                template =
+                            '<div class="alert alert-success" role="alert">'+
                             '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
                             '</div>'
+
                 notification(title, message, template)
+
                 $(function(){
                     $('[data-name="formCreateVisitorUser"]').val('');
                 });
@@ -79,7 +82,8 @@ $(function (){
             error: function (response){
                 title = ' <i class="bi bi-exclamation-circle"> </i> '
                 message = response.responseJSON.message
-                template =  '<div class="alert alert-danger" role="alert">'+
+                template =
+                            '<div class="alert alert-danger" role="alert">'+
                             '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
                             '</div>'
 
@@ -105,20 +109,37 @@ $(function () {
             type: 'post',
             dataType: 'json',
             success: function (response) {
+
                 title = ' <i class="bi bi-check2-square"></i> '
                 message = 'Registro atualizado com sucesso!'
-                template = '<div class="alert alert-success" role="alert">' +
-                    '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
-                    '</div>'
+                template =
+                            '<div class="alert alert-success" role="alert">' +
+                            '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
+                            '</div>'
                 notification(title, message, template)
                 $('[data-name="VisitorUserPassword"]').val('');
+
+                if (response.message){
+                    $('#message-email').append(
+                        '<div id="message-alert" class="alert alert-success alert-dismissible fade show" role="alert">' +
+                        ' <strong>Sucesso!</strong> E-mail enviado com sucesso.' +
+                        '</div>'
+                    )
+
+                    setInterval(function () {
+                        $("#message-alert").fadeTo(500, 0).slideUp(500, function(){
+                            $("#message-alert").remove();
+                        });
+                    },5000);
+                }
             },
             error: function (response) {
                 title = ' <i class="bi bi-exclamation-circle"> </i> '
                 message = response.responseJSON.message
-                template = '<div id="notification" class="alert alert-danger" role="alert">' +
-                    '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
-                    '</div>'
+                template =
+                            '<div id="notification" class="alert alert-danger" role="alert">' +
+                            '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
+                            '</div>'
 
                 notification(title, message, template)
             }
@@ -183,9 +204,11 @@ $(function () {
                 console.log(response)
                 title = ' <i class="bi bi-check2-square"></i> '
                 message = 'Foto adicionada com sucesso!'
-                template = '<div class="alert alert-success" role="alert">'+
-                    '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                    '</div>'
+                template =
+                            '<div class="alert alert-success" role="alert">'+
+                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
+                            '</div>'
+
                 notification(title, message, template)
 
                 // recarregar a div
@@ -197,9 +220,10 @@ $(function () {
                 console.log(response)
                 title = ' <i class="bi bi-exclamation-circle"> </i> '
                 message = response.responseJSON.message
-                template = '<div class="alert alert-danger" role="alert">'+
-                    '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                    '</div>'
+                template =
+                            '<div class="alert alert-danger" role="alert">'+
+                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
+                            '</div>'
 
                 notification(title, message, template)
             },
@@ -226,17 +250,20 @@ $(function (){
             success: function (response) {
                 title = ' <i class="bi bi-check2-square"></i> '
                 message = 'Tema atualizado com sucesso!'
-                template = '<div class="alert alert-success" role="alert">'+
-                    '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                    '</div>'
+                template =
+                            '<div class="alert alert-success" role="alert">'+
+                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
+                            '</div>'
+
                 notification(title, message, template)
             },
             error: function (response) {
                 title = ' <i class="bi bi-exclamation-circle"> </i> '
                 message = response.responseJSON.message
-                template = '<div class="alert alert-danger" role="alert">'+
-                    '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                    '</div>'
+                template =
+                            '<div class="alert alert-danger" role="alert">'+
+                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
+                            '</div>'
 
                 notification(title, message, template)
             }
@@ -262,10 +289,13 @@ $(function (){
                 console.log(response)
                 title = ' <i class="bi bi-check2-square"></i> '
                 message = 'Foto adicionada com sucesso!'
-                template = '<div class="alert alert-success" role="alert">'+
+                template =
+                            '<div class="alert alert-success" role="alert">'+
                             '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
                             '</div>'
+
                 notification(title, message, template)
+
                 // recarregar a div
                 $("#photo_edit").load(location.href + " #photo_edit");
                 $('[data-name="photo_url"]').val('');
@@ -273,9 +303,10 @@ $(function (){
             error: function (response) {
                 title = ' <i class="bi bi-exclamation-circle"> </i> '
                 message = response.responseJSON.message
-                template = '<div class="alert alert-danger" role="alert">'+
-                         '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                         '</div>'
+                template =
+                            '<div class="alert alert-danger" role="alert">'+
+                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
+                            '</div>'
 
                 notification(title, message, template)
             }

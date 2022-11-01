@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Mail\MailForm;
 use App\Models\Album;
 use App\Models\Comment;
 use App\Models\Theme;
@@ -83,9 +84,16 @@ class AdminController extends Controller
             $visitor_user->admin = $request['admin'];
             $visitor_user->visitor = $request['visitor'];
             $visitor_user->save();
-        return $visitor_user->toJson();
 
+            //Send E-mail
+            if ($request->input('send-mail') == 'on'){
+                $contact = new MailForm($request);
+                    $contact->sendEmail();
+                    $visitor_user['message'] = "success, E-mail enviado com sucesso!";
+            }
+        return $visitor_user->toJson();
     }
+
 
     public function storeAlbum(Request $request)
     {
