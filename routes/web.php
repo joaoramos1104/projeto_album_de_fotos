@@ -26,6 +26,11 @@ Route::get('/register', function () {
     return view('auth/register');
 });
 
+Route::get('/reset-password', function () {
+    return view('auth/passwords/email');
+})->name('reset-password');
+
+
 Route::post('/visitor_invitation', [App\Http\Controllers\Index\VisitorController::class, 'storyVisitorInvitation'])->name('visitor_invitation');
 
 Auth::routes();

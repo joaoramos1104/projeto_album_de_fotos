@@ -1,4 +1,4 @@
-@extends('layouts.login')
+@extends('layouts.app.login')
 
 @section('content')
 
@@ -8,15 +8,11 @@
                 <div class="row">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <strong><a class="nav-link fst-italic" href="{{ route('home') }}"><img src="assets/img/logo/logo5.png" class="img-logo shadow" alt=""> Meu Álbum</a></strong>
+                            <strong><a class="nav-link fst-italic" href="{{ route('home') }}"><img src="assets/img/logo/logo3.png" class="img-logo shadow" alt="">
+                                    {{ 'Meu Álbum' }}</a></strong>
                         </li>
                     </ul>
                 </div>
-{{--                <ul class="nav navbar float-end">--}}
-{{--                    <li class="nav-item me-2">--}}
-{{--                        <a href="{{ route('login') }}" class="btn btn-custom btn-light shadow" data-bs-toggle="modal" data-bs-target="#login">LOGIN</a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
             </div>
         </nav>
     </div>
@@ -42,6 +38,9 @@
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="Check" name="remember"{{ old('remember') ? 'checked' : '' }}>
                                 <label class="form-check-label" for="Check">Check me out</label>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <a type="button" href="{{ route('reset-password') }}" class=" float-end">Forgot password <i class="bi bi-lock"></i></a>
                             </div>
                         </div>
                         <a href="{{ route('register') }}" class="text-warning"> Solicitar convite </a>

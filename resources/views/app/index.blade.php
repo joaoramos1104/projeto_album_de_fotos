@@ -58,8 +58,10 @@
                             <input type="checkbox" class="form-check-input" id="Check" name="remember"{{ old('remember') ? 'checked' : '' }}>
                             <label class="form-check-label" for="Check">Check me out</label>
                         </div>
+                        <div class="mb-3 form-check">
+                            <a type="button" href="{{ route('reset-password') }}" class=" float-end">Forgot password <i class="bi bi-lock"></i></a>
+                        </div>
                     </div>
-                    <a href="{{ route('register') }}" class="text-warning"> Solicitar convite </a>
                     <div class="modal-footer p-3">
                         <button type="button" class="btn btn-warning btn-sm rounded-0 shadow" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
                         <button type="submit" class="btn btn-sm btn-success rounded-0 shadow">Entrar <i class="bi bi-arrow-bar-right"></i></button>

@@ -1,10 +1,22 @@
-@extends('layouts.admin')
-
+@extends('layouts.app.login')
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <div class="row">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <strong><a class="nav-link fst-italic" href="{{ route('home') }}"><img src="assets/img/logo/logo5.png" class="img-logo shadow" alt=""> Meu Álbum</a></strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center content-vh">
+            <div class="col-md-8 m-auto">
+                <div class="card bg-dark">
                     <div class="card-header">{{ __('Reset Password') }}</div>
 
                     <div class="card-body">
