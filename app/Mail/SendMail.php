@@ -30,7 +30,7 @@ class SendMail extends Mailable
     {
         return $this
             ->from( config('mail.from.address'))
-            ->subject('Novo contato Portfolio')
+            ->subject('Meu Álbum')
             ->view('mail.mail')
             ->with('data', $this->data);
     }
