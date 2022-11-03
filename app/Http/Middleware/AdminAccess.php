@@ -16,11 +16,15 @@ class AdminAccess
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() and auth()->user()->admin AND auth()->user()->active){
-            return $next($request);
-        } elseif (auth()->check() and auth()->user()->visitor AND auth()->user()->active){
-            return redirect('home');
+        if (auth()->user()->active) {
+
+            if (auth()->check() and auth()->user()->admin AND auth()->user()->active){
+                return $next($request);
+            } elseif (auth()->check() and auth()->user()->visitor AND auth()->user()->active){
+                // return $next($request);
+                return redirect('home');
+            }
         }
-        return redirect('/');
+        return redirect('/login')->with('message', 'Seu convite ainda não foi aprovado, aguarde! ');
     }
 }
