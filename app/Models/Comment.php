@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
-    protected $table = 'comments';
+    // protected $table = 'comments';
+    protected $fillable = [
+        'comments',
+        'name_user',
+        'theme_id',
+    ];
 
     public function theme()
     {

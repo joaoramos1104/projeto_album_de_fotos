@@ -54,6 +54,48 @@ function notification (title, message, template){
 
 //------------------------------------------------------------------
 
+// New Comment
+// $(function () {
+//     $('#new-comment').submit(function (event)  {
+//         event.preventDefault()
+//         var data = $(this).attr("data-name");
+//         var url = $(this).attr("action");
+//         var form = $(this).serialize();
+//         console.log(data)
+
+//         // $.ajax({
+//         //     data: form,
+//         //     url: url,
+//         //     type: 'post',
+//         //     dataType: 'json',
+//         //     async: false,
+//         //     success: function (response) {
+//         //         console.log(response)
+//         //         console.log(response.theme_id)
+//         //         // recarregar a div
+//         //         $('#scroll-drop-comments'+response.theme_id).load(location.href + ' #scroll-drop-comments'+response.theme_id);
+//         //         $('#modal-comments'+response.theme_id).load(location.href + ' #modal-comments'+response.theme_id);
+//         //         $('#count-comments'+response.theme_id).load(location.href + ' #count-comments'+response.theme_id);
+//         //         $('[data-name="textarea-comment"]').val('');
+//         //     },
+
+//         //     error: function (response) {
+//         //         console.log(response)
+//         //         title = ' <i class="bi bi-exclamation-circle"> </i> '
+//         //         message = response.responseJSON.message
+//         //         template =
+//         //                     '<div class="alert alert-danger" role="alert">'+
+//         //                     '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
+//         //                     '</div>'
+
+//         //         notification(title, message, template)
+//         //     },
+
+//         // })
+//     })
+
+// });
+
 // Form Create Visitor User
 $(function (){
     $('#formCreateVisitorUser').submit(function (event){

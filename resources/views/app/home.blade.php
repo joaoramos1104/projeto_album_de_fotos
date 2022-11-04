@@ -19,13 +19,13 @@
                         <div class=" dropdown no-arrow">
                             <button class="btn btn-sm btn-comment shadow dropdown-toggle" type="button" id="dropdownMenu{{ $theme->id }}" data-bs-toggle="dropdown" aria-expanded="false">
                                 Comentários
-                                <span class="badge bg-info rounded-pill">{{ count($theme->comments) }}</span>
+                                <span class="badge bg-info rounded-pill"  id="count-comments{{ $theme->id }}">{{ count($theme->comments) }}</span>
                             </button>
                             <ul class="dropdown-menu animated-fade-in" aria-labelledby="dropdownMenu{{ $theme->id }}">
                                 <li>
                                     <h6 class="dropdown-header">Comentários </h6>
                                 </li>
-                                <div class="scroll-drop-comments">
+                                <div id="scroll-drop-comments{{ $theme->id }}" class="scroll-drop-comments">
                                     @foreach($theme->comments as $comment)
                                         <li>
                                             <a class="dropdown-item d-flex align-items-center" href="#">
@@ -56,7 +56,7 @@
                             </div>
                             <div class="container p-3">
                                 <div class="modal-body bg-white small">
-                                    <div class="list-group shadow scroll-comments">
+                                    <div id="modal-comments{{ $theme->id }}" class="list-group shadow scroll-comments">
                                         @foreach($theme->comments as $comment)
                                         <div class="list-group-item list-group-item-action add-comment">
                                             <div class="d-flex w-100 justify-content-between">
@@ -67,16 +67,16 @@
                                         </div>
                                         @endforeach
                                     </div>
-                                        <form method="post" action="{{ route('add_comentario') }}" class="mt-3">
-                                        @csrf
-                                        <input type="hidden" name="theme_id" value="{{ $theme->id }}">
-                                        <input type="hidden" name="name_user" value="{{ Auth::user()->name }}">
-                                        <div class="input-group">
-                                            <textarea type="text" class="form-control form-control-sm" name="comment" id="textarea{{ $theme->id }}" placeholder="Adicionar comentário"></textarea>
+                                        <form id="new-comment{{ $theme->id }}" data-name="new-comment{{ $theme->id }}" method="post" action="{{ route('add_comentario') }}" class="mt-3">
+                                            @csrf
+                                            <input type="hidden" name="theme_id" value="{{ $theme->id }}">
+                                            <input type="hidden" name="name_user" value="{{ Auth::user()->name }}">
+                                            <div class="input-group">
+                                                <textarea type="text" class="form-control form-control-sm" name="comment" data-name="textarea-comment" id="textarea{{ $theme->id }}" placeholder="Adicionar comentário"></textarea>
+                                                <x-emojis />
+                                            </div>
                                             <button type="submit" class="input-group-text btn btn-sm btn-outline-success">Enviar <i class="bi bi-arrow-bar-right"></i></button>
-                                            <x-emojis />
-                                        </div>
-                                    </form>
+                                        </form>
                                 </div>
                             </div>
                             <div class="modal-footer m-auto">

@@ -29,15 +29,20 @@ class IndexController extends Controller
 
     public function storyComments(Request $request)
     {
-        $comment = new Comment();
-        if ($request)
-        {
-            $comment->comments = $request->input('comment');
-            $comment->name_user = $request->input('name_user');
-            $comment->theme_id = $request->input('theme_id');
-            $comment->save();
-            return redirect()->route('home');
-        }
+
+        $this->validate($request, [
+                'comment' => ['required', 'string', 'max:255'],
+                'name_user' => ['required', 'string', 'max:255'],
+                'theme_id' => ['required']
+            ],
+        );
+
+        Comment::create([
+        'comments' => $request['comment'],
+        'name_user' => $request['name_user'],
+        'theme_id' => $request['theme_id'],
+
+        ]);
         return redirect()->route('home');
     }
 

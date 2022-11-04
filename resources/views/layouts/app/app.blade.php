@@ -28,11 +28,28 @@
     <x-navbar />
     @yield('content')
     <x-footer />
+    <!-- Modal loading -->
+<div class="modal fade" id="loading" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark shadow-lg">
+
+            <div class="modal-body">
+                <div class="d-flex justify-content-center text-success">
+                    <div class="spinner-border" role="status"> </div>
+                    <strong> Loading...</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 </main>
 <script src="{{ asset('assets/js/jquery/jquery-3.6.1.js') }}"></script>
 <script src="{{ asset('assets/js/popperjs/popperjs-2.9.2.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 
+<!-- app.js -->
+<script src="{{ asset('assets/js/app.js') }}"></script>
 <script>
 
     @if(isset($theme->id))
