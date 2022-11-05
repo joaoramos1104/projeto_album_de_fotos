@@ -16,7 +16,7 @@ class AdminAccess
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->active) {
+        if (auth()->check() AND auth()->user()->active) {
 
             if (auth()->check() and auth()->user()->admin AND auth()->user()->active){
                 return $next($request);
@@ -25,6 +25,6 @@ class AdminAccess
                 return redirect('home');
             }
         }
-        return redirect('/login')->with('message', 'Seu convite ainda não foi aprovado, aguarde! ');
+        return redirect('/login')->with('message', 'É preciso realizar login, verfique em seu E-mail se seu convite foi aprovado! ');
     }
 }

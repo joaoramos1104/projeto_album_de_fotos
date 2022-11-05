@@ -22,6 +22,6 @@ class VisitorAccess
                 return $next($request);
             }
         }
-        return redirect('/login')->with('message', 'É preciso realizar login, verfique em seu E-mail se o convite foi aprovado! ');
+        return redirect('/login')->with('message', 'É preciso realizar login, verfique em seu E-mail se seu convite foi aprovado! ');
     }
 }
