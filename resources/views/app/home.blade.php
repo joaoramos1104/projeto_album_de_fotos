@@ -31,7 +31,7 @@
                                             <a class="dropdown-item d-flex align-items-center" href="#">
                                                 <div>
                                                     <span class="small text-gray-500">{{ $comment->name_user }}</span>
-                                                    <p class="small text-gray-500 m-0">{{ $comment->created_at->format('d/M/Y') }}</p>
+                                                    <p class="small text-gray-500 m-0">{{ $comment->created_at->translatedFormat('l, d \d\e F, Y') }}</p>
                                                     <p class="small text-success m-0">{!! $comment->comments !!}</p>
                                                 </div>
                                             </a>

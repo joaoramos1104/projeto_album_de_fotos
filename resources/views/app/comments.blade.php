@@ -23,7 +23,7 @@
                                     <div class="list-group-item list-group-item-action add-comment">
                                         <div class="d-flex w-100 justify-content-between">
                                             <h6 class="mb-1">{{ $comment->name_user }}</h6>
-                                            <small>{{ $comment->created_at->format('d/M/Y - H:i') }}</small>
+                                            <small>{{ $comment->created_at->translatedFormat('l, d \d\e F, Y') }}</small>
                                         </div>
                                         <p class="mb-1 float-start text-success">{!! $comment->comments !!}</p>
                                     </div>
