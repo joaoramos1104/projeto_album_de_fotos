@@ -16,12 +16,12 @@ class VisitorAccess
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->active) {
+        if (auth()->check() AND auth()->user()->active) {
 
             if (auth()->check() AND auth()->user()->visitor AND auth()->user()->active){
                 return $next($request);
             }
         }
-        return redirect('/login')->with('message', 'Seu convite ainda não foi aprovado, aguarde! ');
+        return redirect('/login')->with('message', 'É preciso realizar login, verfique em seu E-mail se o convite foi aprovado! ');
     }
 }
