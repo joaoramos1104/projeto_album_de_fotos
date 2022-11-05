@@ -50,8 +50,9 @@ $.ajaxSetup({
     },
 });
 
-// Form Create Visitor User
+
 $(function (){
+    // Form Create Visitor User
     $('#formCreateVisitorUser').submit(function (event){
         event.preventDefault()
         var url = $(this).attr("action");
@@ -94,8 +95,7 @@ $(function (){
     });
 
 
-// Form Edit Visitor User
-
+    // Form Edit Visitor User
     $('#formEditVisitorUser').submit(function (event) {
         event.preventDefault()
         var url = $(this).attr("action");
@@ -143,7 +143,7 @@ $(function (){
         });
     });
 
-// Check
+    // Check
     $('#active').click(function () {
         if ($("#active").prop("checked") == true) {
             $(".strong-active").remove();
@@ -175,9 +175,51 @@ $(function (){
         }
     });
 
+    // New Comments
+    $('#new-comment').submit(function (event)  {
+        event.preventDefault()
+        var url = $(this).attr("action");
+        var form = $(this).serialize();
 
-// New Theme
+        $.ajax({
+            data: form,
+            url: url,
+            type: 'post',
+            dataType: 'json',
 
+            success: function (response) {
+                console.log(response)
+
+                    title = ' <i class="bi bi-check2-square"></i> '
+                    message = 'Comnentário adicionado com sucesso!'
+                    template =
+                            '<div class="alert alert-success" role="alert">'+
+                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
+                            '</div>'
+                notification(title, message, template);
+
+                $('#scroll-drop-comments'+response.theme_id).load(' #scroll-drop-comments'+response.theme_id);
+                $('#count-comments'+response.theme_id).load(' #count-comments'+response.theme_id);
+                $('#scroll-comments').load(location.href + ' #scroll-comments');
+                $('[data-name="textarea-comment"]').val('');
+            },
+
+            error: function (response) {
+                title = ' <i class="bi bi-exclamation-circle"> </i> '
+                message = response.responseJSON.message
+                template =
+                            '<div class="alert alert-danger" role="alert">'+
+                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
+                            '</div>'
+
+                notification(title, message, template)
+
+            },
+
+        })
+    })
+
+    // New Themes
     $('#new-theme').submit(function (event)  {
         event.preventDefault()
         var url = $(this).attr("action");
@@ -231,10 +273,7 @@ $(function (){
         })
     })
 
-
-
-// Edit theme
-
+    // Edit theme
     $('#formEditTheme').submit(function (event) {
         event.preventDefault()
         url = $(this).attr("action")
@@ -308,51 +347,5 @@ $(function (){
             }
         })
     })
-
-
-// New Comments
-    $('#new-comment').submit(function (event)  {
-        event.preventDefault()
-        var url = $(this).attr("action");
-        var form = $(this).serialize();
-
-        $.ajax({
-            data: form,
-            url: url,
-            type: 'post',
-            dataType: 'json',
-
-            success: function (response) {
-                console.log(response)
-
-                    title = ' <i class="bi bi-check2-square"></i> '
-                    message = 'Comnentário adicionado com sucesso!'
-                    template =
-                            '<div class="alert alert-success" role="alert">'+
-                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                            '</div>'
-                notification(title, message, template);
-
-                $('#scroll-drop-comments'+response.theme_id).load(' #scroll-drop-comments'+response.theme_id);
-                $('#count-comments'+response.theme_id).load(' #count-comments'+response.theme_id);
-                $('#scroll-comments').load(location.href + ' #scroll-comments');
-                $('[data-name="textarea-comment"]').val('');
-            },
-
-            error: function (response) {
-                title = ' <i class="bi bi-exclamation-circle"> </i> '
-                message = response.responseJSON.message
-                template =
-                            '<div class="alert alert-danger" role="alert">'+
-                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                            '</div>'
-
-                notification(title, message, template)
-
-            },
-
-        })
-    })
-
 
 });
