@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Album de Fotos - Home</title>
+    <title>Album de Fotos</title>
     <link rel="icon" type="image/x-icon" href="assets/img/logo/logo3.png">
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -20,6 +20,12 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+     <!-- animate CSS -->
+     <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+
+     <!-- notification CSS -->
+     <link rel="stylesheet" href="{{ asset('assets/css/notification/notification.css') }}">
 
 </head>
 
@@ -47,6 +53,9 @@
 <script src="{{ asset('assets/js/jquery/jquery-3.6.1.js') }}"></script>
 <script src="{{ asset('assets/js/popperjs/popperjs-2.9.2.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+
+<!--  notification JS -->
+<script src="{{ asset('assets/js/notification/bootstrap-growl.min.js') }}"></script>
 
 <!-- app.js -->
 <script src="{{ asset('assets/js/app.js') }}"></script>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container-fluid">
     <div class="card text-dark shadow">
         <div class="card-header bg-white">
             <div class="float-start p-1">
@@ -15,7 +15,7 @@
         <div class="container-fluid bg-white">
             <div class="card-body p-3">
                 <div class="row">
-                    <div class="col-md-5 col-sm-12 border-end border-darck m-auto">
+                    <div class="col-md-4 col-sm-12 border-end border-darck m-auto">
                         <div class="container-fluid p-1">
                             <div class="card-body bg-white small">
                                 <div class="list-group shadow scroll-comments" id="scroll-comments">
@@ -43,11 +43,9 @@
                                     </form>
                             </div>
                         </div>
-
-
                     </div>
 
-                    <div class="col-md-7 col-sm-12">
+                    <div class="col-md-8 col-sm-12">
                         <div class="row col">
                             <div id="carousel" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
@@ -73,11 +71,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col card-footer d-flex justify-content-center mt-2">
+                        <a href="{{ route('home') }}" type="button" class="btn btn-sm btn-warning m-auto shadow m-3">Voltar <i class="bi bi-arrow-return-left"></i></a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="col card-footer m-auto">
-                <a href="{{ route('home') }}" type="button" class="btn btn-sm btn-warning m-auto shadow m-3">Voltar <i class="bi bi-arrow-return-left"></i></a>
             </div>
         </div>
     </div>

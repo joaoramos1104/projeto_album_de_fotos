@@ -1,13 +1,3 @@
-(function ($) {
-    "use strict";
-
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    },
-});
-
-
 // notification
 function notification (title, message, template){
     function notify(from, align, icon, type, animIn, animOut){
@@ -54,38 +44,10 @@ function notification (title, message, template){
     });
 }
 
-//------------------------------------------------------------------
-
-// New Comments
-$(function () {
-    $('#new-comment').submit(function (event)  {
-        event.preventDefault()
-        var url = $(this).attr("action");
-        var form = $(this).serialize();
-
-        $.ajax({
-            data: form,
-            url: url,
-            type: 'post',
-            dataType: 'json',
-
-            success: function (response) {
-                console.log(response)
-
-                $('#scroll-drop-comments'+response.theme_id).load(' #scroll-drop-comments'+response.theme_id);
-                $('#count-comments'+response.theme_id).load(' #count-comments'+response.theme_id);
-                $('#scroll-comments').load(location.href + ' #scroll-comments');
-                $('[data-name="textarea-comment"]').val('');
-            },
-
-            error: function (response) {
-                console.log(response)
-
-            },
-
-        })
-    })
-
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
 });
 
 // Form Create Visitor User
@@ -130,10 +92,10 @@ $(function (){
     $("#cleanFormCreateUserVisitor").click(function(){
         $('[data-name="formCreateVisitorUser"]').val('');
     });
-});
+
 
 // Form Edit Visitor User
-$(function () {
+
     $('#formEditVisitorUser').submit(function (event) {
         event.preventDefault()
         var url = $(this).attr("action");
@@ -212,10 +174,10 @@ $(function () {
 
         }
     });
-});
+
 
 // New Theme
-$(function () {
+
     $('#new-theme').submit(function (event)  {
         event.preventDefault()
         var url = $(this).attr("action");
@@ -269,10 +231,10 @@ $(function () {
         })
     })
 
-});
+
 
 // Edit theme
-$(function (){
+
     $('#formEditTheme').submit(function (event) {
         event.preventDefault()
         url = $(this).attr("action")
@@ -347,6 +309,50 @@ $(function (){
         })
     })
 
-});
 
-})(jQuery);
+// New Comments
+    $('#new-comment').submit(function (event)  {
+        event.preventDefault()
+        var url = $(this).attr("action");
+        var form = $(this).serialize();
+
+        $.ajax({
+            data: form,
+            url: url,
+            type: 'post',
+            dataType: 'json',
+
+            success: function (response) {
+                console.log(response)
+
+                    title = ' <i class="bi bi-check2-square"></i> '
+                    message = 'Comnentário adicionado com sucesso!'
+                    template =
+                            '<div class="alert alert-success" role="alert">'+
+                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
+                            '</div>'
+                notification(title, message, template);
+
+                $('#scroll-drop-comments'+response.theme_id).load(' #scroll-drop-comments'+response.theme_id);
+                $('#count-comments'+response.theme_id).load(' #count-comments'+response.theme_id);
+                $('#scroll-comments').load(location.href + ' #scroll-comments');
+                $('[data-name="textarea-comment"]').val('');
+            },
+
+            error: function (response) {
+                title = ' <i class="bi bi-exclamation-circle"> </i> '
+                message = response.responseJSON.message
+                template =
+                            '<div class="alert alert-danger" role="alert">'+
+                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
+                            '</div>'
+
+                notification(title, message, template)
+
+            },
+
+        })
+    })
+
+
+});
