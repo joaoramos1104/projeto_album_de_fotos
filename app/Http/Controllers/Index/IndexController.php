@@ -27,6 +27,16 @@ class IndexController extends Controller
         return view('app.home', compact('albums'));
     }
 
+
+    public function showComments($id)
+    {
+        $theme =  Theme::find($id);
+        if ($theme){
+            return view('app.comments', compact('theme'));
+        }
+        return redirect()->route('/');
+    }
+
     public function storyComments(Request $request)
     {
 
@@ -37,13 +47,14 @@ class IndexController extends Controller
             ],
         );
 
-        Comment::create([
+        $comment = Comment::create([
         'comments' => $request['comment'],
         'name_user' => $request['name_user'],
         'theme_id' => $request['theme_id'],
 
         ]);
-        return redirect()->route('home');
+        return $comment->toJson();
+        // return redirect()->route('home');
     }
 
 }

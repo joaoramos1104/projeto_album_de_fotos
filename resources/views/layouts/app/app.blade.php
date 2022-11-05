@@ -59,11 +59,6 @@
             $('#textarea'+i).val($('#textarea'+i).val() + emoji)
         }
     })
-    for (let i = 0; i <= {{ $theme->id }}; i++ ){
-        $('#clean'+i).click(function() {
-            $('#textarea'+i).val('');
-        })
-    }
     @endif
 
 </script>

@@ -1,3 +1,5 @@
+(function ($) {
+    "use strict";
 
 $.ajaxSetup({
     headers: {
@@ -54,47 +56,37 @@ function notification (title, message, template){
 
 //------------------------------------------------------------------
 
-// New Comment
-// $(function () {
-//     $('#new-comment').submit(function (event)  {
-//         event.preventDefault()
-//         var data = $(this).attr("data-name");
-//         var url = $(this).attr("action");
-//         var form = $(this).serialize();
-//         console.log(data)
+// New Comments
+$(function () {
+    $('#new-comment').submit(function (event)  {
+        event.preventDefault()
+        var url = $(this).attr("action");
+        var form = $(this).serialize();
 
-//         // $.ajax({
-//         //     data: form,
-//         //     url: url,
-//         //     type: 'post',
-//         //     dataType: 'json',
-//         //     async: false,
-//         //     success: function (response) {
-//         //         console.log(response)
-//         //         console.log(response.theme_id)
-//         //         // recarregar a div
-//         //         $('#scroll-drop-comments'+response.theme_id).load(location.href + ' #scroll-drop-comments'+response.theme_id);
-//         //         $('#modal-comments'+response.theme_id).load(location.href + ' #modal-comments'+response.theme_id);
-//         //         $('#count-comments'+response.theme_id).load(location.href + ' #count-comments'+response.theme_id);
-//         //         $('[data-name="textarea-comment"]').val('');
-//         //     },
+        $.ajax({
+            data: form,
+            url: url,
+            type: 'post',
+            dataType: 'json',
 
-//         //     error: function (response) {
-//         //         console.log(response)
-//         //         title = ' <i class="bi bi-exclamation-circle"> </i> '
-//         //         message = response.responseJSON.message
-//         //         template =
-//         //                     '<div class="alert alert-danger" role="alert">'+
-//         //                     '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-//         //                     '</div>'
+            success: function (response) {
+                console.log(response)
 
-//         //         notification(title, message, template)
-//         //     },
+                $('#scroll-drop-comments'+response.theme_id).load(' #scroll-drop-comments'+response.theme_id);
+                $('#count-comments'+response.theme_id).load(' #count-comments'+response.theme_id);
+                $('#scroll-comments').load(location.href + ' #scroll-comments');
+                $('[data-name="textarea-comment"]').val('');
+            },
 
-//         // })
-//     })
+            error: function (response) {
+                console.log(response)
 
-// });
+            },
+
+        })
+    })
+
+});
 
 // Form Create Visitor User
 $(function (){
@@ -108,7 +100,7 @@ $(function (){
             dataType: 'json',
 
             success: function (response){
-                title = ' <i class="bi bi-check2-square"></i> '
+                title = '<i class="bi bi-check2-square"></i>'
                 message = 'Registro realizado com sucesso!'
                 template =
                             '<div class="alert alert-success" role="alert">'+
@@ -357,4 +349,4 @@ $(function (){
 
 });
 
-
+})(jQuery);

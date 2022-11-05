@@ -39,52 +39,13 @@
                                     @endforeach
                                 </div>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class=" dropdown-item text-center small" href="#" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Adicionar comnentários <i class="bi bi-plus"></i></a></li>
+                                <li>
+                                    <a class="dropdown-item text-center small" href="{{ route('show_comments', $theme->id) }}">Adicionar comnentários <i class="bi bi-plus"></i></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-
-                <!-- Modal Comment-->
-                <div class="modal fade" id="comment{{ $theme->id }}" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ $theme->id }}" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content modal-comment shadow-lg rounded-0">
-                            <div class="modal-header text-black">
-                                <h5 class="modal-title" id="staticBackdropLabel{{ $theme->id }}"> Comentários - {{ $theme->name_theme }} </h5>
-                                <i class="bi bi-image"></i>
-                            </div>
-                            <div class="container p-3">
-                                <div class="modal-body bg-white small">
-                                    <div id="modal-comments{{ $theme->id }}" class="list-group shadow scroll-comments">
-                                        @foreach($theme->comments as $comment)
-                                        <div class="list-group-item list-group-item-action add-comment">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h6 class="mb-1">{{ $comment->name_user }}</h6>
-                                                <small>{{ $comment->created_at->format('d/M/Y - H:i') }}</small>
-                                            </div>
-                                            <p class="mb-1 float-start text-success">{!! $comment->comments !!}</p>
-                                        </div>
-                                        @endforeach
-                                    </div>
-                                        <form id="new-comment{{ $theme->id }}" data-name="new-comment{{ $theme->id }}" method="post" action="{{ route('add_comentario') }}" class="mt-3">
-                                            @csrf
-                                            <input type="hidden" name="theme_id" value="{{ $theme->id }}">
-                                            <input type="hidden" name="name_user" value="{{ Auth::user()->name }}">
-                                            <div class="input-group">
-                                                <textarea type="text" class="form-control form-control-sm" name="comment" data-name="textarea-comment" id="textarea{{ $theme->id }}" placeholder="Adicionar comentário"></textarea>
-                                                <x-emojis />
-                                            </div>
-                                            <button type="submit" class="input-group-text btn btn-sm btn-outline-success">Enviar <i class="bi bi-arrow-bar-right"></i></button>
-                                        </form>
-                                </div>
-                            </div>
-                            <div class="modal-footer m-auto">
-                                <button type="button" class="btn btn-sm btn-warning" id="clean{{ $theme->id }}" data-bs-dismiss="modal">Voltar <i class="bi bi-arrow-return-left"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Modal Carousel -->
                 <div class="modal fade" id="imgCarousel{{ $theme->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">

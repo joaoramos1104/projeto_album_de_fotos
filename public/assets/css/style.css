@@ -245,6 +245,13 @@ footer {
     padding: 5px;
 }
 
+.scroll-emojis {
+    height: 15vh;
+    overflow-x: hidden;
+    text-align: center;
+    padding: 5px;
+}
+
 .scroll-drop-comments {
     height: 30vh;
     overflow-x: hidden;
