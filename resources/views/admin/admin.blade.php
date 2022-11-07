@@ -8,8 +8,9 @@
 <div class="container mt-3">
     <hr class="border-bottom border-light">
 </div>
+<div class="content-vh">
 @foreach($albums as $album)
-<div class="container mb-3 text-center"  id="content-album">
+<div class="container mb-3 text-center"  id="content-album-admin">
     <div class="row justify-content-center">
         <h3 class="mb-1 p-3 fst-italic">{{ $album->name }} <i class="bi bi-image"></i></h3>
         <div class="col">
@@ -119,7 +120,7 @@
                             </div>
                         </div>
                         <div class="modal-footer m-auto">
-                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Voltar <i class="bi bi-arrow-return-left"></i></i></button>
+                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Voltar <i class="bi bi-arrow-return-left"></i></button>
                         </div>
                     </div>
                 </div>
@@ -129,6 +130,7 @@
     <div class="container mt-3">
         <hr class="border-bottom border-light">
     </div>
+</div>
 </div>
 
 <!-- Modal Adicionar Tema -->
@@ -197,6 +199,21 @@
                 </div>
                 <div class="modal-footer m-auto">
                     <button type="submit" class="btn btn-sm btn-warning shadow" data-bs-dismiss="modal">Cancelar <i class="bi bi-x"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal loading -->
+<div class="modal fade" id="loading" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark shadow-lg">
+
+            <div class="modal-body">
+                <div class="d-flex justify-content-center text-success">
+                    <div class="spinner-border" role="status"> </div>
+                    <strong> Loading...</strong>
                 </div>
             </div>
         </div>

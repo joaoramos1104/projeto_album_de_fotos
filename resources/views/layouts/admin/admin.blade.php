@@ -39,20 +39,6 @@
     <x-navbar />
     @yield('content')
     <x-footer />
-    <!-- Modal loading -->
-<div class="modal fade" id="loading" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content bg-dark shadow-lg">
-
-            <div class="modal-body">
-                <div class="d-flex justify-content-center text-success">
-                    <div class="spinner-border" role="status"> </div>
-                    <strong> Loading...</strong>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 </main>
 
 <script src="{{ asset('assets/js/jquery/jquery-3.6.1.js') }}"></script>

@@ -1,6 +1,7 @@
 @extends('layouts.admin.admin')
 
 @section('content')
+    <div class="content-vh">
     <div class="container">
         <div class="card text-dark shadow">
             <div class="card-header bg-white">
@@ -96,6 +97,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
 

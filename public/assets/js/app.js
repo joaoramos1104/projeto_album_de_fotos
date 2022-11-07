@@ -50,10 +50,9 @@ $.ajaxSetup({
     },
 });
 
-
-$(function (){
     // Form Create Visitor User
-    $('#formCreateVisitorUser').submit(function (event){
+$(function () {
+    $('#formCreateVisitorUser').submit(function (event) {
         event.preventDefault()
         var url = $(this).attr("action");
         $.ajax({
@@ -62,27 +61,27 @@ $(function (){
             type: "post",
             dataType: 'json',
 
-            success: function (response){
+            success: function (response) {
                 title = '<i class="bi bi-check2-square"></i>'
                 message = 'Registro realizado com sucesso!'
                 template =
-                            '<div class="alert alert-success" role="alert">'+
-                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                            '</div>'
+                    '<div class="alert alert-success" role="alert">' +
+                    '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
+                    '</div>'
 
                 notification(title, message, template)
 
-                $(function(){
+                $(function () {
                     $('[data-name="formCreateVisitorUser"]').val('');
                 });
             },
-            error: function (response){
+            error: function (response) {
                 title = ' <i class="bi bi-exclamation-circle"> </i> '
                 message = response.responseJSON.message
                 template =
-                            '<div class="alert alert-danger" role="alert">'+
-                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                            '</div>'
+                    '<div class="alert alert-danger" role="alert">' +
+                    '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
+                    '</div>'
 
                 notification(title, message, template)
             }
@@ -90,12 +89,13 @@ $(function (){
         });
     });
 
-    $("#cleanFormCreateUserVisitor").click(function(){
+    $("#cleanFormCreateUserVisitor").click(function () {
         $('[data-name="formCreateVisitorUser"]').val('');
     });
-
+});
 
     // Form Edit Visitor User
+$(function () {
     $('#formEditVisitorUser').submit(function (event) {
         event.preventDefault()
         var url = $(this).attr("action");
@@ -104,18 +104,19 @@ $(function (){
             url: url,
             type: 'post',
             dataType: 'json',
+
             success: function (response) {
 
                 title = ' <i class="bi bi-check2-square"></i> '
                 message = 'Registro atualizado com sucesso!'
                 template =
-                            '<div class="alert alert-success" role="alert">' +
-                            '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
-                            '</div>'
+                    '<div class="alert alert-success" role="alert">' +
+                    '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
+                    '</div>'
                 notification(title, message, template)
                 $('[data-name="VisitorUserPassword"]').val('');
 
-                if (response.message){
+                if (response.message) {
                     $('#message-email').append(
                         '<div id="message-alert" class="alert alert-success alert-dismissible fade show" role="alert">' +
                         ' <strong>Sucesso!</strong> E-mail enviado com sucesso.' +
@@ -123,25 +124,25 @@ $(function (){
                     )
 
                     setInterval(function () {
-                        $("#message-alert").fadeTo(500, 0).slideUp(500, function(){
+                        $("#message-alert").fadeTo(500, 0).slideUp(500, function () {
                             $("#message-alert").remove();
                         });
-                    },5000);
+                    }, 5000);
                 }
             },
             error: function (response) {
                 title = ' <i class="bi bi-exclamation-circle"> </i> '
                 message = response.responseJSON.message
                 template =
-                            '<div id="notification" class="alert alert-danger" role="alert">' +
-                            '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
-                            '</div>'
+                    '<div id="notification" class="alert alert-danger" role="alert">' +
+                    '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
+                    '</div>'
 
                 notification(title, message, template)
-            }
-
+            },
         });
     });
+
 
     // Check
     $('#active').click(function () {
@@ -175,8 +176,11 @@ $(function (){
         }
     });
 
+});
+
     // New Comments
-    $('#new-comment').submit(function (event)  {
+$(function () {
+    $('#new-comment').submit(function (event) {
         event.preventDefault()
         var url = $(this).attr("action");
         var form = $(this).serialize();
@@ -188,18 +192,16 @@ $(function (){
             dataType: 'json',
 
             success: function (response) {
-                console.log(response)
-
-                    title = ' <i class="bi bi-check2-square"></i> '
-                    message = 'Comnentário adicionado com sucesso!'
-                    template =
-                            '<div class="alert alert-success" role="alert">'+
-                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                            '</div>'
+                title = ' <i class="bi bi-check2-square"></i> '
+                message = 'Comnentário adicionado com sucesso!'
+                template =
+                    '<div class="alert alert-success" role="alert">' +
+                    '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
+                    '</div>'
                 notification(title, message, template);
 
-                $('#scroll-drop-comments'+response.theme_id).load(' #scroll-drop-comments'+response.theme_id);
-                $('#count-comments'+response.theme_id).load(' #count-comments'+response.theme_id);
+                $('#scroll-drop-comments' + response.theme_id).load(' #scroll-drop-comments' + response.theme_id);
+                $('#count-comments' + response.theme_id).load(' #count-comments' + response.theme_id);
                 $('#scroll-comments').load(location.href + ' #scroll-comments');
                 $('[data-name="textarea-comment"]').val('');
             },
@@ -208,19 +210,20 @@ $(function (){
                 title = ' <i class="bi bi-exclamation-circle"> </i> '
                 message = response.responseJSON.message
                 template =
-                            '<div class="alert alert-danger" role="alert">'+
-                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                            '</div>'
+                    '<div class="alert alert-danger" role="alert">' +
+                    '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
+                    '</div>'
 
                 notification(title, message, template)
 
             },
-
         })
     })
+});
 
     // New Themes
-    $('#new-theme').submit(function (event)  {
+$(function () {
+    $('#new-theme').submit(function (event) {
         event.preventDefault()
         var url = $(this).attr("action");
         var formData = new FormData($(this)[0])
@@ -235,22 +238,22 @@ $(function (){
             contentType: false,
 
             beforeSend: function () {
-                  $('#loading').modal('show');
+                $('#loading').modal('show');
             },
 
             success: function (response) {
                 console.log(response)
                 title = ' <i class="bi bi-check2-square"></i> '
-                message = 'Foto adicionada com sucesso!'
+                message = 'Tema adicionada com sucesso!'
                 template =
-                            '<div class="alert alert-success" role="alert">'+
-                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                            '</div>'
+                    '<div class="alert alert-success" role="alert">' +
+                    '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
+                    '</div>'
 
                 notification(title, message, template)
 
-                // recarregar a div
-                 $("#content-album").load(location.href + " #content-album");
+                $("#content-album-admin").load(" #content-album-admin");
+                $("#content-album").load(" #content-album");
                 $('[data-name="form-new-theme"]').val('');
             },
 
@@ -259,21 +262,24 @@ $(function (){
                 title = ' <i class="bi bi-exclamation-circle"> </i> '
                 message = response.responseJSON.message
                 template =
-                            '<div class="alert alert-danger" role="alert">'+
-                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                            '</div>'
+                    '<div class="alert alert-danger" role="alert">' +
+                    '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
+                    '</div>'
 
                 notification(title, message, template)
             },
 
-            complete: function(){
+            complete: function () {
+                console.log('Estamos aqui')
                 $('#loading').modal('hide');
             }
 
         })
     })
+});
 
     // Edit theme
+$(function () {
     $('#formEditTheme').submit(function (event) {
         event.preventDefault()
         url = $(this).attr("action")
@@ -286,9 +292,9 @@ $(function (){
                 title = ' <i class="bi bi-check2-square"></i> '
                 message = 'Tema atualizado com sucesso!'
                 template =
-                            '<div class="alert alert-success" role="alert">'+
-                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                            '</div>'
+                    '<div class="alert alert-success" role="alert">' +
+                    '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
+                    '</div>'
 
                 notification(title, message, template)
             },
@@ -296,17 +302,19 @@ $(function (){
                 title = ' <i class="bi bi-exclamation-circle"> </i> '
                 message = response.responseJSON.message
                 template =
-                            '<div class="alert alert-danger" role="alert">'+
-                            '<strong data-growl="title"></strong> <span data-growl="message"></span>'+
-                            '</div>'
+                    '<div class="alert alert-danger" role="alert">' +
+                    '<strong data-growl="title"></strong> <span data-growl="message"></span>' +
+                    '</div>'
 
                 notification(title, message, template)
             }
         })
 
     })
+});
 
     //Adicionar nova foto
+$(function (){
     $('#add_new_photo').submit(function (event) {
         event.preventDefault()
         var url = $(this).attr("action")
@@ -347,5 +355,4 @@ $(function (){
             }
         })
     })
-
 });

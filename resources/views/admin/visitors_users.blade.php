@@ -1,5 +1,6 @@
 @extends('layouts.admin.admin')
 @section('content')
+    <div class="content-vh">
     <div class="container">
         <div class="row">
             <div class="mt-1">
@@ -19,7 +20,7 @@
             </div>
         </div>
     </div>
-
+    </div>
 
     <!-- Modal Novo Convite -->
     <div class="modal fade" id="new-visitor" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelNewVisitor" aria-hidden="true">

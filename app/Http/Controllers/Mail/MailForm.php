@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Mail;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Mail\sendMail;
+use App\Mail\SendMail;
 use Illuminate\Support\Facades\Mail;
 
 class MailForm extends Controller

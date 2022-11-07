@@ -1,8 +1,9 @@
 @extends('layouts.app.app')
 
 @section('content')
+    <div class="content-vh">
     @foreach($albums as $album)
-    <div class="container mb-3 text-center ">
+    <div class="container mb-3 text-center" id="content-album">
         <h3 class="mb-3 p-3 fst-italic">{{ $album->name }} <i class="bi bi-image"></i></h3>
         <div class="row justify-content-center">
             @foreach($album->themes as $theme)
@@ -89,7 +90,7 @@
         </div>
     </div>
     @endforeach
-
+    </div>
 @endsection
 
 
