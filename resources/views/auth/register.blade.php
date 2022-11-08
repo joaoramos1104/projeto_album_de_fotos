@@ -1,4 +1,4 @@
-@extends('layouts.login')
+@extends('layouts.admin.login')
 
 @section('content')
     <div class="container">
@@ -75,5 +75,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection

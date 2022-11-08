@@ -48,6 +48,11 @@ Route::middleware(['admin'])->group(function (){
     Route::delete('/delete_album/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyAlbum'])->name('delete_album');
     Route::get('/new_theme/{id}', [App\Http\Controllers\Admin\AdminController::class, 'newTheme'])->name('new_theme');
     Route::post('/new_theme', [App\Http\Controllers\Admin\AdminController::class, 'storeTheme'])->name('novo_tema');
+
+    Route::get('/new_theme', function () {
+        return view('/app.home');
+    });
+
     Route::delete('/delete_tema/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyTheme'])->name('excluir_tema');
     Route::put('/edit_theme/{id}', [App\Http\Controllers\Admin\AdminController::class, 'updateTheme'])->name('editar_tema');
     Route::get('/edit_theme/{id}', [App\Http\Controllers\Admin\AdminController::class, 'getTheme'])->name('get-theme');
@@ -62,6 +67,7 @@ Route::middleware(['admin'])->group(function (){
     Route::get('/visitors_users', function () {
         return view('/admin.visitors_users');
     })->name('visitors_users');
+
 
     Route::get('/edit_visitor_user/{id}', [App\Http\Controllers\Admin\AdminController::class, 'editVisitorUser'])->name('edit_visitor_user');
     Route::put('/update_visitor_user/{id}', [App\Http\Controllers\Admin\AdminController::class, 'updateVisitorUser'])->name('update_visitor_user');
