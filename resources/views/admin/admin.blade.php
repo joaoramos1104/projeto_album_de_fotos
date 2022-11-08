@@ -25,7 +25,6 @@
         </div>
         <div class="mb-3 p-3">
             <a class="btn btn-success shadow"href="{{ route('new_theme', $album->id) }}">Adicionar Temas e Fotos <i class="bi bi-image"></i></a>
-            <button class="btn btn-success shadow" data-bs-toggle="modal" data-bs-target="#add{{ $album->id }}">Adicionar Temas e Fotos <i class="bi bi-image"></i></button>
         </div>
         @foreach($album->themes as $theme)
         <div class="col-md-3 col-sm-12 p-3 m-auto">
@@ -133,49 +132,6 @@
         <hr class="border-bottom border-light">
     </div>
 </div>
-</div>
-
-<!-- Modal Adicionar Tema -->
-<div class="modal fade" id="add{{ $album->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelAdd{{ $album->id }}" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content text-dark shadow-lg bg-white rounded-0" id="modal-new-theme">
-            <div class="modal-header bg-white">
-                <h5 class="modal-title" id="staticBackdropLabelAdd{{ $album->id }}">{{ $album->name }} - Adicionar Temas e Fotos</h5>
-                <i class="bi bi-image"></i>
-            </div>
-            <div class="container-fluid">
-                <div class="modal-body">
-                    <div class="row col">
-                        <div class="border-end border-darck m-auto" id="form-new-theme">
-                            <form id="new-theme" name="new-theme" method="post" action="{{ route('novo_tema') }}" enctype="multipart/form-data">
-                                @csrf
-                                <input type="hidden" name="album_id" value="{{ $album->id }}">
-                                <div class="input-group m-1">
-                                    <input type="file" class="form-control" data-name="form-new-theme" name="photo_url[]" multiple>
-                                </div>
-                                <div class="row">
-                                    <div class="m-1 input-group">
-                                        <span class="input-group-text" id="AddTema">Tema</span>
-                                        <input type="text" class="form-control form-control-sm" aria-describedby="AddTema" data-name="form-new-theme" name="name"  value="" placeholder="Tema" required>
-                                    </div>
-                                    <div class="m-1 input-group">
-                                        <span class="input-group-text" id="inputDecricao" >Descrição</span>
-                                        <input type="text" class="form-control form-control-sm" aria-describedby="inputDecricao" data-name="form-new-theme" name="description" value="" placeholder="Descrição" required>
-                                    </div>
-                                    <div class="col-2 m-auto">
-                                        <button type="submit" class="input-group-text btn btn-sm btn-outline-success">Salvar <i class="bi bi-check2"></i></button>
-                                    </div>
-                                </div>
-                                <div class="modal-footer m-auto">
-                                    <button type="button" class="btn btn-sm btn-warning shadow" data-bs-dismiss="modal">Voltar <i class="bi bi-arrow-return-left"></i></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 @endforeach
 

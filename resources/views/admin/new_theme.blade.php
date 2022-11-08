@@ -43,7 +43,7 @@
                             <div class="col-md-8 col-sm-12 scroll-photo-theme">
                                 <div class="row p-3" id="content-theme-admin">
                                     @foreach($album->themes as $theme)
-                                        <div class="card col-md-3 col-sm-12 border-0 text-center m-auto p-3">
+                                        <div class="card col-md-4 col-sm-12 border-0 text-center m-auto p-3">
                                             <a href="#" class="bg-card-img"><img src="@if(isset($theme->hasImages[0]->photo_url )){{ env('APP_URL') }}/storage/{{ $theme->hasImages[0]->photo_url }}@else {{ 'assets/img/R.png' }} @endif" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#imgCarousel{{ $theme->id }}"></a>
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $theme->name_theme }}</h5>
