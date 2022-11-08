@@ -48,15 +48,13 @@ Route::middleware(['admin'])->group(function (){
     Route::delete('/delete_album/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyAlbum'])->name('delete_album');
     Route::get('/new_theme/{id}', [App\Http\Controllers\Admin\AdminController::class, 'newTheme'])->name('new_theme');
     Route::post('/new_theme', [App\Http\Controllers\Admin\AdminController::class, 'storeTheme'])->name('novo_tema');
-
-    Route::get('/new_theme', function () {
-        return view('/app.home');
+    Route::get('/new_theme/', function () {
+        return view('/app.404');
     });
 
     Route::delete('/delete_tema/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyTheme'])->name('excluir_tema');
     Route::put('/edit_theme/{id}', [App\Http\Controllers\Admin\AdminController::class, 'updateTheme'])->name('editar_tema');
     Route::get('/edit_theme/{id}', [App\Http\Controllers\Admin\AdminController::class, 'getTheme'])->name('get-theme');
-
 
     Route::post('/new_photo', [App\Http\Controllers\Admin\AdminController::class, 'storePhoto'])->name('nova_foto');
     Route::delete('/delete_photo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'destroyPhoto'])->name('delete_photo');
