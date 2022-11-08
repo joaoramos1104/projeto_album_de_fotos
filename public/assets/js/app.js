@@ -253,8 +253,10 @@ $(function () {
                 notification(title, message, template)
 
                 $("#content-album-admin").load(" #content-album-admin");
+                $("#content-theme-admin").load(" #content-theme-admin");
                 $("#content-album").load(" #content-album");
                 $('[data-name="form-new-theme"]').val('');
+
             },
 
             error: function (response) {

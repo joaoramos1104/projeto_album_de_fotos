@@ -60,11 +60,6 @@
                                             </form>
                                         </div>
                                     </div>
-
-                                    <script>
-
-                                    </script>
-
                                 @endforeach
                             </div>
                         </div>

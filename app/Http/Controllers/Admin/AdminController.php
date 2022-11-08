@@ -30,6 +30,14 @@ class AdminController extends Controller
         return view('admin.admin', compact('albums'));
     }
 
+    public function newTheme($id)
+    {
+        $album = Album::find($id);
+        if ($album) {
+            return view('admin.new_theme', compact('album'));
+        }
+        return redirect()->route('admin');
+    }
 
     public function getVisitorsUsers()
     {

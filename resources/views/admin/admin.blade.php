@@ -24,6 +24,7 @@
             </form>
         </div>
         <div class="mb-3 p-3">
+            <a class="btn btn-success shadow"href="{{ route('new_theme', $album->id) }}">Adicionar Temas e Fotos <i class="bi bi-image"></i></a>
             <button class="btn btn-success shadow" data-bs-toggle="modal" data-bs-target="#add{{ $album->id }}">Adicionar Temas e Fotos <i class="bi bi-image"></i></button>
         </div>
         @foreach($album->themes as $theme)
@@ -118,6 +119,7 @@
                                     <span class="visually-hidden">Next</span>
                                 </button>
                             </div>
+                            <h3 class="text-light">{{ $theme->name_theme }}</h3>
                         </div>
                         <div class="modal-footer m-auto">
                             <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Voltar <i class="bi bi-arrow-return-left"></i></button>
