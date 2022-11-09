@@ -105,6 +105,10 @@ $(function () {
             type: 'post',
             dataType: 'json',
 
+            beforeSend: function () {
+                $('#loading').modal('show');
+            },
+
             success: function (response) {
 
                 title = ' <i class="bi bi-check2-square"></i> '
@@ -140,6 +144,9 @@ $(function () {
 
                 notification(title, message, template)
             },
+            complete: function () {
+                $('#loading').modal('hide');
+            }
         });
     });
 
@@ -272,7 +279,6 @@ $(function () {
             },
 
             complete: function () {
-                console.log('Estamos aqui')
                 $('#loading').modal('hide');
             }
 
