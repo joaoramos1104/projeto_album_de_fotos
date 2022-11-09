@@ -406,7 +406,7 @@
                                                                                             <p><strong>Sua senha: </strong> {{ $data[0]['password'] }}</p>
                                                                                         @endif
                                                                                         <div align="center">
-                                                                                            <a href="{{ route('/') }}" class="text-warning"  target="_blank" rel="noopener">Esqueci minha senha.</a>
+                                                                                            <a href="{{ route('reset-password') }}" class="text-warning"  target="_blank" rel="noopener">Esqueci minha senha.</a>
                                                                                         </div>
                                                                                     @endif
                                                                                 </td>
