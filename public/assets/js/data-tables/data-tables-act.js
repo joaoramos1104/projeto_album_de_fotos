@@ -1,6 +1,8 @@
 (function ($) {
     "use strict";
+
     $(document).ready(function () {
+       processing: true,
         $.ajax({
             url: "/visitors-users",
             dataType: 'json',

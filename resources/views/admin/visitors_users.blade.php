@@ -13,7 +13,7 @@
             <div class="row p-3">
                 <div class="col-md-12 p-3 rounded shadow  bg-white">
                     <div class="table-responsive p-3">
-                        <table id="table_user" class="table table-sm table-hover table-borderless small p-3" style="width: 100%">
+                        <table id="table_user" class="table table-sm table-hover table-borderless small" style="width: 100%">
                         </table>
                     </div>
                 </div>
