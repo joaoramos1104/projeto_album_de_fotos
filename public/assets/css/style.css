@@ -179,6 +179,12 @@ a {
         width: auto;
         height: 260px;
     }
+    .corp{
+        color: #0c0c0c !important;
+    }
+    .social-icon{
+        color: #0c0c0c !important;
+    }
 }
 
 .modal-login, .modal-convite{
