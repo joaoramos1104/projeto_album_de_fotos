@@ -55,7 +55,7 @@
                                 <div class="carousel-inner p-3">
                                     @foreach($theme->hasImages as $key => $image)
                                         <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
-                                            <img src="{{ env('APP_URL') }}/storage/{{ $image->photo_url }}" class="d-block modal-img img-fluid" alt="...">
+                                            <img src="{{ env('APP_URL') }}/storage/{{ $image->photo_url }}" class="d-block img-fluid" alt="...">
                                         </div>
                                     @endforeach
                                 </div>
