@@ -162,8 +162,20 @@ a {
     box-shadow: 0 .5rem 1rem rgba(25, 148, 148, 0.473);
 
 }
+.comment-img{
+    width: auto;
+    height: 60vh;
+    margin: auto;
+    box-shadow: 0 .5rem 1rem rgba(25, 148, 148, 0.473);
+
+}
+
 @media screen and (max-width: 599.99px) {
     .modal-img{
+        width: auto;
+        height: 260px;
+    }
+    .comment-img{
         width: auto;
         height: 260px;
     }
