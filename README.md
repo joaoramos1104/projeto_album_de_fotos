@@ -1,4 +1,4 @@
-## Apos criaR seu projeto rode os comando abaixo para criação das tabelas do banco e link simbólico.
+## Apos criar seu projeto rode os comando abaixo para criação das tabelas do banco e link simbólico.
 php artisan migrate:fresh --seed
 php artisan storage:link
 
