@@ -7,8 +7,8 @@
                 <div class="row">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <strong><a class="nav-link fst-italic" href="{{ route('home') }}"><img src="assets/img/logo/logo3.png" class="img-logo shadow" alt="">
-                                {{ 'Meu Álbum' }}</a></strong>
+                            <h5><strong><a class="nav-link fst-italic text-light" href="{{ route('home') }}"><img src="assets/img/logo/logo3.png" class="img-logo shadow" alt="">
+                                {{ 'Meu Álbum' }}</a></strong></h5>
                         </li>
                     </ul>
                 </div>

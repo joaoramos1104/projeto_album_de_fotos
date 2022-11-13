@@ -21,14 +21,6 @@
     <!-- Style -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
-    <style>
-    body{
-        background: linear-gradient(to bottom,
-        rgba(93, 100, 100, 0.767) 0%, rgba(52, 32, 73, 0.685) 100%), url(assets/img/4.jpg) no-repeat !important;
-        min-height: 100vh;
-        }
-    </style>
-
 </head>
     <body>
     <main>
