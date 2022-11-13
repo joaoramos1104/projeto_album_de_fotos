@@ -34,8 +34,8 @@
                                         <input type="hidden" name="name_user" value="{{ Auth::user()->name }}">
                                         <div class="input-group">
                                             <textarea type="text" class="form-control form-control-sm" name="comment" data-name="textarea-comment" id="textarea{{ $theme->id }}" placeholder="Adicionar comentário"></textarea>
-                                            <x-emojis/>
                                         </div>
+                                        <x-emojis/>
                                         <div class="col d-flex justify-content-center mt-2">
                                             <button type="submit"class="input-group-text btn btn-sm btn-outline-success shadow">Enviar <i class="bi bi-arrow-bar-right"></i></button>
                                         </div>
