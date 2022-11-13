@@ -4,16 +4,16 @@
     <div class="content-vh">
     @foreach($albums as $album)
     <div class="container mb-3 text-center" id="content-album">
-        <h3 class="mb-3 p-3 fst-italic">{{ $album->name }} <i class="bi bi-image"></i></h3>
+        <h3 class="mb-3 p-3 fst-italic"><strong>{{ $album->name }}</strong> <i class="bi bi-image"></i></h3>
         <div class="row justify-content-center">
             @foreach($album->themes as $theme)
             <div class="col-md-3 col-sm-12 p-3 m-auto">
                 <div class="card border-0 text-center mt-3">
                     <a href="#" class="bg-card-img"><img src="@if(isset($theme->hasImages[0]->photo_url )){{ env('APP_URL') }}/storage/{{ $theme->hasImages[0]->photo_url }}@else {{ 'assets/img/R.png' }} @endif" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#imgCarousel{{ $theme->id }}"></a>
                     <div class="card-body mt-1">
-                        <div class="">
-                        <h5 class="card-title">{{ $theme->name_theme }}</h5>
-                        <p class="card-text">{{ $theme->description_theme }}</p>
+                        <div class="mt-3">
+                            <h5 class="card-title"><strong>{{ $theme->name_theme }}</strong></h5>
+                            <p class="card-text"><strong>{{ $theme->description_theme }}</strong></p>
                         </div>
                     </div>
                     <div class="card-footer">

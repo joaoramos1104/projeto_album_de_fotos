@@ -12,7 +12,7 @@
 @foreach($albums as $album)
 <div class="container mb-3 text-center"  id="content-album-admin">
     <div class="row justify-content-center">
-        <h3 class="mb-1 p-3 fst-italic">{{ $album->name }} <i class="bi bi-image"></i></h3>
+        <h3 class="mb-1 p-3 fst-italic"><strong>{{ $album->name }}</strong> <i class="bi bi-image"></i></h3>
         <div class="col">
             <a href="{{ route('delete_album', $album->id) }}" class="btn btn-sm btn-danger"
                onclick="event.preventDefault();
@@ -31,9 +31,11 @@
             <div class="card border-0 text-center mt-3">
                 <a href="#" class="bg-card-img"><img src="@if(isset($theme->hasImages[0]->photo_url )){{ env('APP_URL') }}/storage/{{ $theme->hasImages[0]->photo_url }}@else {{ 'assets/img/R.png' }} @endif" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#imgCarousel{{ $theme->id }}"></a>
                 <div class="card-body">
-                    <h5 class="card-title">{{ $theme->name_theme }}</h5>
-                    <p class="card-text">{{ $theme->description_theme }}</p>
-                    <a href="#" class="btn btn-sm btn-dark mb-1 shadow" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Comentários <span class="badge bg-success rounded-pill m-1">{{ count($theme->comments) }}</span></a>
+                    <div class="mt-3">
+                        <h5 class="card-title"><strong>{{ $theme->name_theme }}</strong></h5>
+                        <p class="card-text"><strong>{{ $theme->description_theme }}</strong></p>
+                        <a href="#" class="btn btn-sm btn-dark mb-1 shadow" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Comentários <span class="badge bg-success rounded-pill m-1">{{ count($theme->comments) }}</span></a>
+                    </div>
                     <div class="row d-flex">
                         <div class="col-6 m-auto">
                             <a href="{{ route('excluir_tema', $theme->id) }}" class="btn btn-sm btn-danger"
