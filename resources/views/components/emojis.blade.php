@@ -1,5 +1,5 @@
 <div class="container scroll-emojis">
-    <div class="row">
+    <div class="row p-3">
         <button type="button" class="btn btn-sm emojis">😁</button>
         <button type="button" class="btn btn-sm emojis">😂</button>
         <button type="button" class="btn btn-sm emojis">🤣</button>

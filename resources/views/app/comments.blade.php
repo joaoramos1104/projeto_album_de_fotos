@@ -1,8 +1,7 @@
 @extends('layouts.app.app')
 
 @section('content')
-    <div class="content-vh">
-<div class="container-fluid">
+<div class="container">
     <div class="card text-dark shadow">
         <div class="card-header bg-white">
             <div class="float-start p-1">
@@ -79,5 +78,4 @@
         </div>
     </div>
 </div>
-    </div>
 @endsection
