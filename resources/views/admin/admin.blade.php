@@ -12,11 +12,11 @@
 @foreach($albums as $album)
 <div class="container mb-3 text-center"  id="content-album-admin">
     <div class="row justify-content-center">
-        <h3 class="mb-1 p-3 fst-italic"><strong>{{ $album->name }}</strong> <i class="bi bi-image"></i></h3>
+        <h3 class="mb-1 p-3" style="font-family: Calligraffitti;"><strong> Álbum : {{ $album->name }}</strong> <i class="bi bi-image"></i></h3>
         <div class="col">
             <a href="{{ route('delete_album', $album->id) }}" class="btn btn-sm btn-danger"
-               onclick="event.preventDefault();
-           document.getElementById('delete_album{{$album->id}}').submit();">Excluir Album <i class="bi bi-x"></i>
+            onclick="event.preventDefault();
+            document.getElementById('delete_album{{$album->id}}').submit();">Excluir Album <i class="bi bi-x"></i>
             </a>
             <form id="delete_album{{$album->id}}" action="{{ route('delete_album', $album->id) }}" method="POST" class="d-none">
                 @csrf
@@ -32,15 +32,15 @@
                 <a href="#" class="bg-card-img"><img src="@if(isset($theme->hasImages[0]->photo_url )){{ env('APP_URL') }}/storage/{{ $theme->hasImages[0]->photo_url }}@else {{ 'assets/img/R.png' }} @endif" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#imgCarousel{{ $theme->id }}"></a>
                 <div class="card-body">
                     <div class="mt-3">
-                        <h5 class="card-title"><strong>{{ $theme->name_theme }}</strong></h5>
+                        <h5 class="card-title" style="font-family: Calligraffitti;"><strong>{{ $theme->name_theme }}</strong></h5>
                         <p class="card-text"><strong>{{ $theme->description_theme }}</strong></p>
                         <a href="#" class="btn btn-sm btn-dark mb-1 shadow" data-bs-toggle="modal" data-bs-target="#comment{{ $theme->id }}">Comentários <span class="badge bg-success rounded-pill m-1">{{ count($theme->comments) }}</span></a>
                     </div>
                     <div class="row d-flex">
                         <div class="col-6 m-auto">
                             <a href="{{ route('excluir_tema', $theme->id) }}" class="btn btn-sm btn-danger"
-                               onclick="event.preventDefault();
-                               document.getElementById('excluir_tema{{ $theme->id }}').submit();">Excluir <i class="bi bi-x"></i>
+                                onclick="event.preventDefault();
+                                document.getElementById('excluir_tema{{ $theme->id }}').submit();">Excluir <i class="bi bi-x"></i>
                             </a>
                             <form id="excluir_tema{{ $theme->id }}" action="{{ route('excluir_tema', $theme->id) }}" method="POST" class="d-none">
                                 @csrf
@@ -147,10 +147,13 @@
             </div>
             <div class="container p-3">
                 <div class="modal-body">
-                    <form method="post" action="{{ route('novo_album') }}">
+                    <form method="post" action="{{ route('novo_album') }}" enctype="multipart/form-data">
                         @csrf
+                        <div class="input-group m-1">
+                            <input type="file" class="form-control" data-name="form-new-album" name="capa_album" multiple>
+                        </div>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="name_album" value="" placeholder="Nome do novo Álbum" required>
+                            <input type="text" class="form-control" data-name="form-new-album" name="name_album" value="" placeholder="Nome do novo Álbum" required>
                             <div class="input-group-append">
                                 <button class="btn btn-outline-success" type="submit" id="button-addon">Salvar <i class="bi bi-check2"></i></button>
                             </div>

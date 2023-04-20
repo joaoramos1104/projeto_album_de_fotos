@@ -7,7 +7,7 @@
                 <div class="row">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <h5><strong><a class="nav-link fst-italic text-light" href="{{ route('home') }}"><img src="assets/img/logo/logo3.png" class="img-logo shadow" alt="">
+                            <h5 style="font-family: Calligraffitti;"><strong><a class="nav-link fst-italic text-light" href="{{ route('home') }}"><img src="assets/img/logo/logo3.png" class="img-logo shadow" alt="">
                                 {{ 'Meu Álbum' }}</a></strong></h5>
                         </li>
                     </ul>
@@ -23,7 +23,7 @@
     <div class="container header">
         <div class="row justify-content-center">
             <div class="col-10 cont text-center">
-                <h1>{{ 'Álbum de Fotos' }}</h1>
+                <h1 style="font-family: Calligraffitti;">{{ 'Álbum de Fotos' }}</h1>
                 <p>Envie suas fotos e capture os melhores momentos com álbum de fotos online. Compartilhe seu livro de fotos online com quem você quiser.</p>
             </div>
             <div class="row justify-content-center mt-5">

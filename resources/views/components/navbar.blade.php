@@ -3,7 +3,7 @@
             <div class="container">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <h4><strong><a class="nav-link fst-italic text-light" href="{{ route('home') }}"><img src="{{ url('assets/img/logo/logo3.png') }}" class="img-logo shadow" alt="">
+                            <h4><strong><a class="nav-link fst-italic text-light" href="{{ route('home') }}" style="font-family: Calligraffitti;"><img src="{{ url('assets/img/logo/logo3.png') }}" class="img-logo shadow" alt="">
                                 {{ 'Meu Álbum' }}</a></strong></h4>
                         </li>
                     </ul>
@@ -20,8 +20,8 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li class="nav-item ms-2">
                                     <a href="{{ route('logout') }}" class="dropdown-item"
-                                       onclick="event.preventDefault();
-                                       document.getElementById('logout-form').submit();">Sair <i class="bi bi-box-arrow-right"></i>
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">Sair <i class="bi bi-box-arrow-right"></i>
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -33,7 +33,7 @@
                                 </li>
                                 @endif
                             </ul>
-                          </div>
+                        </div>
                     </ul>
                 </div>
             </div>

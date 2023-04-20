@@ -89,10 +89,14 @@ a {
 }
 
 .cont > h1 {
-  font-size: 3rem;
+    font-size: 3rem;
 }
 .cont > p {
     font-style: italic;
+}
+
+.rounded-custom{
+    border-radius: 30px;
 }
 
 /*-- Card --*/
@@ -115,6 +119,30 @@ a {
     background: rgba(49, 218, 181, 0.603);
     animation: moveImg 4s;
 }
+
+.carousel-indicators [data-bs-target] {
+
+    width: 15px !important;
+    height: 15px !important;
+    padding: 10px !important;
+    margin-right: 5px !important;
+    margin-left: 5px !important;
+    text-indent: 0 !important;
+    background-color: cadetblue;
+    color: white;
+    border-radius: 100% !important;
+
+}
+
+.capa-album img {
+    background-color: #3d5239;
+    width: 15%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    box-shadow: 0 .5rem 1rem rgba(20, 119, 78, 0.377)!important;
+}
+
+
 @keyframes moveImg {
     30% {
         transform: translateY(-15px);
@@ -214,7 +242,6 @@ a {
     background: #2d3748 !important;
     animation: moveItem 4s;
     color: #ffff !important;
-    border: none;
 }
 
 .btn-custom:hover {
@@ -253,10 +280,6 @@ a {
     }
 }
 
-.btn {
-    border-radius: 0 !important;
-}
-
 footer {
     margin-top: 5em;
 }
@@ -269,8 +292,8 @@ footer {
 }
 
 .card-edit > img{
-   border-radius: 10px;
-   box-shadow: 0 .5rem 1rem rgba(43, 44, 44, 0.377);
+    border-radius: 10px;
+    box-shadow: 0 .5rem 1rem rgba(43, 44, 44, 0.377);
     margin: 10px;
 }
 

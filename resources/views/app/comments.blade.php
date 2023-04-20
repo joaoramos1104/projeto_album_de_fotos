@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <div class="col card-footer d-flex justify-content-center mt-2">
-                        <a href="{{ route('home') }}" type="button" class="btn btn-sm btn-warning m-auto shadow m-3">Voltar <i class="bi bi-arrow-return-left"></i></a>
+                        <a href="{{ route('photos_album', $theme->album->id) }}" type="button" class="btn btn-sm btn-warning m-auto shadow m-3">Voltar <i class="bi bi-arrow-return-left"></i></a>
                     </div>
                 </div>
             </div>

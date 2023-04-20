@@ -30,6 +30,37 @@ class AdminController extends Controller
         return view('admin.admin', compact('albums'));
     }
 
+    public function storeAlbum(Request $request)
+    {
+        // dd($request);
+        $request->validate([
+            'capa_album' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        ]);
+        if ($request->input('name_album'))
+        {
+            $album = new Album();
+            $album->name = $request->input('name_album');
+            $album->capa_album = $request->capa_album->store('capa_album');
+            $album->save();
+            return redirect('admin');
+        }
+        return redirect('admin');
+    }
+
+    public function destroyAlbum($id)
+    {
+        $album = Album::find($id);
+        if (isset($album))
+        {
+            $capa_album = $album->capa_album;
+            Storage::delete([$capa_album]);
+            $album->delete();
+            return redirect()->route('admin');
+        }
+        return redirect()->route('admin');
+    }
+
+
     public function newTheme($id)
     {
         $album = Album::find($id);
@@ -103,28 +134,6 @@ class AdminController extends Controller
     }
 
 
-    public function storeAlbum(Request $request)
-    {
-        if ($request->input('name_album'))
-        {
-            $album = new Album();
-            $album->name = $request->input('name_album');
-            $album->save();
-            return redirect('admin');
-        }
-        return redirect('admin');
-    }
-    public function destroyAlbum($id)
-    {
-        $album = Album::find($id);
-        if (isset($album))
-        {
-            $album->delete();
-            return redirect()->route('admin');
-        }
-        return redirect()->route('admin');
-    }
-
     public function storeTheme(Request $request)
     {
         $request->validate([
@@ -177,7 +186,7 @@ class AdminController extends Controller
     {
 
         $request->validate([
-           'photo_url' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'photo_url' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
         $themeImage = new Image();
@@ -218,7 +227,7 @@ class AdminController extends Controller
             $photo_url = $image->photo_url;
             Storage::delete([$photo_url]);
             $image->delete();
-            return redirect()->back()->with('success','Foto removida com sucesso.');;
+            return redirect()->back()->with('success','Foto removida com sucesso.');
         }
         return redirect()->route('admin');
     }
@@ -244,9 +253,9 @@ class AdminController extends Controller
     protected function create(Request $data)
     {
         $validated = $this->validate($data, [
-             'name' => ['required', 'string', 'max:255'],
-             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-             'password' => ['required', 'string', 'min:8', 'confirmed']
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed']
         ],
     );
 

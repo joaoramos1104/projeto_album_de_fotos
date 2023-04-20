@@ -348,8 +348,7 @@ $(function (){
                 notification(title, message, template)
 
                 // recarregar a div
-                $("#photo_edit").load(location.href + " #photo_edit");
-                $('[data-name="photo_url"]').val('');
+                $("#load-div-categoria").load(location.href + " #photo_edit");
             },
             error: function (response) {
                 title = ' <i class="bi bi-exclamation-circle"> </i> '

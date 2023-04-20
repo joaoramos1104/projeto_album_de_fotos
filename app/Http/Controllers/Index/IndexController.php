@@ -37,6 +37,16 @@ class IndexController extends Controller
         return redirect()->route('/');
     }
 
+    public function photosAlbum($id)
+    {
+        $album = Theme::with('album','comments','hasImages')->where('album_id','=', $id)->get();
+        // dd($album);
+        if ($album){
+            return view('app.album', compact('album'));
+        }
+        return redirect()->route('/');
+    }
+
     public function storyComments(Request $request)
     {
 
@@ -54,7 +64,6 @@ class IndexController extends Controller
 
         ]);
         return $comment->toJson();
-        // return redirect()->route('home');
     }
 
 }

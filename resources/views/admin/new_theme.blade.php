@@ -49,8 +49,8 @@
                                                 <h5 class="card-title">{{ $theme->name_theme }}</h5>
                                                 <p class="card-text">{{ $theme->description_theme }}</p>
                                                 <a href="{{ route('excluir_tema', $theme->id) }}" class="btn btn-sm btn-danger shadow"
-                                                   onclick="event.preventDefault();
-                                                   document.getElementById('excluir_tema{{ $theme->id }}').submit();">Excluir <i class="bi bi-x"></i>
+                                                    onclick="event.preventDefault();
+                                                    document.getElementById('excluir_tema{{ $theme->id }}').submit();">Excluir <i class="bi bi-x"></i>
                                                 </a>
                                                 <div class="col-6 m-auto">
                                                     <form id="excluir_tema{{ $theme->id }}" action="{{ route('excluir_tema', $theme->id) }}" method="POST" class="d-none">

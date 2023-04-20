@@ -38,6 +38,7 @@ Route::middleware(['visitor'])->group(function (){
     Route::get('/home', [App\Http\Controllers\Index\IndexController::class, 'index'])->name('home');
     Route::post('/add_comments', [App\Http\Controllers\Index\IndexController::class, 'storyComments'])->name('add_comentario');
     Route::get('/show_comments/{id}', [App\Http\Controllers\Index\IndexController::class, 'showComments'])->name('show_comments');
+    Route::get('/photos_album/{id}', [App\Http\Controllers\Index\IndexController::class, 'photosAlbum'])->name('photos_album');
 
 });
 
