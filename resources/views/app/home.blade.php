@@ -13,7 +13,7 @@
                 <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
                     <div class="row p-3">
                         <div class="capa-album col-md-6 col-sm-12 float-start m-auto text-center p-3">
-                            <img src="@if(isset($album->capa_album )){{ env('APP_URL') }}/storage/{{ $album->capa_album }}@else {{ 'assets/img/R.png' }} @endif" class="d-block w-100 rounded-custom shadow" alt="...">
+                            <a href="{{ route('photos_album', $album->id) }}"><img src="@if(isset($album->capa_album )){{ env('APP_URL') }}/storage/{{ $album->capa_album }}@else {{ 'assets/img/R.png' }} @endif" class="d-block w-100 rounded-custom shadow" alt="..."></a>
                         </div>
                         <div class="col-md-4 col-sm-12 float-end m-auto text-center p-3">
                             <h1 class="fw-bold" style="font-family: Calligraffitti;">{{ $album->name }}</h1>
