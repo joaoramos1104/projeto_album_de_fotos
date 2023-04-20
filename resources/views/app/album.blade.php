@@ -6,7 +6,7 @@
         <h1 class="mb-3 p-3" style="font-family: Calligraffitti;"><strong>Álbum : @if(isset($album[0]->album->name)) {{ $album[0]->album->name }}@endif</strong></h1>
         <div class="row justify-content-center">
             @foreach($album as $theme)
-            <div class="col-md-3 col-sm-12 p-3 m-auto">
+            <div id="theme" class="col-md-3 col-sm-12 p-3 m-auto">
                 <div class="card border-0 text-center mt-3">
                     <a href="#" class="bg-card-img"><img src="@if(isset($theme->hasImages[0]->photo_url )){{ env('APP_URL') }}/storage/{{ $theme->hasImages[0]->photo_url }}@else {{ 'assets/img/R.png' }} @endif" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#imgCarousel{{ $theme->id }}"></a>
                     <div class="card-body mt-1">
@@ -96,6 +96,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    ScrollReveal().reveal('#theme', { delay: 100, reset: false })
+    ScrollReveal().reveal('#theme', { interval: 400 });
+</script>
 @endsection
 
 

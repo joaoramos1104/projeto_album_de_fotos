@@ -29,6 +29,10 @@
     <!-- notification CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/notification/notification.css') }}">
 
+    <!-- Scrollreveal -->
+    <script src="{{ asset('assets/scrollreveal/scrollreveal.es.js') }}"></script>
+    <script src="{{ asset('assets/scrollreveal/scrollreveal.js') }}"></script>
+
 </head>
 
 <body>
