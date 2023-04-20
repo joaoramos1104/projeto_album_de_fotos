@@ -3,7 +3,7 @@
 @section('content')
 <div class="content-vh">
     <div class="container mb-3 text-center" id="content-album">
-        <h1 class="mb-3 p-3" style="font-family: Calligraffitti;"><strong>Álbum : {{ $album[0]->album->name }}</strong></h1>
+        <h1 class="mb-3 p-3" style="font-family: Calligraffitti;"><strong>Álbum : @if(isset($album[0]->album->name)) {{ $album[0]->album->name }}@endif</strong></h1>
         <div class="row justify-content-center">
             @foreach($album as $theme)
             <div class="col-md-3 col-sm-12 p-3 m-auto">

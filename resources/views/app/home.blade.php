@@ -16,7 +16,7 @@
                             <a href="{{ route('photos_album', $album->id) }}"><img src="@if(isset($album->capa_album )){{ env('APP_URL') }}/storage/{{ $album->capa_album }}@else {{ 'assets/img/R.png' }} @endif" class="d-block w-100 rounded-custom shadow" alt="..."></a>
                         </div>
                         <div class="col-md-4 col-sm-12 float-end m-auto text-center p-3">
-                            <h1 class="fw-bold" style="font-family: Calligraffitti;">{{ $album->name }}</h1>
+                            <h1 class="fw-bold" style="font-family: Calligraffitti;">Álbum : {{ $album->name }}</h1>
                             <a class="btn btn-sm btn-light mb-1 shadow" href="{{ route('photos_album', $album->id) }}" >Ver Fotos</a>
                         </div>
                     </div>
