@@ -106,14 +106,14 @@ a {
     margin: auto !important;
 }
 .bg-card-img>img {
-    border-radius: 0 !important;
+    border-radius: 10px !important;
 }
 
 .bg-card-img {
     background: rgba(0, 255, 255, 0.527);
     transform: rotate(15deg);
     box-shadow: 0 .5rem 1rem rgba(20, 119, 78, 0.377)!important;
-    border-radius: 0 !important;
+    border-radius: 10px !important;
 }
 
 .bg-card-img:hover {
