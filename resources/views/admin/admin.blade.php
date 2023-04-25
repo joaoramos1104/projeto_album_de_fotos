@@ -101,7 +101,7 @@
                             <div id="carousel{{ $theme->id }}" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
                                     @foreach($theme->hasImages as $key => $value)
-                                    <button type="button" data-bs-target="#carousel{{ $key }}" data-bs-slide-to="{{ $key }}" class="{{$key == 0 ? 'active' : '' }}" aria-current="true" aria-label="Slide{{ $key }}"></button>
+                                    <button type="button" data-bs-target="#carousel{{ $theme->id }}" data-bs-slide-to="{{ $key }}" class="{{$key == 0 ? 'active' : '' }}" aria-current="true" aria-label="Slide{{ $key }}"><img src="{{ env('APP_URL') }}/storage/{{ $value->photo_url }}"</button>
                                     @endforeach
                                 </div>
                                 <div class="carousel-inner p-3">
@@ -120,7 +120,7 @@
                                     <span class="visually-hidden">Next</span>
                                 </button>
                             </div>
-                            <h3 class="text-light">{{ $theme->name_theme }}</h3>
+                            <h3 class="text-light mt-3 p-3">{{ $theme->name_theme }}</h3>
                         </div>
                         <div class="modal-footer m-auto">
                             <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Voltar <i class="bi bi-arrow-return-left"></i></button>
