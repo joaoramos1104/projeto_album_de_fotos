@@ -154,6 +154,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" data-name="form-new-album" name="name_album" value="" placeholder="Nome do novo Álbum" required>
+                            <input type="text" class="form-control" data-name="form-new-album" name="descricao" value="" placeholder="Descrição">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-success" type="submit" id="button-addon">Salvar <i class="bi bi-check2"></i></button>
                             </div>

@@ -40,6 +40,7 @@ class AdminController extends Controller
         {
             $album = new Album();
             $album->name = $request->input('name_album');
+            $album->descricao = $request->input('descricao');
             $album->capa_album = $request->capa_album->store('capa_album');
             $album->save();
             return redirect('admin');
