@@ -124,12 +124,12 @@ a {
 #carouselCaptions>.carousel-indicators [data-bs-target] {
 
     width: 5px !important;
-    height: 3px !important;
-    padding: 10px !important;
+    height: 5px !important;
+    padding: 8px !important;
     margin-right: 5px !important;
     margin-left: 5px !important;
     text-indent: 0 !important;
-    background-color: cadetblue;
+    background-color: white;
     color: white !important;
     border-radius: 100% !important;
 
@@ -155,7 +155,6 @@ a {
 
 }
 
-
 .capa-album img {
     background-color: #3d5239;
     width: 15%;
@@ -164,6 +163,9 @@ a {
     box-shadow: 0 .5rem 1rem rgba(20, 119, 78, 0.377)!important;
 }
 
+.indicator {
+    margin: 0px !important;
+}
 
 @keyframes moveImg {
     30% {
