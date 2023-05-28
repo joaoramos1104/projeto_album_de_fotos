@@ -19,7 +19,7 @@
                         <div class=" dropdown no-arrow">
                             <button class="btn btn-sm btn-comment shadow dropdown-toggle" type="button" id="dropdownMenu{{ $theme->id }}" data-bs-toggle="dropdown" aria-expanded="false">
                                 Comentários
-                                <span class="badge bg-info rounded-pill" id="count-comments{{ $theme->id }}">{{ count($theme->comments) }}</span>
+                                <span class="badge bg-danger rounded-pill" id="count-comments{{ $theme->id }}">{{ count($theme->comments) }}</span>
                             </button>
                             <ul class="dropdown-menu animated-fade-in" aria-labelledby="dropdownMenu{{ $theme->id }}">
                                 <li>
@@ -77,7 +77,7 @@
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <h3 class="text-light mt-3 p-3">{{ $theme->name_theme }}</h3>
+                        {{-- <h3 class="text-light mt-3 p-3">{{ $theme->name_theme }}</h3> --}}
                     </div>
                     <div class="modal-footer m-auto">
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Voltar <i class="bi bi-arrow-return-left"></i></button>
