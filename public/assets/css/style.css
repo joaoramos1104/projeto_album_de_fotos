@@ -7,7 +7,7 @@ body {
     font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "bootstrap-icons";
     background: #fff;
     color: #fff;
-    background: linear-gradient(to bottom, rgb(20 196 240 / 0%) 0%, rgb(0 0 0 / 45%) 100%), url(/assets/img/7.jpg) no-repeat;
+    background: linear-gradient(to bottom, rgb(20 196 240 / 0%) 0%, rgb(0 0 0 / 45%) 100%), url(/assets/img/8.png) no-repeat;
     /* background: linear-gradient(-45deg,#209077 0%,#fd7e1480 100%); */
     background-position: center;
     background-attachment:fixed;
@@ -21,7 +21,7 @@ body::after{
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-image:linear-gradient(to bottom, rgb(20 196 240 / 0%) 0%, rgb(0 0 0 / 22%) 100%), url(/assets/img/svg/19.svg);
+    background-image:linear-gradient(to bottom, rgb(20 196 240 / 0%) 0%, rgb(0 0 0 / 22%) 100%), url(/assets/img/svg/4.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
