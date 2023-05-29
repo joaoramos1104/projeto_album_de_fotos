@@ -14,7 +14,7 @@
                 <a class="social-icon" href="https://twitter.com/joaoramos1988" target="_blank"><i class="bi bi-twitter"></i></a>
             </li>
             <li class="nav-item m-auto">
-                <i class="bi bi-c-circle text-secondary corp"> {{ date('Y') }} João F. Ramos Junior</i>
+                <i class="bi bi-c-circle corp"> {{ date('Y') }} João F. Ramos Junior</i>
             </li>
         </ul>
     </div>
