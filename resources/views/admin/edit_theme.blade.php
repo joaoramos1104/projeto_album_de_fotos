@@ -6,9 +6,10 @@
     <div class="content-vh">
     <div class="container">
         <div class="card text-dark shadow">
-            <div class="card-header bg-white">
+            <div class="card-header bg-trans border-0">
                 <div class="float-start p-3">
-                    <h5 class="card-title">{{ 'Editar Tema ' }}</h5>
+                    <h6 class="card-title">{{ 'Álbum ' }}: {{ $theme->album->name }}</h6>
+                    <h6 class="card-title">{{ 'Tema ' }}: {{ $theme->name_theme }}</h6>
                 </div>
                 <div class="float-end p-3">
                     <i class="bi bi-image"></i>
@@ -18,6 +19,7 @@
                 <div class="card-body p-3">
                     <div class="row">
                         <div class="col-md-5 col-sm-12 border-end border-darck m-auto">
+                            <h5 class="text-center">{{ 'Editar Tema' }}</h5>
                             <form id="formEditTheme" class="p-2" method="post" action="{{ route('editar_tema', $theme->id) }}">
                                 @method('PUT')
                                 @csrf
@@ -30,7 +32,7 @@
                                     <input type="text" class="form-control form-control-sm" aria-describedby="description" name="description" value="{{ $theme->description_theme }}">
                                 </div>
                                 <div class="col-2 m-auto">
-                                    <button type="submit" class="input-group-text btn btn-sm btn-outline-success shadow">Salvar <i class="bi bi-check2"></i></button>
+                                    <button type="submit" class="input-group-text btn btn-sm btn-success shadow">Salvar <i class="bi bi-check2"></i></button>
                                 </div>
                             </form>
                             <form id="add_new_photo" method="post" action="{{ route('nova_foto') }}" enctype="multipart/form-data">
@@ -39,7 +41,7 @@
                                 <div class="input-group shadow">
                                     <input type="hidden" name="theme_id" value="{{ $theme->id }}">
                                     <input type="file" class="form-control form-control-sm" data-name="photo_url" name="photo_url">
-                                    <button type="submit" class="input-group-text btn btn-sm btn-outline-success">Enviar <i class="bi bi-check2"></i></button>
+                                    <button type="submit" class="input-group-text btn btn-sm btn-success">Enviar <i class="bi bi-check2"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -50,9 +52,9 @@
                                     <div class="card card-edit text-center">
                                         <img src="{{ env('APP_URL') }}/storage/{{ $image->photo_url }}" class="tabel-img" alt="...">
                                         <div class="card-body">
-                                            <button class="btn btn-sm btn-danger shadow" id="button-delete-photo"
+                                            <button class="btn btn-sm btn-outline-danger border-0" id="button-delete-photo"
                                                     onclick="event.preventDefault();
-                                                            document.getElementById('delete_photo{{$image->id}}').submit();">Excluir <i class="bi bi-x"></i>
+                                                            document.getElementById('delete_photo{{$image->id}}').submit();">Remover <i class="bi bi-x"></i>
                                             </button>
                                             <form id="delete_photo{{$image->id}}" action="{{ route('delete_photo', $image->id) }}" method="POST" class="d-none">
                                                 @csrf
