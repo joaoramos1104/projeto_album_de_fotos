@@ -99,10 +99,12 @@
                     <div class="modal-content modal-carousel">
                         <div class="modal-body">
                             <div id="carousel{{ $theme->id }}" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-                                    @foreach($theme->hasImages as $key => $value)
-                                    <button type="button" data-bs-target="#carousel{{ $theme->id }}" data-bs-slide-to="{{ $key }}" class="{{$key == 0 ? 'active' : '' }}" aria-current="true" aria-label="Slide{{ $key }}"><img src="{{ env('APP_URL') }}/storage/{{ $value->photo_url }}"</button>
-                                    @endforeach
+                                <div id="carouselHome">
+                                    <div class="carousel-indicators">
+                                        @foreach($theme->hasImages as $key => $value)
+                                        <button type="button" data-bs-target="#carousel{{ $theme->id }}" data-bs-slide-to="{{ $key }}" class="{{$key == 0 ? 'active' : '' }}" aria-current="true" aria-label="Slide{{ $key }}"><img src="{{ env('APP_URL') }}/storage/{{ $value->photo_url }}"</button>
+                                        @endforeach
+                                    </div>
                                 </div>
                                 <div class="carousel-inner p-3">
                                     @foreach($theme->hasImages as $key => $image)
