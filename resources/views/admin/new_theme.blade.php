@@ -8,33 +8,35 @@
             <div class="card text-dark shadow">
                 <div class="card-header bg-white">
                     <div class="float-start p-3">
-                        <h5 class="card-title">{{ 'Novo Tema ' }}</h5>
+                        <h5 class="card-title">{{ 'Álbum ' }}: {{ $album->name }}</h5>
                     </div>
                     <div class="float-end p-3">
                         <i class="bi bi-image"></i>
                     </div>
                 </div>
-                <div class="container-fluid bg-white">
+                <div class="container-fluid bg-trans">
                     <div class="card-body p-3">
                         <div class="row">
                             <div class="col-md-4 col-sm-12 border-end border-darck m-auto">
+                                <h6 class="text-center">{{ 'Novo tema ' }}</h6>
                                 <form id="new-theme" name="new-theme" method="post" action="{{ route('novo_tema') }}" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="album_id" value="{{ $album->id }}">
                                     <div class="input-group m-1">
+                                        <span class="input-group-text bg-info"><i class="bi bi-image"></i></span>
                                         <input type="file" class="form-control" data-name="form-new-theme" name="photo_url[]" multiple>
                                     </div>
                                     <div class="row">
                                         <div class="m-1 input-group">
                                             <span class="input-group-text" id="AddTema">Tema</span>
-                                            <input type="text" class="form-control form-control-sm" aria-describedby="AddTema" data-name="form-new-theme" name="name"  value="" placeholder="Tema" required>
+                                            <input type="text" class="form-control form-control-sm" aria-describedby="AddTema" data-name="form-new-theme" name="name"  value="" placeholder="Nome do Tema" required>
                                         </div>
                                         <div class="m-1 input-group">
                                             <span class="input-group-text" id="inputDecricao" >Descrição</span>
                                             <input type="text" class="form-control form-control-sm" aria-describedby="inputDecricao" data-name="form-new-theme" name="description" value="" placeholder="Descrição" required>
                                         </div>
                                         <div class="col-2 m-auto">
-                                            <button type="submit" class="input-group-text btn btn-sm btn-outline-success">Salvar <i class="bi bi-check2"></i></button>
+                                            <button type="submit" class="input-group-text btn btn-sm btn-success">Salvar <i class="bi bi-check2"></i></button>
                                         </div>
                                     </div>
                                 </form>

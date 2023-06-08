@@ -14,7 +14,7 @@
                     <i class="bi bi-image"></i>
                 </div>
             </div>
-            <div class="container-fluid bg-white">
+            <div class="container-fluid bg-trans">
                 <div class="card-body p-3">
                     <div class="row">
                         <div class="col-md-5 col-sm-12 border-end border-darck m-auto">
