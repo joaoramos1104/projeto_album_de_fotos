@@ -11,12 +11,12 @@
                 <i class="bi bi-image"></i>
             </div>
         </div>
-        <div class="container-fluid bg-white">
+        <div class="container-fluid bg-trans">
             <div class="card-body p-3">
                 <div class="row">
                     <div class="col-md-4 col-sm-12 border-end border-darck m-auto">
                         <div class="container-fluid p-1">
-                            <div class="card-body bg-white small">
+                            <div class="card-body bg-trans rounded shadow small">
                                 <div class="list-group shadow scroll-comments" id="scroll-comments">
                                     @foreach($theme->comments as $comment)
                                     <div class="list-group-item list-group-item-action add-comment">

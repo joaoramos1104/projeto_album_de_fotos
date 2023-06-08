@@ -86,6 +86,10 @@ a {
     display: contents;
 }
 
+.bg-trans{
+    background:#ffffff71 !important;
+}
+
 .img-logo {
     width: 30px;
 }

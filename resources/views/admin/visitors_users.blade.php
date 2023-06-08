@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="row p-3">
-                <div class="col-md-12 p-3 rounded shadow  bg-white">
+                <div class="col-md-12 p-3 rounded shadow bg-trans">
                     <div class="table-responsive p-3">
                         <table id="table_user" class="table table-sm table-hover table-borderless small" style="width: 100%">
                         </table>
